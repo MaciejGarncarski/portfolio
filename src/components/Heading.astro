@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+
+type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type Variant = 'primary' | 'secondary';
+
+export type Props = {
+  tag: Tag;
+  variant: Variant;
+};
+
+const { tag: Tag, variant } = Astro.props;
+
+const variantPrimary =
+  'text-4xl md:text-6xl lg:text-8xl text-primary font-black uppercase';
+const variantSecondary = 'text-xl md:text-3xl lg:text-5xl font-bold';
+
+const headingVariants = {
+  primary: variantPrimary,
+  secondary: variantSecondary
+};
+---
+
+<Tag class={clsx('break-words', headingVariants[variant])}>
+  <slot />
+</Tag>

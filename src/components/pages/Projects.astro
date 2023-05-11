@@ -1,0 +1,13 @@
+---
+import Heading from '@components/Heading.astro';
+import Layout from '@layouts/Layout.astro';
+import { projectsRoute } from 'src/i18n/ui';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout routes={projectsRoute}>
+  <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
+</Layout>

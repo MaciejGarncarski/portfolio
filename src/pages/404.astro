@@ -1,0 +1,17 @@
+---
+import Heading from '@components/Heading.astro';
+import Layout from '@layouts/Layout.astro';
+import { homeRoute } from 'src/i18n/ui';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout routes={homeRoute}>
+  <div class="flex flex-col items-center justify-center gap-2">
+    <Heading variant="primary" tag="h1">404</Heading>
+    <Heading variant="secondary" tag="h2">{t('not-found.text')}</Heading>
+    <a class="underline" href={t('nav.home.route')}>{t('not-found.anchor')}</a>
+  </div>
+</Layout>

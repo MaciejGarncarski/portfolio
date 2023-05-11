@@ -1,0 +1,11 @@
+/* global.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', Roboto, system-ui, sans-serif;
+  }
+}

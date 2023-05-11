@@ -1,35 +1,82 @@
 ---
-export interface Props {
-	title: string;
-}
+import '@fontsource/montserrat';
+import '@styles/tw-base.css';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import clsx from 'clsx';
+import { title } from 'src/utils/ui';
+import LanguagePicker from '@components/LanguagePicker.astro';
 
-const { title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export type Props = {
+  routes: Record<'en' | 'pl', string>;
+};
+
+const { routes } = Astro.props;
+
+type Route = {
+  href: string;
+  text: string;
+};
+
+const navRoutesData = [
+  {
+    href: t('nav.home.route'),
+    text: t('nav.home')
+  },
+  {
+    href: t('nav.projects.route'),
+    text: t('nav.projects')
+  },
+  {
+    href: t('nav.contact.route'),
+    text: t('nav.contact')
+  }
+] satisfies Array<Route>;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html class="bg-waves" lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="border-layout border-slate-900 p-4 lg:border-layout-desktop lg:px-6 lg:py-10"
+  >
+    <nav class="sticky top-4 mb-8 border-4 border-slate-900 bg-waves px-1 py-3">
+      <ul class="flex items-center justify-around font-bold uppercase">
+        {
+          navRoutesData.map(({ href, text }) => {
+            const activeClass =
+              'before:bg-primary before:left-0 before:animate-link-active relative before:absolute before:-bottom-1.5 before:-z-10 before:h-1 before:w-full before:origin-center';
+
+            return (
+              <li>
+                <a
+                  class={clsx(
+                    href === Astro.url.pathname && activeClass,
+                    'border-2 border-transparent focus:border-primary focus:outline-none'
+                  )}
+                  href={href}
+                >
+                  {text}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+    <main class="min-h-[450px]">
+      <slot />
+    </main>
+    <footer class="-m-6 min-h-[150px] bg-primary p-2 text-white">
+      <LanguagePicker routes={routes} />
+    </footer>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

@@ -1,0 +1,16 @@
+---
+export type Props = {
+  routes: Record<'en' | 'pl', string>;
+};
+
+const { pl, en } = Astro.props.routes;
+---
+
+<ul>
+  <li>
+    <a href={pl}>Polski</a>
+  </li>
+  <li>
+    <a href={en}>English</a>
+  </li>
+</ul>
