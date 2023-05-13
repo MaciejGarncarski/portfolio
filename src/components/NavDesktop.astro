@@ -1,0 +1,53 @@
+---
+import clsx from 'clsx';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+type Route = {
+  href: string;
+  text: string;
+};
+
+const navRoutesData = [
+  {
+    href: t('nav.home.route'),
+    text: t('nav.home')
+  },
+  {
+    href: t('nav.projects.route'),
+    text: t('nav.projects')
+  },
+  {
+    href: t('nav.contact.route'),
+    text: t('nav.contact')
+  }
+] satisfies Array<Route>;
+---
+
+<nav
+  class="mr-4 mt-2 hidden flex-shrink-0 border-4 border-slate-900 bg-waves p-5 xl:block"
+>
+  <ul class="flex items-center justify-around gap-20 font-bold uppercase">
+    {
+      navRoutesData.map(({ href, text }) => {
+        const activeClass =
+          'before:bg-primary before:left-0 before:animate-link-active relative before:absolute before:-bottom-1.5 before:-z-10 before:h-1 before:w-full before:origin-center';
+
+        return (
+          <li>
+            <a
+              class={clsx(
+                href === Astro.url.pathname && activeClass,
+                'focus:border-primary border-2 border-transparent focus:outline-none'
+              )}
+              href={href}
+            >
+              {text}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
