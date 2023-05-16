@@ -1,0 +1,73 @@
+---
+import Heading from '@components/Heading.astro';
+import NavHeadingDesktop from '@components/NavHeadingDesktop.astro';
+
+import Layout from '@layouts/Layout.astro';
+
+import { getProjectsData } from './Projects.data';
+import { Icon } from 'astro-icon';
+import { projectsRoute } from 'src/i18n/ui';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = getProjectsData(lang);
+---
+
+<Layout routes={projectsRoute}>
+  <NavHeadingDesktop>
+    <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
+  </NavHeadingDesktop>
+  <ul class="mt-4 flex flex-col gap-12 lg:gap-28 xl:mt-16">
+    {
+      projects.map(({ description, repo, live, screenshot, title, tags }) => {
+        return (
+          <li class="border-secondary flex flex-col gap-4 border-2 p-3 lg:gap-6 lg:border-0 lg:p-0">
+            <img
+              class="border-primary border-2 lg:max-w-3xl lg:border-4 lg:p-2"
+              src={screenshot}
+              alt={title}
+            />
+            <Heading tag="h2" variant="secondary">
+              {title}
+            </Heading>
+            <ul class="flex flex-wrap gap-x-3 gap-y-1.5">
+              {tags.map((tag) => (
+                <li class="bg-secondary px-2 font-semibold text-white lg:px-3 lg:py-1">
+                  <span>{tag}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-secondary lg:max-w-2xl">{description}</p>
+            <div class="flex gap-4 lg:gap-8">
+              <a
+                href={live}
+                target="_blank"
+                rel="noreferrer noopener"
+                class="bg-primary flex items-center gap-2 border border-transparent px-2 py-1 font-bold text-white"
+              >
+                {t('projects.live')}
+                <Icon
+                  name="ph:arrow-line-up-right"
+                  class="h-5 w-5 lg:h-6 lg:w-6"
+                />
+              </a>
+              <a
+                href={repo}
+                target="_blank"
+                rel="noreferrer noopener"
+                class="border-primary flex items-center gap-2 border px-2 py-1 font-bold"
+              >
+                {t('projects.repo')}
+                <Icon
+                  name="ph:arrow-line-up-right"
+                  class="h-5 w-5 lg:h-6 lg:w-6"
+                />
+              </a>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Layout>

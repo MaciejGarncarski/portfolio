@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'link-active': 'scale-show 0.75s ease-in-out forwards'
+        'link-active': 'scale-show 0.5s ease-in-out forwards'
       },
       keyframes: {
         'scale-show': {
@@ -24,7 +24,7 @@ module.exports = {
       },
       borderWidth: {
         layout: '14px',
-        'layout-desktop': '20px'
+        'layout-desktop': '55px'
       },
       colors: {
         primary: colors.slate[900],

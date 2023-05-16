@@ -1,6 +1,8 @@
 ---
 import Heading from '@components/Heading.astro';
+
 import Layout from '@layouts/Layout.astro';
+
 import { homeRoute } from 'src/i18n/ui';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
@@ -10,7 +12,7 @@ const t = useTranslations(lang);
 
 <Layout hiddenNav={true} routes={homeRoute}>
   <div
-    class="mt-20 flex flex-col items-center justify-center gap-2 text-center"
+    class="mt-20 flex flex-col items-center justify-center gap-2 text-center lg:mt-0 lg:gap-7"
   >
     <Heading variant="primary" tag="h1">404</Heading>
     <Heading variant="secondary" tag="h2">{t('not-found.text')}</Heading>

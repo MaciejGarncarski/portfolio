@@ -1,3 +1,7 @@
+import { projectsUi } from '@components/pages/Projects/Projects.ui';
+
+import { navUi } from './nav.ui';
+
 export const languages = {
   en: 'English',
   pl: 'Polski'
@@ -16,39 +20,24 @@ const description = {
   }
 };
 
-const navUi = {
-  en: {
-    'nav.home': 'About',
-    'nav.projects': 'Projects',
-    'nav.contact': 'Contact',
-    'nav.home.route': '/en/',
-    'nav.projects.route': '/en/projects',
-    'nav.contact.route': '/en/contact'
-  },
-  pl: {
-    'nav.home': 'O mnie',
-    'nav.projects': 'Projekty',
-    'nav.contact': 'Kontakt',
-    'nav.home.route': '/',
-    'nav.projects.route': '/projekty',
-    'nav.contact.route': '/kontakt'
-  }
-};
-
 export const ui = {
   en: {
     ...navUi.en,
     ...description.en,
+    ...projectsUi.en,
     'home.tech.heading': 'My tech stack',
     'projects.heading': 'My projects',
+    'contact.heading': 'Contact',
     'not-found.text': 'Page not found.',
     'not-found.anchor': 'Go back to homepage'
   },
   pl: {
     ...navUi.pl,
     ...description.pl,
-    'home.tech.heading': 'Narzędzia jakich używam',
+    ...projectsUi.pl,
+    'home.tech.heading': 'Moje narzędzia',
     'projects.heading': 'Moje projekty',
+    'contact.heading': 'Kontakt',
     'not-found.text': 'Nie znaleziono strony.',
     'not-found.anchor': 'Wróć do strony głównej'
   }

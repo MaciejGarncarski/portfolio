@@ -2,7 +2,9 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "simple-import-sort",
+    "import"
   ],
   "extends": [
     "plugin:astro/recommended",
@@ -17,7 +19,23 @@
     "sourceType": "module"
   },
   "rules": {
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "^@components/"
+          ],
+          [
+            "^@layouts/"
+          ]
+        ]
+      }
+    ],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error"
   },
   "overrides": [
     {

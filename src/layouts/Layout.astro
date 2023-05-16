@@ -1,10 +1,11 @@
 ---
+import LanguagePicker from '@components/LanguagePicker.astro';
+import Nav from '@components/Nav.astro';
+
 import '@fontsource/montserrat';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
 import { title } from 'src/utils/ui';
-import LanguagePicker from '@components/LanguagePicker.astro';
-import Nav from '@components/Nav.astro';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -26,14 +27,16 @@ const { routes, hiddenNav } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="border-2 border-slate-900 p-2 sm:border-layout sm:p-4 lg:border-layout-desktop lg:px-6 lg:py-10"
+    class="border-2 border-slate-900 px-2 sm:border-layout sm:px-4 lg:border-layout-desktop lg:px-6"
   >
     {!hiddenNav && <Nav />}
-    <main class="min-h-[450px] lg:mx-auto lg:max-w-7xl">
+    <main
+      class="min-h-[70vh] pb-10 lg:mx-auto lg:min-h-[85vh] lg:max-w-6xl lg:pb-20 lg:pt-20"
+    >
       <slot />
     </main>
     <footer
-      class="-m-2 mt-0 min-h-[150px] bg-primary p-2 text-white sm:-m-6 sm:mt-0"
+      class="-mx-2 mt-0 min-h-[150px] bg-primary p-4 text-white sm:-mx-6 sm:mt-0"
     >
       <LanguagePicker routes={routes} />
     </footer>

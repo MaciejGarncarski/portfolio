@@ -1,0 +1,23 @@
+---
+import Heading from '@components/Heading.astro';
+import NavHeadingDesktop from '@components/NavHeadingDesktop.astro';
+
+import Layout from '@layouts/Layout.astro';
+
+import { contactRoute } from 'src/i18n/ui';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout routes={contactRoute}>
+  <NavHeadingDesktop>
+    <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
+  </NavHeadingDesktop>
+  <ul>
+    <li>Github</li>
+    <li></li>
+    <li></li>
+  </ul>
+</Layout>
