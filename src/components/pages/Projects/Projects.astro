@@ -24,7 +24,7 @@ const projects = getProjectsData(lang);
         return (
           <li class="border-secondary flex flex-col gap-4 border-2 p-3 lg:gap-6 lg:border-0 lg:p-0">
             <img
-              class="border-primary border-2 lg:max-w-3xl lg:border-4 lg:p-2"
+              class="border-primary min-h-[10rem] border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
               src={screenshot}
               alt={title}
             />
@@ -44,25 +44,19 @@ const projects = getProjectsData(lang);
                 href={live}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="bg-primary flex items-center gap-2 border border-transparent px-2 py-1 font-bold text-white"
+                class="bg-secondary flex items-center gap-1 border-2 border-transparent px-2 py-1 font-bold text-white"
               >
                 {t('projects.live')}
-                <Icon
-                  name="ph:arrow-line-up-right"
-                  class="h-5 w-5 lg:h-6 lg:w-6"
-                />
+                <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
               </a>
               <a
                 href={repo}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="border-primary flex items-center gap-2 border px-2 py-1 font-bold"
+                class="border-secondary flex items-center gap-2 border-2 px-2 py-1 font-bold"
               >
                 {t('projects.repo')}
-                <Icon
-                  name="ph:arrow-line-up-right"
-                  class="h-5 w-5 lg:h-6 lg:w-6"
-                />
+                <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
               </a>
             </div>
           </li>

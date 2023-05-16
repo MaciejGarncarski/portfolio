@@ -5,9 +5,6 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      animation: {
-        'link-active': 'scale-show 0.5s ease-in-out forwards'
-      },
       keyframes: {
         'scale-show': {
           '0%': {
@@ -18,12 +15,15 @@ module.exports = {
           }
         }
       },
+      animation: {
+        'link-active': 'scale-show 0.5s ease-in-out forwards'
+      },
       backgroundImage: {
         waves: 'url("/white-waves.webp")',
         'waves-dark': 'url("/papyrus-dark.webp")'
       },
       borderWidth: {
-        layout: '14px',
+        layout: '11px',
         'layout-desktop': '55px'
       },
       colors: {

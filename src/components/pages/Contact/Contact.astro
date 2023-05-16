@@ -9,15 +9,17 @@ import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const email = 'maciejgarncarski@gmail.com';
 ---
 
 <Layout routes={contactRoute}>
   <NavHeadingDesktop>
     <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
   </NavHeadingDesktop>
-  <ul>
-    <li>Github</li>
-    <li></li>
-    <li></li>
-  </ul>
+  <section>
+    <Heading tag="h2" variant="secondary">
+      E-mail: <a href={`mailto:${email}`}>{email}</a>
+    </Heading>
+  </section>
 </Layout>
