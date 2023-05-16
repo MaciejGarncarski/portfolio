@@ -19,9 +19,9 @@ const projects = getProjectsData(lang);
     {
       projects.map(({ description, repo, live, screenshot, title, tags }) => {
         return (
-          <li class="border-secondary flex flex-col gap-4 border-2 p-3 lg:gap-6 lg:border-0 lg:p-0">
+          <li class="flex flex-col gap-4 border-2 border-secondary p-3 lg:gap-6 lg:border-0 lg:p-0">
             <img
-              class="border-primary min-h-[10rem] border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
+              class="min-h-[10rem] border-2 border-primary lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
               src={screenshot}
               alt={title}
             />
@@ -41,7 +41,7 @@ const projects = getProjectsData(lang);
                 href={live}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="bg-secondary flex items-center gap-1 border-2 border-transparent px-2 py-1 font-bold text-white"
+                class="flex items-center gap-1 border-2 border-transparent bg-secondary px-2 py-1 font-bold text-white"
               >
                 {t('projects.live')}
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
@@ -50,7 +50,7 @@ const projects = getProjectsData(lang);
                 href={repo}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="border-secondary flex items-center gap-2 border-2 px-2 py-1 font-bold"
+                class="flex items-center gap-2 border-2 border-secondary px-2 py-1 font-bold"
               >
                 {t('projects.repo')}
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />

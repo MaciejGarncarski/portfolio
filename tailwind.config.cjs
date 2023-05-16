@@ -24,7 +24,7 @@ module.exports = {
       },
       borderWidth: {
         layout: '11px',
-        'layout-desktop': '55px'
+        'layout-desktop': '45px'
       },
       colors: {
         primary: colors.slate[900],

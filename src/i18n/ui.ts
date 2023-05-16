@@ -29,7 +29,8 @@ export const ui = {
     'projects.heading': 'My projects',
     'contact.heading': 'Contact',
     'not-found.text': 'Page not found.',
-    'not-found.anchor': 'Go back to homepage'
+    'not-found.anchor': 'Go back to homepage',
+    'contact.phone-number': 'Phone number'
   },
   pl: {
     ...navUi.pl,
@@ -39,7 +40,8 @@ export const ui = {
     'projects.heading': 'Moje projekty',
     'contact.heading': 'Kontakt',
     'not-found.text': 'Nie znaleziono strony.',
-    'not-found.anchor': 'Wróć do strony głównej'
+    'not-found.anchor': 'Wróć do strony głównej',
+    'contact.phone-number': 'Numer telefonu'
   }
 } as const;
 

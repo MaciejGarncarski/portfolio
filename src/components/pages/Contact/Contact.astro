@@ -14,9 +14,11 @@ const email = 'maciejgarncarski@gmail.com';
 
 <Layout routes={contactRoute}>
   <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
-  <section>
-    <Heading tag="h2" variant="secondary">
+  <ul class="mt-6 flex flex-col gap-3">
+    <li>
       E-mail: <a href={`mailto:${email}`}>{email}</a>
-    </Heading>
-  </section>
+    </li>
+    <li>{t('contact.phone-number')}: +48 504 673 589</li>
+    <li>Discord: Maciej#1842</li>
+  </ul>
 </Layout>

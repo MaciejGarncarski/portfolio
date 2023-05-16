@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<button
+  data-scroll-button
+  type="button"
+  class="lg:h-18 lg:w-18 fixed bottom-8 right-6 h-14 w-14 bg-primary p-2 text-white opacity-0 transition-all lg:bottom-12 lg:right-24"
+>
+  <Icon name="ph:arrow-up" />
+  <span class="visually-hidden">Scroll up</span>
+</button>
+
+<script>
+  const scrollButton = document.querySelector('[data-scroll-button]');
+  const SCROLL_POSITION = 200;
+
+  const handleScroll = () => {
+    if (window.scrollY < SCROLL_POSITION) {
+      scrollButton?.classList.add('translate-y-14', 'opacity-0');
+      return;
+    }
+
+    scrollButton?.classList.remove('translate-y-14', 'opacity-0');
+  };
+
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  scrollButton?.addEventListener('click', handleClick);
+</script>
