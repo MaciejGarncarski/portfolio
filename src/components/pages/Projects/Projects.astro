@@ -1,6 +1,5 @@
 ---
 import Heading from '@components/Heading.astro';
-import NavHeadingDesktop from '@components/NavHeadingDesktop.astro';
 
 import Layout from '@layouts/Layout.astro';
 
@@ -15,9 +14,7 @@ const projects = getProjectsData(lang);
 ---
 
 <Layout routes={projectsRoute}>
-  <NavHeadingDesktop>
-    <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
-  </NavHeadingDesktop>
+  <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
   <ul class="mt-4 flex flex-col gap-12 lg:gap-28 xl:mt-16">
     {
       projects.map(({ description, repo, live, screenshot, title, tags }) => {

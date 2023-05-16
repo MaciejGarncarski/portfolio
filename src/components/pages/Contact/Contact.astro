@@ -1,6 +1,5 @@
 ---
 import Heading from '@components/Heading.astro';
-import NavHeadingDesktop from '@components/NavHeadingDesktop.astro';
 
 import Layout from '@layouts/Layout.astro';
 
@@ -14,9 +13,7 @@ const email = 'maciejgarncarski@gmail.com';
 ---
 
 <Layout routes={contactRoute}>
-  <NavHeadingDesktop>
-    <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
-  </NavHeadingDesktop>
+  <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
   <section>
     <Heading tag="h2" variant="secondary">
       E-mail: <a href={`mailto:${email}`}>{email}</a>

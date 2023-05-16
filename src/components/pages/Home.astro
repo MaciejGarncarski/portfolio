@@ -1,6 +1,5 @@
 ---
 import Heading from '@components/Heading.astro';
-import NavHeadingDesktop from '@components/NavHeadingDesktop.astro';
 
 import Layout from '@layouts/Layout.astro';
 
@@ -14,7 +13,7 @@ const t = useTranslations(lang);
 ---
 
 <Layout routes={homeRoute}>
-  <NavHeadingDesktop>
+  <section>
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
     <h2 class="text-xl text-secondary md:text-2xl lg:text-3xl">
       Frontend developer
@@ -22,7 +21,7 @@ const t = useTranslations(lang);
     <p class="mt-4 text-secondary lg:mt-8 lg:text-2xl">
       {t('home.description')}
     </p>
-  </NavHeadingDesktop>
+  </section>
   <section class="mt-10 flex flex-col gap-2 lg:mt-12 lg:gap-6">
     <div class="col-span-3">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>

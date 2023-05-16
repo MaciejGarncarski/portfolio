@@ -47,12 +47,14 @@ const socials = [
   >
     {!hiddenNav && <Nav />}
     <main
-      class="min-h-[70vh] pb-10 lg:mx-auto lg:min-h-[85vh] lg:max-w-7xl lg:pb-24 lg:pt-20"
+      class="min-h-[70vh] pb-10 lg:mx-auto lg:min-h-[85vh] lg:max-w-4xl lg:pb-24 lg:pt-16"
     >
       <slot />
     </main>
-    <footer class="-mx-6 bg-primary px-6 py-6 text-white lg:-mx-10">
-      <div class="mx-auto lg:max-w-7xl">
+    <footer
+      class="-mx-6 min-h-[160px] bg-primary px-6 py-6 text-white lg:-mx-10"
+    >
+      <div class="mx-auto lg:max-w-4xl">
         <LanguagePicker routes={routes} />
         <ul class="mt-4 flex gap-6">
           {

@@ -35,7 +35,7 @@ export const ui = {
     ...navUi.pl,
     ...description.pl,
     ...projectsUi.pl,
-    'home.tech.heading': 'Moje narzędzia',
+    'home.tech.heading': 'Znam te technologie',
     'projects.heading': 'Moje projekty',
     'contact.heading': 'Kontakt',
     'not-found.text': 'Nie znaleziono strony.',
