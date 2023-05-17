@@ -7,7 +7,7 @@ import '@fontsource/montserrat';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
 import { Icon } from 'astro-icon';
-import { title } from 'src/utils/ui';
+import { description, keywords, title } from 'src/utils/ui';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -43,20 +43,22 @@ const socials = [
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description[lang]} />
+    <meta name="keywords" content={keywords} />
   </head>
   <body
     class="mb-0 border-2 border-b-0 border-primary px-6 sm:border-layout lg:border-layout-desktop lg:border-b-0 lg:px-10"
   >
     {!hiddenNav && <Nav />}
     <main
-      class="min-h-[70vh] pb-10 md:mx-auto md:max-w-2xl lg:min-h-[85vh] lg:max-w-4xl lg:pb-24 lg:pt-16"
+      class="min-h-[70vh] pb-10 md:mx-auto md:max-w-2xl lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16"
     >
       <slot />
     </main>
     <footer
       class="-mx-6 min-h-[160px] bg-primary px-6 py-6 text-white lg:-mx-10"
     >
-      <div class="mx-auto md:max-w-2xl lg:max-w-4xl">
+      <div class="mx-auto md:max-w-2xl lg:max-w-3xl">
         <LanguagePicker routes={routes} />
         <ul class="mt-4 flex gap-6">
           {

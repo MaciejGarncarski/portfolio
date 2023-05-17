@@ -9,14 +9,14 @@ export const languages = {
 
 export const defaultLang = 'pl';
 
-const description = {
+export const description = {
   pl: {
     'home.description':
-      'Entuzjasta tworzenia aplikacji, stron i wielu innych fajnych rzeczy związanych z internetem.'
+      'Entuzjasta tworzenia aplikacji, stron i wielu innych fajnych rzeczy związanych z internetem. Stworzę dla Ciebie profesjonalną i błyskawicznie szybką stronę internetową!'
   },
   en: {
     'home.description':
-      'Enthusiast of creating applications, websites and other cool things related to the internet.'
+      'Enthusiast of creating applications, websites and other cool things related to the internet. I will create professionall and lightning-fast website for you!'
   }
 };
 

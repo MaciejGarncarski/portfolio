@@ -15,13 +15,13 @@ const projects = getProjectsData(lang);
 
 <Layout routes={projectsRoute}>
   <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
-  <ul class="mt-4 flex flex-col gap-12 lg:gap-28 xl:mt-16">
+  <ul class="mt-4 flex flex-col gap-12 lg:gap-28 xl:mt-16 2xl:gap-32">
     {
       projects.map(({ description, repo, live, screenshot, title, tags }) => {
         return (
-          <li class="flex flex-col gap-4 border-2 border-secondary p-3 lg:gap-6 lg:border-0 lg:p-0">
+          <li class="border-primary flex flex-col gap-4 border-2 p-3 lg:gap-6 lg:border-0 lg:p-0">
             <img
-              class="min-h-[10rem] border-2 border-primary lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
+              class="border-primary min-h-[10rem] border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
               src={screenshot}
               alt={title}
             />
@@ -30,18 +30,18 @@ const projects = getProjectsData(lang);
             </Heading>
             <ul class="flex flex-wrap gap-x-3 gap-y-1.5">
               {tags.map((tag) => (
-                <li class="bg-secondary px-2 font-semibold text-white lg:px-3 lg:py-1">
+                <li class="bg-primary px-2 py-1  font-semibold text-white lg:px-3 lg:py-1">
                   <span>{tag}</span>
                 </li>
               ))}
             </ul>
-            <p class="text-secondary lg:max-w-2xl">{description}</p>
+            <p class="text-primary lg:max-w-2xl">{description}</p>
             <div class="flex gap-4 lg:gap-8">
               <a
                 href={live}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="flex items-center gap-1 border-2 border-transparent bg-secondary px-2 py-1 font-bold text-white"
+                class="bg-primary flex items-center gap-1 border-2 border-transparent px-2 py-1 font-bold text-white"
               >
                 {t('projects.live')}
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
@@ -50,7 +50,7 @@ const projects = getProjectsData(lang);
                 href={repo}
                 target="_blank"
                 rel="noreferrer noopener"
-                class="flex items-center gap-2 border-2 border-secondary px-2 py-1 font-bold"
+                class="border-primary flex items-center gap-2 border-2 px-2 py-1 font-bold"
               >
                 {t('projects.repo')}
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
