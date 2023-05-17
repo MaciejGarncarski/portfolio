@@ -51,11 +51,11 @@ export const homeRoute = {
 };
 
 export const projectsRoute = {
-  pl: '/projekty',
-  en: '/en/projects'
+  pl: '/projekty/',
+  en: '/en/projects/'
 };
 
 export const contactRoute = {
-  pl: '/kontakt',
-  en: '/en/contact'
+  pl: '/kontakt/',
+  en: '/en/contact/'
 };
