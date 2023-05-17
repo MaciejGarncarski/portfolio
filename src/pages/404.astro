@@ -12,8 +12,7 @@ const t = useTranslations(lang);
 
 <Layout hiddenNav={true} routes={homeRoute}>
   <div
-    class="mt-20 flex flex-col items-center justify-center gap-2 text-center lg:mt-0 lg:gap-7"
-  >
+    class="mt-20 flex flex-col items-center justify-center gap-2 text-center lg:mt-0 lg:gap-7">
     <Heading variant="primary" tag="h1">404</Heading>
     <Heading variant="secondary" tag="h2">{t('not-found.text')}</Heading>
     <a class="underline" href={t('nav.home.route')}>{t('not-found.anchor')}</a>

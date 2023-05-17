@@ -4,6 +4,7 @@ module.exports = {
   trailingComma: 'none',
   singleQuote: true,
   printWidth: 80,
+  bracketSameLine: true,
   tailwindConfig: './tailwind.config.cjs',
   plugins: [
     require('prettier-plugin-tailwindcss'),

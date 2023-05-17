@@ -1,12 +1,11 @@
 ---
-import LanguagePicker from '@components/LanguagePicker.astro';
+import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
 import ScrollUpButton from '@components/ScrollUpButton.astro';
 
 import '@fontsource/montserrat';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
-import { Icon } from 'astro-icon';
 import { description, keywords, title } from 'src/utils/ui';
 
 const lang = getLangFromUrl(Astro.url);
@@ -17,21 +16,6 @@ export type Props = {
 };
 
 const { routes, hiddenNav } = Astro.props;
-
-const socials = [
-  {
-    name: 'linkedin',
-    link: 'https://www.linkedin.com/in/maciej-garncarski/'
-  },
-  {
-    name: 'github',
-    link: 'https://github.com/maciejgarncarski'
-  },
-  {
-    name: 'twitter',
-    link: 'https://twitter.com/MGarncarski'
-  }
-] as const;
 ---
 
 <!DOCTYPE html>
@@ -47,45 +31,13 @@ const socials = [
     <meta name="keywords" content={keywords} />
   </head>
   <body
-    class="mb-0 border-2 border-b-0 border-primary px-6 sm:border-layout lg:border-layout-desktop lg:border-b-0 lg:px-10"
-  >
+    class="mb-0 border-2 border-b-0 border-primary px-6 sm:border-layout lg:border-layout-desktop lg:border-b-0 lg:px-10">
     {!hiddenNav && <Nav />}
     <main
-      class="min-h-[70vh] pb-10 md:mx-auto md:max-w-2xl lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16"
-    >
+      class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-2xl lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
       <slot />
     </main>
-    <footer
-      class="-mx-6 min-h-[160px] bg-primary px-6 py-6 text-white lg:-mx-10"
-    >
-      <div class="mx-auto md:max-w-2xl lg:max-w-3xl">
-        <LanguagePicker routes={routes} />
-        <ul class="mt-4 flex gap-6">
-          {
-            socials.map(({ link, name }) => {
-              return (
-                <li>
-                  <a
-                    href={link}
-                    class="flex gap-1 font-semibold"
-                    target="_blank"
-                  >
-                    {name}
-                    <Icon
-                      name="ph:arrow-up-right"
-                      class="h-5 w-5 lg:h-6 lg:w-6"
-                    />
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-        <p class="mt-4 max-w-prose text-xs">
-          &#169; {new Date().getFullYear()} Maciej Garncarski. All rights reserved.
-        </p>
-      </div>
-    </footer>
+    <Footer routes={routes} />
     <ScrollUpButton />
   </body>
 </html>

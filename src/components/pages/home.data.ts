@@ -10,11 +10,6 @@ export const technologies = [
     link: 'https://www.w3.org/Style/CSS/'
   },
   {
-    name: 'Sass',
-    fileName: 'Sass',
-    link: 'https://sass-lang.com/'
-  },
-  {
     name: 'JavaScript',
     fileName: 'Javascript',
     link: 'https://javascript.info/'
@@ -23,6 +18,16 @@ export const technologies = [
     name: 'TypeScript',
     fileName: 'TypescriptIcon',
     link: 'https://www.typescriptlang.org/'
+  },
+  {
+    name: 'Sass',
+    fileName: 'Sass',
+    link: 'https://sass-lang.com/'
+  },
+  {
+    name: 'Jest',
+    fileName: 'Jest',
+    link: 'https://jestjs.io/'
   },
   {
     name: 'React',
@@ -38,10 +43,5 @@ export const technologies = [
     name: 'Astro',
     fileName: 'AstroIcon',
     link: 'https://astro.build/'
-  },
-  {
-    name: 'Jest',
-    fileName: 'Jest',
-    link: 'https://jestjs.io/'
   }
 ];

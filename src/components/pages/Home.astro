@@ -15,7 +15,7 @@ const t = useTranslations(lang);
 <Layout routes={homeRoute}>
   <section>
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
-    <h2 class="text-xl text-secondary md:text-2xl lg:mt-6 lg:text-3xl">
+    <h2 class="text-xl text-secondary md:text-2xl lg:mt-2 lg:text-3xl">
       Frontend developer
     </h2>
     <p class="mt-4 text-secondary lg:mt-6 lg:text-2xl">
@@ -23,9 +23,10 @@ const t = useTranslations(lang);
     </p>
     <a
       href={t('nav.contact.route')}
-      class="mt-4 inline-block bg-primary px-3 py-2 font-semibold text-white lg:mt-8 lg:px-4 lg:text-xl"
-      >Skontaktuj się ze mną</a
-    >
+      class="mt-4 inline-flex items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white transition hover:bg-transparent hover:text-primary lg:mt-8 lg:text-xl">
+      {t('home.button')}
+      <Icon name="ph:arrow-right" class="h-6 w-6 lg:h-8 lg:w-8" />
+    </a>
   </section>
   <section class="mt-10 flex flex-col gap-2 lg:mt-20 lg:gap-6">
     <div class="col-span-3">
@@ -37,11 +38,10 @@ const t = useTranslations(lang);
           return (
             <li class="w-full justify-self-start lg:w-auto">
               <a
-                class="border-secondary focus:border-primary flex flex-col items-center justify-center gap-2 border-4 p-2"
+                class="flex flex-col items-center justify-center gap-2 border-4 border-secondary p-2 focus:border-primary"
                 href={link}
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 <Icon
                   name={`Logos${fileName}`}
                   class="h-16 w-16 lg:h-20 lg:w-20"

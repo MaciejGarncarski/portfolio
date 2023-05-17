@@ -1,0 +1,48 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import { Icon } from 'astro-icon';
+
+export type Props = {
+  routes: Record<'en' | 'pl', string>;
+};
+
+const { routes } = Astro.props;
+
+const socials = [
+  {
+    name: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/maciej-garncarski/'
+  },
+  {
+    name: 'GitHub',
+    link: 'https://github.com/maciejgarncarski'
+  },
+  {
+    name: 'Twitter',
+    link: 'https://twitter.com/MGarncarski'
+  }
+] as const;
+---
+
+<footer class="-mx-6 min-h-[160px] bg-primary px-6 py-6 text-white lg:-mx-10">
+  <div class="mx-auto md:max-w-2xl lg:max-w-3xl">
+    <LanguagePicker routes={routes} />
+    <ul class="mt-4 flex gap-6 lg:mt-6">
+      {
+        socials.map(({ link, name }) => {
+          return (
+            <li>
+              <a href={link} class="flex gap-1 font-semibold" target="_blank">
+                {name}
+                <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <p class="mt-4 max-w-prose text-xs lg:mt-10">
+      &#169; {new Date().getFullYear()} Maciej Garncarski. All rights reserved.
+    </p>
+  </div>
+</footer>
