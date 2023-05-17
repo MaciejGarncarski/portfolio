@@ -19,8 +19,7 @@ module.exports = {
         'link-active': 'scale-show 0.5s ease-in-out forwards'
       },
       backgroundImage: {
-        waves: 'url("/white-waves.webp")',
-        'waves-dark': 'url("/papyrus-dark.webp")'
+        waves: 'url("/white-waves.webp")'
       },
       borderWidth: {
         layout: '11px',
