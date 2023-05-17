@@ -13,6 +13,14 @@ export default defineConfig({
       }
     }),
     image(),
-    sitemap()
+    sitemap({
+      i18n: {
+        defaultLocale: 'pl',
+        locales: {
+          pl: 'pl-PL',
+          en: 'en-UK'
+        }
+      }
+    })
   ]
 });
