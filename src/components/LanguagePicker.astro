@@ -1,13 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
-import clsx from 'clsx';
-import { getLangFromUrl } from 'src/i18n/utils';
 
 export type Props = {
   routes: Record<'en' | 'pl', string>;
 };
-
-const lang = getLangFromUrl(Astro.url);
 
 const { pl, en } = Astro.props.routes;
 ---
@@ -15,19 +11,13 @@ const { pl, en } = Astro.props.routes;
 <ul class="flex gap-4">
   <li>
     <a href={pl}>
-      <Icon
-        name="openmoji:flag-poland"
-        class={clsx(lang === 'pl' && 'opacity-75', 'w-8')}
-      />
+      <Icon name="openmoji:flag-poland" class="w-8" />
       <span class="visually-hidden">Polski</span>
     </a>
   </li>
   <li>
     <a href={en}>
-      <Icon
-        name="openmoji:flag-united-kingdom"
-        class={clsx(lang === 'en' && 'opacity-75', 'w-8')}
-      />
+      <Icon name="openmoji:flag-united-kingdom" class="w-8" />
       <span class="visually-hidden">English</span></a
     >
   </li>

@@ -24,15 +24,19 @@ const socials = [
 ] as const;
 ---
 
-<footer class="-mx-6 min-h-[160px] bg-primary px-6 py-6 text-white lg:-mx-10">
+<footer
+  class="-mx-3 min-h-[160px] bg-primary px-6 py-6 text-white sm:-mx-6 lg:-mx-10">
   <div class="mx-auto md:max-w-2xl lg:max-w-3xl">
     <LanguagePicker routes={routes} />
-    <ul class="mt-4 flex gap-6 lg:mt-6">
+    <ul class="mt-4 flex flex-wrap gap-5 gap-y-3 lg:mt-6 lg:gap-6">
       {
         socials.map(({ link, name }) => {
           return (
             <li>
-              <a href={link} class="flex gap-1 font-semibold" target="_blank">
+              <a
+                href={link}
+                class="flex font-semibold lg:gap-1"
+                target="_blank">
                 {name}
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
               </a>

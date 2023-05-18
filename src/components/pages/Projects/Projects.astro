@@ -32,9 +32,11 @@ const projects = getProjectsData(lang);
                     srcset={`/screenshots/png/${screenshotFileName}.png`}
                   />
                   <img
-                    class="border-primary min-h-[10rem] border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
+                    class="border-primary min-h-[10rem] w-auto border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
                     src={`/screenshots/png/${screenshotFileName}.png`}
                     alt={title}
+                    width="305"
+                    height="160"
                     loading="lazy"
                   />
                 </picture>

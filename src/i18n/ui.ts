@@ -7,7 +7,6 @@ export const languages = {
   pl: 'Polski'
 } as const;
 
-
 export const defaultLang = 'pl';
 
 export const description = {
