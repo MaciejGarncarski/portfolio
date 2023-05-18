@@ -14,49 +14,70 @@ const projects = getProjectsData(lang);
 ---
 
 <Layout routes={projectsRoute}>
-  <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
-  <ul class="mt-4 flex flex-col gap-12 lg:gap-28 xl:mt-16 2xl:gap-32">
-    {
-      projects.map(({ description, repo, live, screenshot, title, tags }) => {
-        return (
-          <li class="flex flex-col gap-4 border-2 border-primary p-3 lg:gap-6 lg:border-0 lg:p-0">
-            <img
-              class="min-h-[10rem] border-2 border-primary lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
-              src={screenshot}
-              alt={title}
-            />
-            <Heading tag="h2" variant="secondary">
-              {title}
-            </Heading>
-            <ul class="flex flex-wrap gap-x-3 gap-y-1.5">
-              {tags.map((tag) => (
-                <li class="bg-primary px-2 py-1 font-semibold text-white lg:px-3">
-                  <span>{tag}</span>
-                </li>
-              ))}
-            </ul>
-            <p class="text-primary lg:max-w-2xl">{description}</p>
-            <div class="flex gap-4 lg:gap-8">
-              <a
-                href={live}
-                target="_blank"
-                rel="noreferrer noopener"
-                class="flex items-center gap-1 border-2 border-transparent bg-primary px-2 py-1 font-bold text-white lg:px-3">
-                {t('projects.live')}
-                <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
-              </a>
-              <a
-                href={repo}
-                target="_blank"
-                rel="noreferrer noopener"
-                class="flex items-center gap-2 border-2 border-primary px-2 py-1 font-bold">
-                {t('projects.repo')}
-                <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
-              </a>
-            </div>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <article>
+    <Heading variant="primary" tag="h1">{t('projects.heading')}</Heading>
+    <div class="mt-8 flex flex-col gap-20 lg:gap-28 xl:mt-16 2xl:gap-32">
+      {
+        projects.map(
+          ({ description, repo, live, screenshotFileName, title, tags }) => {
+            return (
+              <article class="flex flex-col gap-4 lg:gap-6">
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset={`/screenshots/webp/${screenshotFileName}.webp`}
+                  />
+                  <source
+                    type="image/png"
+                    srcset={`/screenshots/png/${screenshotFileName}.png`}
+                  />
+                  <img
+                    class="border-primary min-h-[10rem] border-2 lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
+                    src={`/screenshots/png/${screenshotFileName}.png`}
+                    alt={title}
+                    loading="lazy"
+                  />
+                </picture>
+                <Heading tag="h2" variant="secondary">
+                  {title}
+                </Heading>
+                <ul class="flex flex-wrap gap-x-3 gap-y-1.5">
+                  {tags.map((tag) => (
+                    <li class="bg-primary  px-2 py-1 font-semibold text-white lg:px-3">
+                      <span>{tag}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="text-primary lg:max-w-2xl">{description}</p>
+                <div class="flex gap-4 lg:gap-8">
+                  <a
+                    href={live}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="bg-primary before:bg-primary relative flex items-center gap-2 border-2 border-white px-2 py-1 font-bold text-white before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:-translate-x-1.5 before:translate-y-1.5 before:transition-transform hover:before:translate-x-0 hover:before:translate-y-0">
+                    {t('projects.live')}
+                    <Icon
+                      name="ph:arrow-up-right"
+                      class="h-5 w-5 lg:h-6 lg:w-6"
+                    />
+                  </a>
+                  <a
+                    href={repo}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="border-primary before:bg-primary relative flex items-center gap-2 border-2 bg-white px-2 py-1 font-bold before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:-translate-x-1.5 before:translate-y-1.5 before:transition-transform hover:before:translate-x-0 hover:before:translate-y-0">
+                    {t('projects.repo')}
+                    <Icon
+                      name="ph:arrow-up-right"
+                      class="h-5 w-5 lg:h-6 lg:w-6"
+                    />
+                  </a>
+                </div>
+              </article>
+            );
+          }
+        )
+      }
+    </div>
+  </article>
 </Layout>

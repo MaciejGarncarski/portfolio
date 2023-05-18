@@ -5,8 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   html {
-    font-family: 'Montserrat', Roboto, system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
   }
 
   .visually-hidden {
@@ -17,5 +21,14 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  ::selection {
+    @apply bg-secondary;
+    @apply text-white;
+  }
+
+  img::selection {
+    @apply bg-white;
   }
 }

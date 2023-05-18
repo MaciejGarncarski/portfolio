@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon';
 <button
   data-scroll-button
   type="button"
-  class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-transparent hover:text-primary lg:bottom-12 lg:right-24 lg:h-16 lg:w-16">
+  class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 lg:bottom-12 lg:right-24 lg:h-16 lg:w-16">
   <Icon name="ph:arrow-up" />
   <span class="visually-hidden">Scroll up</span>
 </button>
@@ -18,6 +18,7 @@ import { Icon } from 'astro-icon';
     const { scrollY, innerHeight } = window;
     const { clientHeight } = document.body;
     const scrollHeight = clientHeight - innerHeight - 100;
+
     if (scrollY < SCROLL_MARGIN || scrollY > scrollHeight) {
       scrollButton?.classList.add('translate-y-14', 'opacity-0');
       return;

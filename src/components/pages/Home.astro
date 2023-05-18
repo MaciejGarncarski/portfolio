@@ -23,7 +23,7 @@ const t = useTranslations(lang);
     </p>
     <a
       href={t('nav.contact.route')}
-      class="mt-4 inline-flex items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white transition hover:bg-transparent hover:text-primary lg:mt-8 lg:text-xl">
+      class="mt-4 inline-flex items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white transition hover:bg-white hover:text-primary lg:mt-8 lg:text-xl">
       {t('home.button')}
       <Icon name="ph:arrow-right" class="h-6 w-6 lg:h-8 lg:w-8" />
     </a>
@@ -32,13 +32,13 @@ const t = useTranslations(lang);
     <div class="col-span-3">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
-    <ul class="grid grid-cols-3 gap-4 lg:max-w-md lg:gap-10">
+    <ul class="grid grid-cols-3 gap-4 lg:max-w-md lg:gap-x-20 lg:gap-y-10">
       {
         technologies.map(({ name, fileName, link }) => {
           return (
             <li class="w-full justify-self-start lg:w-auto">
               <a
-                class="flex flex-col items-center justify-center gap-2 border-4 border-secondary p-2 focus:border-primary"
+                class="border-secondary focus:border-primary flex flex-col items-center justify-center gap-2 border-4 p-2"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer">
@@ -53,5 +53,11 @@ const t = useTranslations(lang);
         })
       }
     </ul>
+    <a
+      href={t('nav.projects.route')}
+      class="mt-4 inline-flex w-fit items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white transition hover:bg-white hover:text-primary lg:mt-8 lg:text-xl">
+      {t('projects.heading')}
+      <Icon name="ph:arrow-right" class="h-6 w-6 lg:h-8 lg:w-8" />
+    </a>
   </section>
 </Layout>
