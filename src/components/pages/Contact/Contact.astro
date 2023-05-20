@@ -40,9 +40,9 @@ const contactData = [
       contactData.map(({ key, value }) => {
         return (
           <li class="flex w-full items-center justify-between gap-6">
-            <p class="flex flex-grow flex-col gap-2 lg:flex-row lg:items-center">
+            <p class="flex flex-grow flex-col lg:flex-row lg:items-center lg:gap-2">
               <span class="font-semibold">{`${key}:`}</span>
-              <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl  lg:text-2xl">
+              <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl lg:text-2xl">
                 {value}
               </span>
             </p>
@@ -54,13 +54,13 @@ const contactData = [
                 data-not-copied
                 class="flex items-center gap-2 border-2 border-primary bg-primary  px-1 py-1 lg:px-2">
                 <span class="hidden lg:inline">{t('contact.copy')}</span>
-                <Icon name="ph:copy" class="h-5 w-5 md:h-6 md:w-6" />
+                <Icon name="ph:copy" class="h-6 w-6" />
               </span>
               <span
                 data-copied
                 class="hidden items-center gap-2 border-2 border-primary bg-white px-1 py-1 text-primary lg:px-2">
                 <span class="hidden lg:inline">{t('contact.copied')}</span>
-                <Icon name="ph:copy-fill" class="h-5 w-5 md:h-6 md:w-6 " />
+                <Icon name="ph:copy-fill" class="h-6 w-6 " />
               </span>
             </button>
           </li>
@@ -70,6 +70,8 @@ const contactData = [
   </ul>
 
   <script>
+    import copy from 'copy-to-clipboard';
+
     const copyButtons = document.querySelectorAll('[data-copy]');
 
     const onCopy = async (clickEv: Event) => {
@@ -81,18 +83,13 @@ const contactData = [
 
       const iconCopied = button.querySelector('[data-copied]') as HTMLElement;
 
-      try {
-        await navigator.clipboard.writeText(button.dataset.copy || '');
-
-        iconNotCopied.classList.remove('flex');
-        iconNotCopied.classList.add('hidden');
-        iconCopied.classList.remove('hidden');
-        iconCopied.classList.add('flex');
-      } catch {}
+      copy(button.dataset.copy || '');
+      iconNotCopied.classList.remove('flex');
+      iconNotCopied.classList.add('hidden');
+      iconCopied.classList.remove('hidden');
+      iconCopied.classList.add('flex');
     };
 
-    copyButtons.forEach((button) => {
-      button.addEventListener('click', onCopy);
-    });
+    copyButtons.forEach((button) => button.addEventListener('click', onCopy));
   </script>
 </Layout>
