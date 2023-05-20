@@ -29,9 +29,11 @@ export const ui = {
     'home.button': 'Contact me',
     'projects.heading': 'My projects',
     'contact.heading': 'Contact',
+    'contact.phone-number': 'Phone number',
+    'contact.copy': 'Copy',
+    'contact.copied': 'Copied',
     'not-found.text': 'Page not found.',
-    'not-found.anchor': 'Go back to homepage',
-    'contact.phone-number': 'Phone number'
+    'not-found.anchor': 'Go back to homepage'
   },
   pl: {
     ...navUi.pl,
@@ -41,9 +43,11 @@ export const ui = {
     'home.button': 'Zadaj pytanie',
     'projects.heading': 'Moje projekty',
     'contact.heading': 'Kontakt',
+    'contact.phone-number': 'Numer telefonu',
+    'contact.copy': 'Kopiuj',
+    'contact.copied': 'Skopiowano',
     'not-found.text': 'Nie znaleziono strony.',
-    'not-found.anchor': 'Wróć do strony głównej',
-    'contact.phone-number': 'Numer telefonu'
+    'not-found.anchor': 'Wróć do strony głównej'
   }
 } as const;
 

@@ -3,22 +3,96 @@ import Heading from '@components/Heading.astro';
 
 import Layout from '@layouts/Layout.astro';
 
+import { Icon } from 'astro-icon';
 import { contactRoute } from 'src/i18n/ui';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const email = 'maciejgarncarski@gmail.com';
+const emailAddress = 'maciejgarncarski@gmail.com';
+const phoneNumber = '+48 504 673 589';
+const discordName = 'Maciej#1842';
+
+const contactData = [
+  {
+    key: 'E-mail',
+    value: emailAddress
+  },
+  {
+    key: t('contact.phone-number'),
+    value: phoneNumber
+  },
+  {
+    key: 'Discord',
+    value: discordName
+  }
+];
 ---
 
 <Layout routes={contactRoute}>
-  <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
-  <ul class="mt-6 flex flex-col gap-3">
-    <li>
-      E-mail: <a href={`mailto:${email}`}>{email}</a>
-    </li>
-    <li>{t('contact.phone-number')}: +48 504 673 589</li>
-    <li>Discord: Maciej#1842</li>
+  <header>
+    <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
+  </header>
+  <ul
+    class="mt-6 flex max-w-2xl flex-col gap-3 md:text-xl lg:mt-12 lg:gap-6 lg:text-2xl">
+    {
+      contactData.map(({ key, value }) => {
+        return (
+          <li class="flex w-full items-center justify-between gap-6">
+            <p class="flex flex-grow flex-col gap-2 lg:flex-row lg:items-center">
+              <span class="font-semibold">{`${key}:`}</span>
+              <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl  lg:text-2xl">
+                {value}
+              </span>
+            </p>
+            <button
+              type="button"
+              class="text-base font-semibold text-white"
+              data-copy={value}>
+              <span
+                data-not-copied
+                class="flex items-center gap-2 border-2 border-primary bg-primary  px-1 py-1 lg:px-2">
+                <span class="hidden lg:inline">{t('contact.copy')}</span>
+                <Icon name="ph:copy" class="h-5 w-5 md:h-6 md:w-6" />
+              </span>
+              <span
+                data-copied
+                class="hidden items-center gap-2 border-2 border-primary bg-white px-1 py-1 text-primary lg:px-2">
+                <span class="hidden lg:inline">{t('contact.copied')}</span>
+                <Icon name="ph:copy-fill" class="h-5 w-5 md:h-6 md:w-6 " />
+              </span>
+            </button>
+          </li>
+        );
+      })
+    }
   </ul>
+
+  <script>
+    const copyButtons = document.querySelectorAll('[data-copy]');
+
+    const onCopy = async (clickEv: Event) => {
+      const button = clickEv.currentTarget as HTMLButtonElement;
+
+      const iconNotCopied = button.querySelector(
+        '[data-not-copied]'
+      ) as HTMLElement;
+
+      const iconCopied = button.querySelector('[data-copied]') as HTMLElement;
+
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy || '');
+
+        iconNotCopied.classList.remove('flex');
+        iconNotCopied.classList.add('hidden');
+        iconCopied.classList.remove('hidden');
+        iconCopied.classList.add('flex');
+      } catch {}
+    };
+
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', onCopy);
+    });
+  </script>
 </Layout>

@@ -5,14 +5,18 @@ import { Icon } from 'astro-icon';
 <button
   data-scroll-button
   type="button"
-  class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 lg:bottom-12 lg:right-24 lg:h-16 lg:w-16">
+  class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 md:bottom-10 md:right-6 md:h-16 md:w-16 lg:bottom-12 lg:right-24">
   <Icon name="ph:arrow-up" />
   <span class="visually-hidden">Scroll up</span>
 </button>
 
 <script>
-  const scrollButton = document.querySelector('[data-scroll-button]');
+  const scrollButton = document.querySelector(
+    '[data-scroll-button]'
+  ) as HTMLButtonElement;
+
   const SCROLL_MARGIN = 200;
+  const INACTIVE_CLASSNAMES = ['translate-y-14', 'opacity-0'];
 
   const handleScroll = () => {
     const { scrollY, innerHeight } = window;
@@ -20,18 +24,19 @@ import { Icon } from 'astro-icon';
     const scrollHeight = clientHeight - innerHeight - 100;
 
     if (scrollY < SCROLL_MARGIN || scrollY > scrollHeight) {
-      scrollButton?.classList.add('translate-y-14', 'opacity-0');
+      scrollButton.classList.add(...INACTIVE_CLASSNAMES);
       return;
     }
 
-    scrollButton?.classList.remove('translate-y-14', 'opacity-0');
+    scrollButton.classList.remove(...INACTIVE_CLASSNAMES);
   };
   handleScroll();
 
   const handleClick = () => {
+    scrollButton.blur();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  scrollButton?.addEventListener('click', handleClick);
+  scrollButton.addEventListener('click', handleClick);
 </script>

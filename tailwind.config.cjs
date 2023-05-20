@@ -30,7 +30,7 @@ module.exports = {
         secondary: colors.slate[700]
       },
       screens: {
-        sm: '300px'
+        sm: '350px'
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif']

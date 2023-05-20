@@ -8,16 +8,21 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fix": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
-    "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "lint-fix": "yarn fix && yarn lint",
+    "lint": "eslint --fix --max-warnings=0 \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "format": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
+    "lint-format": "yarn format && yarn lint",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,astro}": "yarn lint",
+    "*.{js,jsx,ts,tsx,md,mdx,astro}": "yarn format --cache"
   },
   "dependencies": {
     "@astrojs/image": "^0.16.8",
     "@astrojs/react": "^2.1.3",
     "@astrojs/sitemap": "^1.3.1",
     "@astrojs/tailwind": "^3.1.2",
+    "@astrojs/ts-plugin": "^1.0.6",
     "@fontsource/montserrat": "^4.5.14",
     "astro": "^2.4.5",
     "astro-icon": "^0.8.0",
@@ -33,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.8.0",
     "prettier-plugin-tailwindcss": "^0.2.8"
