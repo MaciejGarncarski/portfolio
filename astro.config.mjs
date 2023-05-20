@@ -19,7 +19,7 @@ export default defineConfig({
         defaultLocale: 'pl',
         locales: {
           pl: 'pl-PL',
-          en: 'en-UK'
+          en: 'en-GB'
         }
       }
     })
