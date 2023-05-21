@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon';
   type="button"
   class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 md:bottom-10 md:right-6 md:h-16 md:w-16 lg:bottom-12 lg:right-24">
   <Icon name="ph:arrow-up" />
-  <span class="visually-hidden">Scroll up</span>
+  <span class="visually-hidden">Scroll to top</span>
 </button>
 
 <script>
@@ -16,7 +16,11 @@ import { Icon } from 'astro-icon';
   ) as HTMLButtonElement;
 
   const SCROLL_MARGIN = 200;
-  const INACTIVE_CLASSNAMES = ['translate-y-14', 'opacity-0'];
+  const INACTIVE_CLASSNAMES = [
+    'translate-y-14',
+    'lg:translate-y-20',
+    'opacity-0'
+  ];
 
   const handleScroll = () => {
     const { scrollY, innerHeight } = window;

@@ -39,7 +39,7 @@ const contactData = [
           </p>
           <button
             type="button"
-            class="text-base font-semibold text-white"
+            class="text-base font-semibold text-white focus:outline-none focus:ring-4 focus:ring-secondary focus:ring-offset-4 "
             data-copy={value}>
             <span
               data-not-copied
@@ -51,7 +51,7 @@ const contactData = [
               data-copied
               class="hidden items-center gap-2 border-2 border-primary bg-white px-1 py-1 text-primary lg:px-2">
               <span class="hidden lg:inline">{t('contact.copied')}</span>
-              <Icon name="ph:copy-fill" class="h-6 w-6 " />
+              <Icon name="ph:check-bold" class="h-6 w-6 " />
             </span>
           </button>
         </li>

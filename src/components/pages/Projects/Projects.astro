@@ -1,10 +1,10 @@
 ---
 import Heading from '@components/Heading.astro';
+import ProjectsButton from '@components/ProjectsButton.astro';
 
 import Layout from '@layouts/Layout.astro';
 
 import { getProjectsData } from './Projects.data';
-import { Icon } from 'astro-icon';
 import { projectsRoute } from 'src/i18n/ui';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
@@ -54,28 +54,8 @@ const projects = getProjectsData(lang);
                 </ul>
                 <p class="text-primary lg:max-w-2xl">{description}</p>
                 <div class="flex gap-4 lg:gap-8">
-                  <a
-                    href={live}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    class="flex items-center gap-2 border-2 border-primary bg-primary px-2 py-1 font-bold text-white">
-                    {t('projects.live')}
-                    <Icon
-                      name="ph:arrow-up-right"
-                      class="h-5 w-5 lg:h-6 lg:w-6"
-                    />
-                  </a>
-                  <a
-                    href={repo}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    class="flex items-center gap-2 border-2 border-primary bg-white px-2 py-1 font-bold">
-                    {t('projects.repo')}
-                    <Icon
-                      name="ph:arrow-up-right"
-                      class="h-5 w-5 lg:h-6 lg:w-6"
-                    />
-                  </a>
+                  <ProjectsButton href={live} variant="primary" />
+                  <ProjectsButton href={repo} variant="secondary" />
                 </div>
               </article>
             );
