@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const emailAddress = 'maciejgarncarski@gmail.com';
+const phoneNumber = '+48 504 673 589';
+const discordName = 'Maciej#1842';
+
+const contactData = [
+  {
+    key: 'E-mail',
+    value: emailAddress
+  },
+  {
+    key: t('contact.phone-number'),
+    value: phoneNumber
+  },
+  {
+    key: 'Discord',
+    value: discordName
+  }
+];
+---
+
+<ul
+  class="mt-6 flex max-w-2xl flex-col gap-3 md:text-xl lg:mt-12 lg:gap-6 lg:text-2xl">
+  {
+    contactData.map(({ key, value }) => {
+      return (
+        <li class="flex w-full items-center justify-between gap-6">
+          <p class="flex flex-grow flex-col lg:flex-row lg:items-center lg:gap-2">
+            <span class="font-semibold">{`${key}:`}</span>
+            <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl lg:text-2xl">
+              {value}
+            </span>
+          </p>
+          <button
+            type="button"
+            class="text-base font-semibold text-white"
+            data-copy={value}>
+            <span
+              data-not-copied
+              class="flex items-center gap-2 border-2 border-primary bg-primary  px-1 py-1 lg:px-2">
+              <span class="hidden lg:inline">{t('contact.copy')}</span>
+              <Icon name="ph:copy" class="h-6 w-6" />
+            </span>
+            <span
+              data-copied
+              class="hidden items-center gap-2 border-2 border-primary bg-white px-1 py-1 text-primary lg:px-2">
+              <span class="hidden lg:inline">{t('contact.copied')}</span>
+              <Icon name="ph:copy-fill" class="h-6 w-6 " />
+            </span>
+          </button>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<script is:inline>
+  const copyButtons = document.querySelectorAll('[data-copy]');
+
+  const getIcons = (element) => {
+    const iconNotCopied = element.querySelector('[data-not-copied]');
+    const iconCopied = element.querySelector('[data-copied]');
+
+    return { iconCopied, iconNotCopied };
+  };
+
+  const resetButtons = () => {
+    copyButtons.forEach((button) => {
+      const { iconCopied, iconNotCopied } = getIcons(button);
+      iconCopied.classList.remove('flex');
+      iconCopied.classList.add('hidden');
+      iconNotCopied.classList.remove('hidden');
+      iconNotCopied.classList.add('flex');
+    });
+  };
+
+  const onCopy = async ({ currentTarget: button }) => {
+    const { iconCopied, iconNotCopied } = getIcons(button);
+
+    resetButtons();
+    await navigator.clipboard.writeText(button.dataset.copy);
+    iconNotCopied.classList.remove('flex');
+    iconNotCopied.classList.add('hidden');
+    iconCopied.classList.remove('hidden');
+    iconCopied.classList.add('flex');
+  };
+
+  copyButtons.forEach((button) => {
+    button.addEventListener('click', onCopy);
+  });
+</script>
