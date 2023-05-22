@@ -1,11 +1,12 @@
 ---
 import Heading from '@components/Heading.astro';
+import HomeLink from '@components/HomeLink.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { technologies } from './home.data';
+import { technologies } from './Home.data';
 import { Icon } from 'astro-icon';
-import { homeRoute } from 'src/i18n/ui';
+import { homeRoute } from 'src/i18n/translations/routes';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -13,33 +14,29 @@ const t = useTranslations(lang);
 ---
 
 <Layout routes={homeRoute}>
-  <section>
+  <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
     <h2 class="text-xl text-secondary md:text-2xl lg:mt-2 lg:text-3xl">
       Frontend developer
     </h2>
-    <p class="mt-4 text-secondary lg:mt-6 lg:text-2xl">
+    <p class="my-4 text-secondary lg:my-6 lg:text-2xl">
       {t('home.description')}
     </p>
-    <a
-      href={t('nav.contact.route')}
-      class="mt-4 inline-flex items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white outline-none transition hover:bg-white hover:text-primary focus:bg-white focus:text-primary lg:mt-8 lg:text-xl">
-      {t('home.button')}
-      <Icon name="ph:arrow-right" class="h-6 w-6 lg:h-8 lg:w-8" />
-    </a>
-  </section>
-  <section class="mt-10 flex flex-col gap-2 lg:mt-20 lg:gap-6">
+
+    <HomeLink href={t('nav.contact.route')} text={t('home.link-contact')} />
+  </Fragment>
+  <section slot="main" class="mt-10 flex flex-col gap-2 lg:mt-20 lg:gap-6">
     <div class="col-span-3">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <ul
-      class="grid grid-cols-3 gap-4 md:max-w-sm md:gap-10 lg:max-w-md lg:gap-x-20 lg:gap-y-10">
+      class="mb-2 grid grid-cols-3 gap-4 md:max-w-sm md:gap-10 lg:mb-4 lg:max-w-md lg:gap-x-20 lg:gap-y-10">
       {
         technologies.map(({ name, fileName, link }) => {
           return (
             <li class="w-full justify-self-start lg:w-auto">
               <a
-                class="flex flex-col items-center justify-center gap-2 border-4 border-secondary p-2 focus:border-primary"
+                class="flex flex-col items-center justify-center gap-2 border-4 border-primary p-2 ring-primary hover:ring-2 focus:outline-none focus:ring-4 focus:ring-offset-4"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer">
@@ -54,11 +51,6 @@ const t = useTranslations(lang);
         })
       }
     </ul>
-    <a
-      href={t('nav.projects.route')}
-      class="mt-4 inline-flex w-fit items-center gap-2 border-2 border-primary bg-primary px-3 py-2 font-semibold text-white transition hover:bg-white hover:text-primary lg:mt-8 lg:text-xl">
-      {t('projects.heading')}
-      <Icon name="ph:arrow-right" class="h-6 w-6 lg:h-8 lg:w-8" />
-    </a>
+    <HomeLink href={t('nav.projects.route')} text={t('projects.heading')} />
   </section>
 </Layout>

@@ -7,7 +7,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
     {
       title: 'PhotoApp',
       description: t('projects.photoapp'),
-      screenshotFileName: 'photoapp',
+      fileName: 'photoapp',
       repo: 'https://github.com/MaciejGarncarski/photo-app',
       live: 'https://photoapp.maciej-garncarski.pl/',
       tags: ['React', 'Next.js', 'TypeScript', 'Sass']
@@ -15,7 +15,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
     {
       title: 'Github Searcher',
       description: t('projects.github-searcher'),
-      screenshotFileName: 'github-searcher',
+      fileName: 'github-searcher',
       repo: 'https://github.com/MaciejGarncarski/github-searcher',
       live: 'https://github-searcher-maciek.vercel.app/',
       tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS']
@@ -23,7 +23,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
     {
       title: 'Shoe Shop',
       description: t('projects.shoe-shop'),
-      screenshotFileName: 'shoe-shop',
+      fileName: 'shoe-shop',
       repo: 'https://github.com/MaciejGarncarski/shoe-shop',
       live: 'https://shoe-shop-omega.vercel.app/',
       tags: ['Typescript', 'Sass', 'HTML']
@@ -31,7 +31,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
     {
       title: 'Business Website',
       description: t('projects.business-website'),
-      screenshotFileName: 'business',
+      fileName: 'business',
       repo: 'https://github.com/MaciejGarncarski/Buisness-Website',
       live: 'https://website-business.netlify.app/',
       tags: ['React', 'TypeScript', 'Framer Motion', 'styled-components']

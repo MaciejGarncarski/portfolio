@@ -1,7 +1,8 @@
-export const projectsUi = {
+export const projects = {
   en: {
     'projects.live': 'Live',
     'projects.repo': 'Repo',
+    'projects.heading': 'My projects',
     'projects.photoapp':
       'PhotoApp is social media application created in the modern tech stack. In this app, you can create posts, comment them and chat with other users. It was my first attempt to create such a complicated app. It was tough expirence, but in the end I learned a lot of things.',
     'projects.github-searcher':
@@ -14,6 +15,7 @@ export const projectsUi = {
   pl: {
     'projects.live': 'Podgląd',
     'projects.repo': 'Kod',
+    'projects.heading': 'Moje projekty',
     'projects.photoapp':
       'PhotoApp to aplikacja społecznościowa stworzona przy użyciu nowoczesnych technologii. W tej aplikacji możesz tworzyć posty komentować je i pisać z innymi użytkownikami . To była moja pierwsza próba stworzenia tak skomplikowanej aplikacji, a więc sporo się nauczyłem podczas jej tworzenia.',
     'projects.github-searcher':

@@ -1,6 +1,8 @@
-import { projectsUi } from '@components/pages/Projects/Projects.ui';
-
-import { navUi } from './nav.ui';
+import { contact } from './translations/contact';
+import { home } from './translations/home';
+import { nav } from './translations/nav';
+import { notFound } from './translations/not-found';
+import { projects } from './translations/projects';
 
 export const languages = {
   en: 'English',
@@ -9,59 +11,19 @@ export const languages = {
 
 export const defaultLang = 'pl';
 
-export const description = {
-  pl: {
-    'home.description':
-      'Entuzjasta tworzenia aplikacji, stron i wielu innych fajnych rzeczy związanych z internetem. Stworzę dla Ciebie profesjonalną i błyskawicznie szybką stronę internetową!'
-  },
-  en: {
-    'home.description':
-      'Enthusiast of creating applications, websites and other cool things related to the internet. I will create professionall and lightning-fast website for you!'
-  }
-};
-
 export const ui = {
   en: {
-    ...navUi.en,
-    ...description.en,
-    ...projectsUi.en,
-    'home.tech.heading': 'My tech stack',
-    'home.button': 'Contact me',
-    'projects.heading': 'My projects',
-    'contact.heading': 'Contact',
-    'contact.phone-number': 'Phone number',
-    'contact.copy': 'Copy',
-    'contact.copied': 'Copied',
-    'not-found.text': 'Page not found.',
-    'not-found.anchor': 'Go back to homepage'
+    ...nav.en,
+    ...projects.en,
+    ...home.en,
+    ...contact.en,
+    ...notFound.en
   },
   pl: {
-    ...navUi.pl,
-    ...description.pl,
-    ...projectsUi.pl,
-    'home.tech.heading': 'Znam te technologie',
-    'home.button': 'Zadaj pytanie',
-    'projects.heading': 'Moje projekty',
-    'contact.heading': 'Kontakt',
-    'contact.phone-number': 'Numer telefonu',
-    'contact.copy': 'Kopiuj',
-    'contact.copied': 'Skopiowano',
-    'not-found.text': 'Nie znaleziono strony.',
-    'not-found.anchor': 'Wróć do strony głównej'
+    ...nav.pl,
+    ...projects.pl,
+    ...home.pl,
+    ...contact.pl,
+    ...notFound.pl
   }
 } as const;
-
-export const homeRoute = {
-  pl: '/',
-  en: '/en/'
-};
-
-export const projectsRoute = {
-  pl: '/projekty/',
-  en: '/en/projects/'
-};
-
-export const contactRoute = {
-  pl: '/kontakt/',
-  en: '/en/contact/'
-};

@@ -1,0 +1,21 @@
+---
+export type Props = {
+  fileName: string;
+  title: string;
+};
+
+const { fileName, title } = Astro.props;
+---
+
+<picture>
+  <source type="image/webp" srcset={`/screenshots/webp/${fileName}.webp`} />
+  <source type="image/png" srcset={`/screenshots/png/${fileName}.png`} />
+  <img
+    class="min-h-[10rem] w-auto border-2 border-primary lg:min-h-[22rem] lg:max-w-3xl lg:border-4"
+    src={`/screenshots/png/${fileName}.png`}
+    alt={title}
+    width="305"
+    height="160"
+    loading="lazy"
+  />
+</picture>

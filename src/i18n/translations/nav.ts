@@ -1,4 +1,4 @@
-export const navUi = {
+export const nav = {
   en: {
     'nav.home': 'About',
     'nav.projects': 'Projects',

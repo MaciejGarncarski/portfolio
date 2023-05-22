@@ -1,0 +1,11 @@
+---
+export type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+---
+
+<li class="bg-primary px-2 py-1 font-semibold text-white lg:px-3">
+  <span>{text}</span>
+</li>

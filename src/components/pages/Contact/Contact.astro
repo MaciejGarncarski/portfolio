@@ -4,7 +4,7 @@ import Heading from '@components/Heading.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { contactRoute } from 'src/i18n/ui';
+import { contactRoute } from 'src/i18n/translations/routes';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,8 +12,8 @@ const t = useTranslations(lang);
 ---
 
 <Layout routes={contactRoute}>
-  <header>
-    <Heading tag="h1" variant="primary">{t('contact.heading')}</Heading>
-  </header>
-  <ContactInfo />
+  <Heading tag="h1" variant="primary" slot="header">
+    {t('contact.heading')}
+  </Heading>
+  <ContactInfo slot="main" />
 </Layout>

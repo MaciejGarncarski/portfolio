@@ -6,7 +6,7 @@ import ScrollUpButton from '@components/ScrollUpButton.astro';
 import '@fontsource/montserrat';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
-import { description, keywords, title } from 'src/utils/ui';
+import { description, keywords, title } from 'src/utils/seo';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -33,10 +33,15 @@ const { routes, hiddenNav } = Astro.props;
   <body
     class="mb-0 border-2 border-b-0 border-primary px-3 text-primary dark:text-primary sm:border-layout sm:px-6 lg:border-layout-desktop lg:border-b-0 lg:px-10">
     {!hiddenNav && <Nav />}
-    <main
+    <div
       class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
-      <slot />
-    </main>
+      <header>
+        <slot name="header" />
+      </header>
+      <main>
+        <slot name="main" />
+      </main>
+    </div>
     <Footer routes={routes} />
     <ScrollUpButton />
   </body>
