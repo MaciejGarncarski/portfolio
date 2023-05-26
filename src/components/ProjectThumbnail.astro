@@ -2,9 +2,10 @@
 export type Props = {
   fileName: string;
   title: string;
+  lazyLoad: boolean;
 };
 
-const { fileName, title } = Astro.props;
+const { fileName, title, lazyLoad } = Astro.props;
 ---
 
 <picture>
@@ -16,6 +17,6 @@ const { fileName, title } = Astro.props;
     alt={title}
     width="305"
     height="160"
-    loading="lazy"
+    loading={lazyLoad ? 'lazy' : null}
   />
 </picture>

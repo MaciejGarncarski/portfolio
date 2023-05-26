@@ -31,4 +31,31 @@
   img::selection {
     @apply bg-white;
   }
+
+  @keyframes animation-show {
+    0% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes animation-hide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-new(root) {
+      animation: animation-show 0.3s ease forwards;
+    }
+
+    ::view-transition-old(root) {
+      animation: animation-hide 0.3s ease forwards;
+    }
+  }
 }

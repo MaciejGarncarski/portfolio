@@ -22,6 +22,7 @@ const { routes, hiddenNav } = Astro.props;
 <html class="bg-white bg-waves xl:bg-fixed" lang={lang}>
   <head>
     <meta charset="UTF-8" />
+    <meta name="view-transition" content="same-origin" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -35,7 +36,7 @@ const { routes, hiddenNav } = Astro.props;
     {!hiddenNav && <Nav />}
     <div
       class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
-      <header>
+      <header data-header>
         <slot name="header" />
       </header>
       <main>
