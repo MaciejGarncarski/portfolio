@@ -50,12 +50,14 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ::view-transition-new(root) {
-      animation: animation-show 0.3s ease forwards;
-    }
+    [data-transition] {
+      ::view-transition-new(root) {
+        animation: animation-show 1s ease-in-out forwards;
+      }
 
-    ::view-transition-old(root) {
-      animation: animation-hide 0.3s ease forwards;
+      ::view-transition-old(root) {
+        animation: animation-hide 0.3s ease forwards;
+      }
     }
   }
 }
