@@ -36,10 +36,10 @@ const { routes, hiddenNav } = Astro.props;
     {!hiddenNav && <Nav />}
     <div
       class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
-      <header data-transition>
+      <header data-header>
         <slot name="header" />
       </header>
-      <main data-transition>
+      <main data-main>
         <slot name="main" />
       </main>
     </div>

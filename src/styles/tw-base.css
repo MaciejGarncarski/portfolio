@@ -32,32 +32,39 @@
     @apply bg-white;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    [data-main] {
+      view-transition-name: main;
+    }
+
+    ::view-transition-old(main) {
+      animation: animation-hide 0.3s ease-in-out forwards;
+    }
+
+    ::view-transition-new(main) {
+      animation: animation-show 0.3s ease-in-out forwards;
+    }
+  }
+
   @keyframes animation-show {
     0% {
-      opacity: 0.9;
+      opacity: 0;
+      filter: grayscale(1);
     }
     100% {
       opacity: 1;
+      filter: grayscale(0);
     }
   }
+
   @keyframes animation-hide {
     0% {
       opacity: 1;
     }
     100% {
       opacity: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    [data-transition] {
-      ::view-transition-new(root) {
-        animation: animation-show 1s ease-in-out forwards;
-      }
-
-      ::view-transition-old(root) {
-        animation: animation-hide 0.3s ease forwards;
-      }
+      transform: translateY(50px);
+      filter: grayscale(1) blur(5px);
     }
   }
 }
