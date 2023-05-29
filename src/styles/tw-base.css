@@ -38,22 +38,22 @@
     }
 
     ::view-transition-old(main) {
-      animation: animation-hide 0.3s ease-in-out forwards;
+      animation: animation-hide 0.2s ease-in-out forwards;
     }
 
     ::view-transition-new(main) {
-      animation: animation-show 0.3s ease-in-out forwards;
+      animation: animation-show 0.6s ease-in-out forwards;
     }
   }
 
   @keyframes animation-show {
     0% {
       opacity: 0;
-      filter: grayscale(1);
+      transform: scale(0.75);
     }
     100% {
       opacity: 1;
-      filter: grayscale(0);
+      transform: scale(1);
     }
   }
 
@@ -63,8 +63,7 @@
     }
     100% {
       opacity: 0;
-      transform: translateY(50px);
-      filter: grayscale(1) blur(5px);
+      transform: scale(0.8);
     }
   }
 }

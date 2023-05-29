@@ -2,7 +2,7 @@
 
 ## Live
 
-`https://maciej-garncarski.pl/`
+https://maciej-garncarski.pl/
 
 ## Installation & running
 
@@ -11,4 +11,6 @@
 ## Tech used
 
 - Astro
+- Eslint, Prettier
+- Husky, commit-lint
 - Tailwind CSS
