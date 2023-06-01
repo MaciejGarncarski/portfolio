@@ -26,9 +26,10 @@ const socials = [
 
 <footer
   class="-mx-3 min-h-[160px] bg-primary px-6 py-6 text-white sm:-mx-7 sm:-mb-1 lg:-mx-10">
-  <div class="mx-auto md:max-w-lg lg:max-w-3xl">
+  <div
+    class="mx-auto flex flex-col gap-y-5 md:max-w-lg lg:max-w-3xl lg:gap-y-9">
     <LanguagePicker routes={routes} />
-    <ul class="mt-6 flex flex-wrap gap-5 gap-y-3 lg:mt-6 lg:gap-6">
+    <ul class="flex flex-wrap gap-5 gap-y-3 lg:gap-6">
       {
         socials.map(({ link, name }) => {
           return (
@@ -45,7 +46,7 @@ const socials = [
         })
       }
     </ul>
-    <p class="mt-6 max-w-prose text-xs lg:mt-10">
+    <p class="max-w-prose text-xs">
       &#169; {new Date().getFullYear()} Maciej Garncarski. All rights reserved.
     </p>
   </div>
