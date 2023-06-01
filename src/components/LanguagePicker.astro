@@ -8,17 +8,17 @@ export type Props = {
 const { pl, en } = Astro.props.routes;
 ---
 
-<ul class="flex gap-4">
+<ul class="flex gap-6">
   <li>
-    <a href={pl}>
+    <a href={pl} class="flex items-center gap-1">
       <Icon name="openmoji:flag-poland" class="w-8" />
-      <span class="visually-hidden">Polski</span>
+      Polski
     </a>
   </li>
   <li>
-    <a href={en}>
+    <a href={en} class="flex items-center gap-1">
       <Icon name="openmoji:flag-united-kingdom" class="w-8" />
-      <span class="visually-hidden">English</span></a
-    >
+      English
+    </a>
   </li>
 </ul>
