@@ -36,9 +36,9 @@ const socials = [
             <li>
               <a
                 href={link}
-                class="flex font-semibold focus:underline lg:gap-1"
+                class="flex focus:underline lg:gap-1"
                 target="_blank">
-                {name}
+                <span>{name}</span>
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
               </a>
             </li>
@@ -46,7 +46,7 @@ const socials = [
         })
       }
     </ul>
-    <p class="max-w-prose text-xs">
+    <p class="max-w-prose">
       &#169; {new Date().getFullYear()} Maciej Garncarski. All rights reserved.
     </p>
   </div>
