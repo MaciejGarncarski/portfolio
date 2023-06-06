@@ -7,6 +7,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://maciej-garncarski.pl',
   compressHTML: true,
+  build: {
+    inlineStylesheets: 'auto'
+  },
   integrations: [
     tailwind({
       config: {
