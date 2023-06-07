@@ -12,10 +12,9 @@ const lang = getLangFromUrl(Astro.url);
 
 export type Props = {
   routes: Record<'en' | 'pl', string>;
-  hiddenNav?: boolean;
 };
 
-const { routes, hiddenNav } = Astro.props;
+const { routes } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -24,16 +23,16 @@ const { routes, hiddenNav } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="view-transition" content="same-origin" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description[lang]} />
     <meta name="keywords" content={keywords} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body
-    class="mb-0 border-2 border-b-0 border-primary px-3 text-primary dark:text-primary sm:border-layout sm:px-6 lg:border-layout-desktop lg:border-b-0 lg:px-10">
-    {!hiddenNav && <Nav />}
+    class="mb-0 border-2 border-b-0 border-primary px-3 text-primary dark:text-primary sm:border-layout sm:px-6 lg:border-layout-desktop lg:border-b-0 lg:px-0">
+    <Nav />
     <div
       class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-4xl lg:pb-24 lg:pt-16">
       <header data-header>

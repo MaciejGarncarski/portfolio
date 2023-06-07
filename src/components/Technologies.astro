@@ -4,17 +4,17 @@ import { technologies } from 'src/data/Technologies';
 ---
 
 <ul
-  class="mb-2 grid grid-cols-3 gap-4 md:max-w-sm md:gap-10 lg:mb-4 lg:max-w-md lg:gap-x-16 lg:gap-y-10">
+  class="mb-2 grid grid-cols-3 gap-6 md:max-w-sm md:gap-10 lg:mb-4 lg:max-w-md lg:gap-x-16 lg:gap-y-10">
   {
     technologies.map(({ name, fileName, link }) => {
       return (
-        <li class="w-full justify-self-start lg:w-auto">
+        <li class="justify-self-start">
           <a
             class="flex flex-col items-center justify-center gap-2 border-4 border-primary p-2 ring-primary hover:ring-2 focus:outline-none focus:ring-4 focus:ring-offset-4"
             href={link}
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name={`Logos${fileName}`} class="h-16 w-16 lg:h-20 lg:w-20" />
+            <Icon name={`Logos${fileName}`} class="h-14 w-14 lg:h-20 lg:w-20" />
             <span class="visually-hidden">{name}</span>
           </a>
         </li>

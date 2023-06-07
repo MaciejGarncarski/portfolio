@@ -15,10 +15,8 @@ const t = useTranslations(lang);
 <Layout routes={homeRoute}>
   <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
-    <h2 class="text-xl text-secondary md:text-2xl lg:mt-2">
-      Frontend developer
-    </h2>
-    <p class="my-4 text-secondary lg:my-6 lg:text-2xl">
+    <h2 class="mb-2 text-secondary md:text-2xl">Frontend developer</h2>
+    <p class="text-secondary lg:my-6 lg:text-2xl">
       {t('home.description')}
     </p>
     <HomeLink href={t('nav.contact.route')} text={t('home.link-contact')} />
