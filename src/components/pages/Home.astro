@@ -16,13 +16,13 @@ const t = useTranslations(lang);
   <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
     <h2 class="mb-2 text-secondary md:text-2xl">Frontend developer</h2>
-    <p class="text-secondary lg:my-6 lg:text-2xl">
+    <p class="mb-2 text-secondary lg:my-6 lg:text-2xl">
       {t('home.description')}
     </p>
     <HomeLink href={t('nav.contact.route')} text={t('home.link-contact')} />
   </Fragment>
   <section slot="main" class="mt-10 flex flex-col gap-2 lg:mt-20 lg:gap-8">
-    <div class="col-span-3">
+    <div class="col-span-3 mb-2">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <Technologies />

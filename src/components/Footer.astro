@@ -29,14 +29,14 @@ const socials = [
   <div
     class="mx-auto flex flex-col gap-y-5 md:max-w-lg lg:max-w-4xl lg:gap-y-9">
     <LanguagePicker routes={routes} />
-    <ul class="flex flex-wrap gap-5 gap-y-3 lg:gap-6">
+    <ul class="flex flex-wrap gap-6 gap-y-3 lg:gap-6">
       {
         socials.map(({ link, name }) => {
           return (
             <li>
               <a
                 href={link}
-                class="flex focus:underline lg:gap-1"
+                class="flex items-center focus:underline lg:gap-1"
                 target="_blank">
                 <span>{name}</span>
                 <Icon name="ph:arrow-up-right" class="h-5 w-5 lg:h-6 lg:w-6" />
