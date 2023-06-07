@@ -34,13 +34,13 @@ const projects = getProjectsData(lang);
                 <Heading tag="h2" variant="secondary">
                   {title}
                 </Heading>
-                <ul class="flex flex-wrap gap-x-3 gap-y-1.5">
+                <ul class="flex flex-wrap gap-x-2 gap-y-1.5 lg:gap-x-4">
                   {tags.map((tagText) => (
                     <Tag text={tagText} />
                   ))}
                 </ul>
                 <p class="text-primary lg:max-w-2xl">{description}</p>
-                <div class="flex gap-4 lg:gap-8">
+                <div class="flex gap-4 lg:gap-4">
                   <ProjectsButton href={live} variant="primary" />
                   <ProjectsButton href={repo} variant="secondary" />
                 </div>
