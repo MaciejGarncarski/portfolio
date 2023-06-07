@@ -15,14 +15,14 @@ const t = useTranslations(lang);
 <Layout routes={homeRoute}>
   <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
-    <h2 class="mb-2 text-secondary md:text-2xl">Frontend developer</h2>
-    <p class="mb-2 text-secondary lg:my-6 lg:text-2xl">
+    <h2 class="mb-2 text-secondary md:text-2xl lg:mb-6">Frontend developer</h2>
+    <p class="mb-2 text-secondary lg:mb-6 lg:text-2xl">
       {t('home.description')}
     </p>
     <HomeLink href={t('nav.contact.route')} text={t('home.link-contact')} />
   </Fragment>
-  <section slot="main" class="mt-10 flex flex-col gap-2 lg:mt-20 lg:gap-8">
-    <div class="col-span-3 mb-2">
+  <section slot="main" class="mt-10 lg:mt-20">
+    <div class="col-span-3 mb-2 lg:mb-6">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <Technologies />

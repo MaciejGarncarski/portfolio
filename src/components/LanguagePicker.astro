@@ -6,19 +6,32 @@ export type Props = {
 };
 
 const { pl, en } = Astro.props.routes;
+
+const languageData = [
+  {
+    href: pl,
+    languageName: 'Polski',
+    flagName: 'openmoji:flag-poland'
+  },
+  {
+    href: en,
+    languageName: 'English',
+    flagName: 'openmoji:flag-united-kingdom'
+  }
+];
 ---
 
 <ul class="flex gap-6">
-  <li>
-    <a href={pl} class="flex items-center gap-1">
-      <Icon name="openmoji:flag-poland" class="w-8" />
-      <span>Polski</span>
-    </a>
-  </li>
-  <li>
-    <a href={en} class="flex items-center gap-1">
-      <Icon name="openmoji:flag-united-kingdom" class="w-8" />
-      <span>English</span>
-    </a>
-  </li>
+  {
+    languageData.map(({ flagName, href, languageName }) => {
+      return (
+        <li>
+          <a href={href} class="flex items-center gap-1 font-bold">
+            <Icon name={flagName} class="w-8" />
+            <span class="leading-none">{languageName}</span>
+          </a>
+        </li>
+      );
+    })
+  }
 </ul>

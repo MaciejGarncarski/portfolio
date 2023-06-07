@@ -27,7 +27,7 @@ module.exports = {
       },
       colors: {
         primary: colors.slate[900],
-        secondary: colors.slate[700]
+        secondary: colors.slate[800]
       },
       screens: {
         sm: '350px'
