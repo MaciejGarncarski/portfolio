@@ -1,4 +1,5 @@
 import { contact } from './translations/contact';
+import { footer } from './translations/footer';
 import { home } from './translations/home';
 import { nav } from './translations/nav';
 import { notFound } from './translations/not-found';
@@ -14,6 +15,7 @@ export const defaultLang = 'pl';
 export const ui = {
   en: {
     ...nav.en,
+    ...footer.en,
     ...projects.en,
     ...home.en,
     ...contact.en,
@@ -21,6 +23,7 @@ export const ui = {
   },
   pl: {
     ...nav.pl,
+    ...footer.pl,
     ...projects.pl,
     ...home.pl,
     ...contact.pl,

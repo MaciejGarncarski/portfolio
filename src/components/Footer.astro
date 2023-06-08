@@ -1,6 +1,10 @@
 ---
 import LanguagePicker from './LanguagePicker.astro';
 import { Icon } from 'astro-icon';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 export type Props = {
   routes: Record<'en' | 'pl', string>;
@@ -49,7 +53,7 @@ const socials = [
       }
     </ul>
     <p class="max-w-prose">
-      &#169; {currentYear} Maciej Garncarski. All rights reserved.
+      &#169; {currentYear} Maciej Garncarski. {t('footer.rights')}
     </p>
   </div>
 </footer>
