@@ -15,7 +15,8 @@ import { Icon } from 'astro-icon';
     '[data-scroll-button]'
   ) as HTMLButtonElement;
 
-  const SCROLL_MARGIN = 200;
+  const SCROLL_TOP_MARGIN = 200;
+
   const INACTIVE_CLASSNAMES = [
     'translate-y-20',
     'lg:translate-y-32',
@@ -25,9 +26,9 @@ import { Icon } from 'astro-icon';
   const handleScroll = () => {
     const { scrollY, innerHeight } = window;
     const { clientHeight } = document.body;
-    const scrollHeight = clientHeight - innerHeight - 100;
+    const SCROLL_BOTTOM_MARGIN = clientHeight - innerHeight - 100;
 
-    if (scrollY < SCROLL_MARGIN || scrollY > scrollHeight) {
+    if (scrollY < SCROLL_TOP_MARGIN || scrollY > SCROLL_BOTTOM_MARGIN) {
       scrollButton.classList.add(...INACTIVE_CLASSNAMES);
       return;
     }
