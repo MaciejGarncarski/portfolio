@@ -6,6 +6,7 @@ import ScrollUpButton from '@components/ScrollUpButton.astro';
 import '@fontsource/montserrat';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
+import { ViewTransitions } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
 
 const lang = getLangFromUrl(Astro.url);
@@ -52,6 +53,7 @@ const { routes } = Astro.props;
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <ViewTransitions />
   </head>
   <body
     class="mb-0 min-h-screen border-2 border-b-0 border-primary px-3 text-primary antialiased dark:text-primary sm:border-layout sm:px-5 lg:border-layout-desktop lg:border-b-0 lg:px-8">
