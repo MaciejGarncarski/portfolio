@@ -60,38 +60,36 @@ const contactData = [
   }
 </ul>
 
-<script is:inline>
+<script>
   const copyButtons = document.querySelectorAll('[data-copy]');
 
-  const getIcons = (element) => {
+  const getIcons = (element: Element) => {
     const iconNotCopied = element.querySelector('[data-not-copied]');
     const iconCopied = element.querySelector('[data-copied]');
-
     return { iconCopied, iconNotCopied };
   };
 
   const resetButtons = () => {
     copyButtons.forEach((button) => {
       const { iconCopied, iconNotCopied } = getIcons(button);
-      iconCopied.classList.remove('flex');
-      iconCopied.classList.add('hidden');
-      iconNotCopied.classList.remove('hidden');
-      iconNotCopied.classList.add('flex');
+      iconCopied?.classList.remove('flex');
+      iconCopied?.classList.add('hidden');
+      iconNotCopied?.classList.remove('hidden');
+      iconNotCopied?.classList.add('flex');
     });
   };
 
-  const onCopy = async ({ currentTarget: button }) => {
+  const onCopy = async (clickEv: Event) => {
+    const button = clickEv.currentTarget as HTMLButtonElement;
     const { iconCopied, iconNotCopied } = getIcons(button);
 
     resetButtons();
-    await navigator.clipboard.writeText(button.dataset.copy);
-    iconNotCopied.classList.remove('flex');
-    iconNotCopied.classList.add('hidden');
-    iconCopied.classList.remove('hidden');
-    iconCopied.classList.add('flex');
+    await navigator.clipboard.writeText(button.dataset.copy || '');
+    iconNotCopied?.classList.remove('flex');
+    iconNotCopied?.classList.add('hidden');
+    iconCopied?.classList.remove('hidden');
+    iconCopied?.classList.add('flex');
   };
 
-  copyButtons.forEach((button) => {
-    button.addEventListener('click', onCopy);
-  });
+  copyButtons.forEach((button) => button.addEventListener('click', onCopy));
 </script>
