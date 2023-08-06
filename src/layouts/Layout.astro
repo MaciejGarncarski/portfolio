@@ -60,10 +60,10 @@ const { routes } = Astro.props;
     <Nav />
     <div
       class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-4xl lg:pb-24 lg:pt-16">
-      <header data-header>
+      <header data-header transition:animate="slide">
         <slot name="header" />
       </header>
-      <main data-main>
+      <main data-main transition:animate="morph">
         <slot name="main" />
       </main>
     </div>
