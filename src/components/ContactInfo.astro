@@ -91,5 +91,12 @@ const contactData = [
     iconCopied?.classList.add('flex');
   };
 
-  copyButtons.forEach((button) => button.addEventListener('click', onCopy));
+  copyButtons.forEach((button) => {
+    if (!navigator.clipboard) {
+      button.classList.add('hidden');
+      return;
+    }
+
+    button.addEventListener('click', onCopy);
+  });
 </script>
