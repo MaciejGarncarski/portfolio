@@ -1,6 +1,6 @@
 export const projects = {
   en: {
-    'projects.live': 'Live',
+    'projects.live': 'Demo',
     'projects.repo': 'Repo',
     'projects.heading': 'My projects',
     'projects.photoapp':
@@ -13,8 +13,8 @@ export const projects = {
       'Typescript app, created to learn typescript and understand how much React makes life easier. This app is imitating e-commerce shop, but without checkout & payments yet sadly.'
   },
   pl: {
-    'projects.live': 'Podgląd',
-    'projects.repo': 'Kod',
+    'projects.live': 'Demo',
+    'projects.repo': 'Repozytorium',
     'projects.heading': 'Moje projekty',
     'projects.photoapp':
       'PhotoApp to aplikacja społecznościowa stworzona przy użyciu nowoczesnych technologii. W tej aplikacji możesz tworzyć posty komentować je i pisać z innymi użytkownikami . To była moja pierwsza próba stworzenia tak skomplikowanej aplikacji, a więc sporo się nauczyłem podczas jej tworzenia.',

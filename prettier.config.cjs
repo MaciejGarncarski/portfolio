@@ -5,11 +5,7 @@ module.exports = {
   singleQuote: true,
   printWidth: 80,
   bracketSameLine: true,
-  tailwindConfig: './tailwind.config.cjs',
-  plugins: [
-    require('prettier-plugin-tailwindcss'),
-    require.resolve('prettier-plugin-astro')
-  ],
+  plugins: ['prettier-plugin-astro'],
   overrides: [
     {
       files: '*.astro',

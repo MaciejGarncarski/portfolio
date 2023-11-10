@@ -12,7 +12,7 @@ https://maciej-garncarski.pl/
 
 ## Installation & running
 
-`yarn && yarn dev`
+`pnpm install && pnpm dev`
 
 ## Tech used
 

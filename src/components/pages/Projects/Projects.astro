@@ -7,12 +7,23 @@ import Tag from '@components/Tag.astro';
 import Layout from '@layouts/Layout.astro';
 
 import { getProjectsData } from './Projects.data';
+import business from '@assets/business.png';
+import githubSearcher from '@assets/github-searcher.png';
+import photoApp from '@assets/photo-app.png';
+import shoeShop from '@assets/shoe-shop.png';
 import { projectsRoute } from 'src/i18n/translations/routes';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const projects = getProjectsData(lang);
+
+const titleToImage = {
+  'Photo App': photoApp,
+  'Github Searcher': githubSearcher,
+  'Shoe Shop': shoeShop,
+  'Business Website': business
+};
 ---
 
 <Layout routes={projectsRoute}>
@@ -22,32 +33,26 @@ const projects = getProjectsData(lang);
   <article slot="main">
     <div class="mt-8 flex flex-col gap-20 lg:gap-28 xl:mt-16 2xl:gap-32">
       {
-        projects.map(
-          ({ description, repo, live, fileName, title, tags }, index) => {
-            return (
-              <article class="flex flex-col gap-4 lg:gap-6">
-                <ProjectThumbnail
-                  lazyLoad={index !== 0}
-                  fileName={fileName}
-                  title={title}
-                />
-                <Heading tag="h2" variant="secondary">
-                  {title}
-                </Heading>
-                <ul class="flex flex-wrap gap-x-2 gap-y-1.5 lg:gap-x-4">
-                  {tags.map((tagText) => (
-                    <Tag text={tagText} />
-                  ))}
-                </ul>
-                <p class="text-primary lg:max-w-3xl">{description}</p>
-                <div class="flex gap-4 lg:gap-4">
-                  <ProjectsButton href={live} variant="primary" />
-                  <ProjectsButton href={repo} variant="secondary" />
-                </div>
-              </article>
-            );
-          }
-        )
+        projects.map(({ description, repo, live, title, tags }) => {
+          return (
+            <article class="flex flex-col gap-4 lg:gap-6">
+              <ProjectThumbnail image={titleToImage[title]} title={title} />
+              <Heading tag="h2" variant="secondary">
+                {title}
+              </Heading>
+              <ul class="flex flex-wrap gap-x-2 gap-y-1.5 lg:gap-x-4">
+                {tags.map((tagText) => (
+                  <Tag text={tagText} />
+                ))}
+              </ul>
+              <p class="text-primary lg:max-w-3xl">{description}</p>
+              <div class="flex gap-4 lg:gap-4">
+                <ProjectsButton href={live} variant="primary" />
+                <ProjectsButton href={repo} variant="secondary" />
+              </div>
+            </article>
+          );
+        })
       }
     </div>
   </article>
