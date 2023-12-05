@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { clsx } from 'clsx';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
@@ -10,17 +11,21 @@ type Route = {
   text: string;
 };
 
+const homeURL = getRelativeLocaleUrl(lang, '/');
+const projectsURL = getRelativeLocaleUrl(lang, 'projects');
+const contactURL = getRelativeLocaleUrl(lang, 'contact');
+
 const navRoutesData = [
   {
-    href: t('nav.home.route'),
+    href: homeURL,
     text: t('nav.home')
   },
   {
-    href: t('nav.projects.route'),
+    href: projectsURL,
     text: t('nav.projects')
   },
   {
-    href: t('nav.contact.route'),
+    href: contactURL,
     text: t('nav.contact')
   }
 ] satisfies Array<Route>;

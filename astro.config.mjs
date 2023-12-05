@@ -9,6 +9,13 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto'
   },
+  i18n: {
+    defaultLocale: 'pl',
+    locales: ['pl', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
     tailwind({
       config: {

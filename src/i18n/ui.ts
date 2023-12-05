@@ -12,6 +12,8 @@ export const languages = {
 
 export const defaultLang = 'pl';
 
+export const showDefaultLang = false;
+
 export const ui = {
   en: {
     ...nav.en,
@@ -30,3 +32,14 @@ export const ui = {
     ...notFound.pl
   }
 } as const;
+
+export const routes: Record<'pl' | 'en', Record<string, string>> = {
+  pl: {
+    projects: 'projects',
+    contact: 'contact'
+  },
+  en: {
+    projects: 'projects',
+    contact: 'contact'
+  }
+};

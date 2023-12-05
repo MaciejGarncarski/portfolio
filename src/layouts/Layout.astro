@@ -10,12 +10,6 @@ import { ViewTransitions } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
 
 const lang = getLangFromUrl(Astro.url);
-
-export type Props = {
-  routes: Record<'en' | 'pl', string>;
-};
-
-const { routes } = Astro.props;
 ---
 
 <!doctype html>
@@ -67,7 +61,7 @@ const { routes } = Astro.props;
         <slot name="main" />
       </main>
     </div>
-    <Footer routes={routes} />
+    <Footer />
     <ScrollUpButton />
   </body>
 </html>

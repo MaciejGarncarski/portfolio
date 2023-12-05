@@ -5,14 +5,13 @@ import Technologies from '@components/Technologies.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { homeRoute } from 'src/i18n/translations/routes';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout routes={homeRoute}>
+<Layout>
   <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
     <h2 class="mb-2 text-secondary md:text-2xl lg:mb-10">Frontend developer</h2>

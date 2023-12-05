@@ -3,14 +3,13 @@ import Heading from '@components/Heading.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { homeRoute } from 'src/i18n/translations/routes';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout routes={homeRoute}>
+<Layout>
   <div
     slot="main"
     class="mt-20 flex flex-col items-center justify-center gap-2 text-center lg:mt-0 lg:gap-7">

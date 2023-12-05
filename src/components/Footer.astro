@@ -2,13 +2,7 @@
 import LanguagePicker from './LanguagePicker.astro';
 import { Icon } from 'astro-icon';
 
-export type Props = {
-  routes: Record<'en' | 'pl', string>;
-};
-
 const currentYear = new Date().getFullYear();
-
-const { routes } = Astro.props;
 
 const socials = [
   {
@@ -30,7 +24,7 @@ const socials = [
   class="-mx-3 min-h-[160px] bg-primary px-6 py-6 text-white sm:-mx-7 sm:-mb-1 lg:-mx-10">
   <div
     class="mx-auto flex flex-col gap-y-7 md:max-w-lg lg:max-w-4xl lg:gap-y-10">
-    <LanguagePicker routes={routes} />
+    <LanguagePicker />
     <ul class="flex flex-wrap gap-6 gap-y-3 lg:gap-6">
       {
         socials.map(({ link, name }) => {

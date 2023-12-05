@@ -1,35 +1,39 @@
 ---
 import { Icon } from 'astro-icon';
+import {
+  getLangFromUrl,
+  getRouteFromUrl,
+  useTranslatedPath
+} from 'src/i18n/utils';
 
-export type Props = {
-  routes: Record<'en' | 'pl', string>;
-};
+const route = getRouteFromUrl(Astro.url);
 
-const { pl, en } = Astro.props.routes;
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 
 const languageData = [
   {
-    href: pl,
+    lang: 'pl',
     languageName: 'Polski',
     flagName: 'openmoji:flag-poland'
   },
   {
-    href: en,
+    lang: 'en',
     languageName: 'English',
     flagName: 'openmoji:flag-united-kingdom'
   }
-];
+] as const;
 ---
 
 <ul class="flex gap-6">
   {
-    languageData.map(({ flagName, href, languageName }) => {
+    languageData.map(({ flagName, languageName, lang }) => {
       return (
         <li>
           <a
-            href={href}
+            href={translatePath(`/${route ? route : ''}`, lang)}
             class="flex items-center gap-1"
-            data-lang={languageName === 'English' ? 'en' : 'pl'}>
+            data-lang={lang}>
             <Icon name={flagName} class="w-8" />
             <span class="leading-none">{languageName}</span>
           </a>
