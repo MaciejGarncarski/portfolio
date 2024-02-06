@@ -14,17 +14,11 @@ const { valueToBeCopied } = Astro.props;
 
 <button
   type="button"
-  transition:persist
   data-copy={valueToBeCopied}
   class="p-2 bg-primary rounded text-white focus:ring ring-offset-4 ring-primary outline-none">
-  <Icon
-    data-check-icon
-    name="ph:check-bold"
-    class="hidden"
-    transition:persist
-  />
-  <Icon data-copy-icon name="ph:copy-bold" transition:persist />
-  <span class="sr-only" transition:persist>{t('contact.copy-text')}</span>
+  <Icon data-check-icon name="ph:check-bold" class="hidden" />
+  <Icon data-copy-icon name="ph:copy-bold" />
+  <span class="sr-only">{t('contact.copy-text')}</span>
 </button>
 
 <script>
