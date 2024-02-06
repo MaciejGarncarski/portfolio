@@ -1,4 +1,6 @@
 ---
+import CopyButton from '@components/CopyButton.astro';
+
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -32,10 +34,11 @@ const contactData = [
         <li class="flex w-full items-center justify-between gap-6">
           <p class="flex flex-grow flex-col lg:flex-row lg:items-center lg:gap-2">
             <span class="text-xl font-bold lg:text-2xl">{`${key}:`}</span>
-            <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl lg:text-2xl select-all">
+            <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl lg:text-2xl">
               {value}
             </span>
           </p>
+          <CopyButton client:load valueToBeCopied={value} />
         </li>
       );
     })

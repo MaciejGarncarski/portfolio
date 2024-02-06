@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+
+type Props = {
+  valueToBeCopied: string;
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { valueToBeCopied } = Astro.props;
+---
+
+<button
+  type="button"
+  transition:persist
+  data-copy={valueToBeCopied}
+  class="p-2 bg-primary rounded text-white focus:ring ring-offset-4 ring-primary outline-none">
+  <Icon
+    data-check-icon
+    name="ph:check-bold"
+    class="hidden"
+    transition:persist
+  />
+  <Icon data-copy-icon name="ph:copy-bold" transition:persist />
+  <span class="sr-only" transition:persist>{t('contact.copy-text')}</span>
+</button>
+
+<script>
+  const handleCopyButtons = () => {
+    const copyButtons =
+      document.querySelectorAll<HTMLButtonElement>('[data-copy]');
+
+    copyButtons.forEach((el) => {
+      const valueToBeCopied = el.dataset.copy as string;
+      const checkIcon = el.querySelector('[data-check-icon]');
+      const copyIcon = el.querySelector('[data-copy-icon]');
+
+      el.addEventListener('click', () => {
+        try {
+          navigator.clipboard.writeText(valueToBeCopied);
+
+          copyButtons.forEach((button) => {
+            const copyIcon = button.querySelector('[data-copy-icon]');
+            const checkIcon = button.querySelector('[data-check-icon]');
+            copyIcon?.classList.remove('hidden');
+            checkIcon?.classList.add('hidden');
+          });
+
+          copyIcon?.classList.add('hidden');
+          checkIcon?.classList.remove('hidden');
+        } catch (error) {}
+      });
+    });
+  };
+
+  handleCopyButtons();
+  document.addEventListener('astro:after-swap', handleCopyButtons);
+</script>
