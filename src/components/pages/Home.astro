@@ -17,11 +17,13 @@ const contactURL = getRelativeLocaleUrl(lang, 'contact');
 <Layout>
   <Fragment slot="header">
     <Heading variant="primary" tag="h1">Maciej Garncarski</Heading>
-    <h2 class="mb-2 text-secondary md:text-2xl lg:mb-10">Frontend developer</h2>
+    <h2 class="mb-4 text-secondary md:text-2xl lg:text-4xl text-xl lg:mb-10">
+      Frontend developer
+    </h2>
     <HomeLink href={contactURL} text={t('home.link-contact')} />
   </Fragment>
   <section slot="main" class="mt-10 lg:mt-20">
-    <div class="col-span-3 mb-2 lg:mb-10">
+    <div class="col-span-3 lg:mb-8 mb-4">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <Technologies />

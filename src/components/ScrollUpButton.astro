@@ -1,12 +1,12 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
 <button
   data-scroll-button
   type="button"
-  class="fixed bottom-2 right-6 h-14 w-14 border-2 border-primary bg-primary p-2 text-white opacity-0 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-4 md:bottom-10 md:right-6 md:h-16 md:w-16 lg:bottom-12 lg:right-24">
-  <Icon name="ph:arrow-up" />
+  class="fixed bottom-2 right-6 h-14 w-14 border-2 z-20 rounded border-primary bg-primary p-2 text-white opacity-1 transition-all hover:bg-white hover:text-primary focus:translate-y-0 focus:bg-white focus:text-primary focus:opacity-100 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-4 md:bottom-10 md:right-6 md:h-16 md:w-16 lg:bottom-12 lg:right-24">
+  <Icon name="ph:arrow-up-bold" class="w-8 h-8" />
   <span class="visually-hidden">Scroll to top</span>
 </button>
 
@@ -26,7 +26,7 @@ import { Icon } from 'astro-icon';
   const handleScroll = () => {
     const { scrollY, innerHeight } = window;
     const { clientHeight } = document.body;
-    const SCROLL_BOTTOM_MARGIN = clientHeight - innerHeight - 100;
+    const SCROLL_BOTTOM_MARGIN = clientHeight - innerHeight - 30;
 
     if (scrollY < SCROLL_TOP_MARGIN || scrollY > SCROLL_BOTTOM_MARGIN) {
       scrollButton.classList.add(...INACTIVE_CLASSNAMES);
@@ -38,6 +38,7 @@ import { Icon } from 'astro-icon';
   handleScroll();
 
   const handleClick = () => {
+    console.log('click');
     scrollButton.blur();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

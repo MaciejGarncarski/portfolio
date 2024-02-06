@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { Icon } from 'astro-icon/components';
 import { clsx } from 'clsx';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
@@ -8,6 +9,7 @@ const t = useTranslations(lang);
 
 type Route = {
   href: string;
+  icon: string;
   text: string;
 };
 
@@ -18,35 +20,39 @@ const contactURL = getRelativeLocaleUrl(lang, 'contact');
 const navRoutesData = [
   {
     href: homeURL,
+    icon: 'ph:user-bold',
     text: t('nav.home')
   },
   {
     href: projectsURL,
+    icon: 'ph:chart-line-up-bold',
     text: t('nav.projects')
   },
   {
     href: contactURL,
+    icon: 'ph:phone-call-bold',
     text: t('nav.contact')
   }
 ] satisfies Array<Route>;
 ---
 
 <nav
-  class="mb-8 mt-4 border-4 border-slate-900 py-3 sm:px-1 md:mx-auto md:w-fit md:px-8 lg:mb-0 lg:mt-10 lg:py-4">
+  class="mb-8 text-white lg:rounded-lg rounded-md bg-primary md:mx-auto md:w-fit md:px-4 md:py-2 lg:mb-0 lg:mt-4 lg:py-2">
   <ul
-    class="flex items-center justify-around font-bold uppercase md:justify-center md:gap-20 lg:text-xl">
+    class="flex items-center justify-between font-normal uppercase md:justify-center md:gap-12 lg:text-lg text-xs p-2 lg:p-0">
     {
-      navRoutesData.map(({ href, text }) => {
+      navRoutesData.map(({ href, text, icon }) => {
         const activeClass =
-          'before:bg-primary before:left-0 before:animate-link-active relative before:absolute lg:before:bottom-0 before:-bottom-1 before:h-1 before:w-full before:origin-center';
+          'before:bg-white before:left-0  before:animate-link-active relative before:absolute before:left-[15%] lg:before:bottom-0 before:-bottom-1 before:h-[2px] before:w-[70%] before:origin-center';
         return (
           <li>
             <a
               class={clsx(
                 href === Astro.url.pathname && activeClass,
-                'border-2 border-transparent focus:border-primary focus:outline-none sm:p-1 lg:p-2'
+                'border-2 border-transparent focus:border-white focus:outline-none sm:p-1 lg:p-2 flex rounded-lg items-center gap-2'
               )}
               href={href}>
+              <Icon name={icon} class="lg:w-5 lg:h-5" />
               {text}
             </a>
           </li>

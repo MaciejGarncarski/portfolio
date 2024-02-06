@@ -26,8 +26,8 @@ module.exports = {
         'layout-desktop': '45px'
       },
       colors: {
-        primary: colors.slate[900],
-        secondary: colors.slate[800]
+        primary: colors.slate[800],
+        secondary: colors.slate[700]
       },
       screens: {
         sm: '350px'
@@ -37,6 +37,5 @@ module.exports = {
       }
     }
   },
-  plugins: [
-  ]
+  plugins: []
 };

@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import {
   getLangFromUrl,
   getRouteFromUrl,
@@ -34,7 +34,7 @@ const languageData = [
             href={translatePath(`/${route ? route : ''}`, lang)}
             class="flex items-center gap-1"
             data-lang={lang}>
-            <Icon name={flagName} class="w-8" />
+            <Icon name={flagName} class="w-8 h-8" />
             <span class="leading-none">{languageName}</span>
           </a>
         </li>

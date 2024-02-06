@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html class="bg-white bg-waves" lang={lang}>
+<html class="bg-primary" lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -42,24 +42,26 @@ const lang = getLangFromUrl(Astro.url);
     <link
       rel="mask-icon"
       href="/favicons/safari-pinned-tab.svg"
-      color="#0f172a"
+      color="#1e293b"
     />
-    <meta name="msapplication-TileColor" content="#0f172a" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="msapplication-TileColor" content="#1e293b" />
+    <meta name="theme-color" content="#1e293b" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
   </head>
   <body
-    class="mb-0 min-h-screen border-2 border-b-0 border-primary px-3 text-primary antialiased dark:text-primary sm:border-layout sm:px-5 lg:border-layout-desktop lg:border-b-0 lg:px-8">
-    <Nav />
-    <div
-      class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
-      <header data-header transition:animate="slide">
-        <slot name="header" />
-      </header>
-      <main data-main transition:animate="slide">
-        <slot name="main" />
-      </main>
+    class="mb-0 min-h-screen border border-b-0 p-1 border-primary text-primary antialiased dark:text-primary sm:border-layout lg:border-layout-desktop lg:border-b-0">
+    <div class="bg-waves rounded-md lg:rounded-xl p-4">
+      <Nav />
+      <div
+        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl lg:pb-24 lg:pt-16">
+        <header data-header transition:animate="fade">
+          <slot name="header" />
+        </header>
+        <main data-main transition:animate="fade">
+          <slot name="main" />
+        </main>
+      </div>
     </div>
     <Footer />
     <ScrollUpButton />

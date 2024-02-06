@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import { technologies } from 'src/data/Technologies';
 ---
 
@@ -10,7 +10,7 @@ import { technologies } from 'src/data/Technologies';
       return (
         <li class="justify-self-start">
           <a
-            class="flex flex-col items-center justify-center gap-2 border-4 border-primary p-2 ring-primary hover:ring-2 focus:outline-none focus:ring-4 focus:ring-offset-4"
+            class="flex flex-col items-center justify-center gap-2 border-4 bg-slate-100 rounded border-primary p-2 ring-primary hover:ring-2 focus:outline-none focus:ring-4 focus:ring-offset-4"
             href={link}
             target="_blank"
             rel="noopener noreferrer">
