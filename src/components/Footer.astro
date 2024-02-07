@@ -2,8 +2,6 @@
 import LanguagePicker from './LanguagePicker.astro';
 import { Icon } from 'astro-icon/components';
 
-const currentYear = new Date().getFullYear();
-
 const socials = [
   {
     name: 'LinkedIn',
@@ -14,7 +12,7 @@ const socials = [
     link: 'https://github.com/maciejgarncarski'
   },
   {
-    name: 'Twitter',
+    name: 'X/Twitter',
     link: 'https://twitter.com/MGarncarski'
   }
 ] as const;
@@ -30,7 +28,7 @@ const socials = [
             <li>
               <a
                 href={link}
-                class="flex items-center focus:underline lg:gap-[2px]"
+                class="flex items-center relative before:h-[2px] before:rounded before:w-[95%] before:absolute before:left-[2.5%] before:-bottom-[2px] before:bg-white lg:gap-[2px]"
                 target="_blank">
                 <span>{name}</span>
                 <Icon name="ph:arrow-up-right" class="h-5 w-5" />
@@ -40,8 +38,6 @@ const socials = [
         })
       }
     </ul>
-    <p class="max-w-prose">
-      &#169; {currentYear}
-    </p>
+    <p class="max-w-prose">&#169; Maciej Garncarski</p>
   </div>
 </footer>

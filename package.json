@@ -26,6 +26,7 @@
     "@iconify-json/openmoji": "^1.1.46",
     "@iconify-json/ph": "^1.1.11",
     "astro": "^4.3.3",
+    "astro-compress": "^2.2.9",
     "astro-icon": "^1.1.0",
     "clsx": "^2.0.0",
     "sharp": "^0.32.6",
