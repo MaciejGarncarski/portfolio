@@ -4,7 +4,7 @@ import { technologies } from 'src/data/Technologies';
 ---
 
 <ul
-  class="mb-4 grid max-w-sm grid-cols-3 gap-6 md:gap-10 lg:mb-10 lg:max-w-md lg:gap-10">
+  class="mb-4 grid w-fit grid-cols-3 gap-2 sm:gap-6 md:gap-10 lg:mb-10 lg:gap-10">
   {
     technologies.map(({ name, fileName, link }) => {
       return (
@@ -14,7 +14,10 @@ import { technologies } from 'src/data/Technologies';
             href={link}
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name={`Logos${fileName}`} class="h-14 w-14 lg:h-20 lg:w-20" />
+            <Icon
+              name={`Logos${fileName}`}
+              class="w-10 h-10 xs:h-14 xs:w-14 lg:h-20 lg:w-20"
+            />
             <span class="visually-hidden">{name}</span>
           </a>
         </li>

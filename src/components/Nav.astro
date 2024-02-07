@@ -20,40 +20,40 @@ const contactURL = getRelativeLocaleUrl(lang, 'contact');
 const navRoutesData = [
   {
     href: homeURL,
-    icon: 'ph:user-bold',
+    icon: 'ph:user',
     text: t('nav.home')
   },
   {
     href: projectsURL,
-    icon: 'ph:chart-line-up-bold',
+    icon: 'ph:chart-line-up',
     text: t('nav.projects')
   },
   {
     href: contactURL,
-    icon: 'ph:phone-call-bold',
+    icon: 'ph:phone-call',
     text: t('nav.contact')
   }
 ] satisfies Array<Route>;
 ---
 
 <nav
-  class="mb-8 text-white lg:rounded-lg rounded-md bg-primary md:mx-auto md:w-fit md:px-4 md:py-2 lg:mb-0 lg:mt-4 lg:py-2">
+  class="mb-8 text-white md:rounded-xl rounded-md bg-primary md:mx-auto md:w-fit md:px-6 md:mb-0 md:mt-4 md:py-2">
   <ul
-    class="flex items-center justify-between font-normal uppercase md:justify-center md:gap-12 lg:text-lg text-xs p-2 lg:p-0">
+    class="flex items-center justify-center font-normal uppercase gap-4 xs:gap-8 md:gap-10 text-xs md:text-base p-2 md:p-0">
     {
       navRoutesData.map(({ href, text, icon }) => {
         const activeClass =
-          'before:bg-white before:left-0  before:animate-link-active relative before:absolute before:left-[15%] lg:before:bottom-0 before:-bottom-1 before:h-[2px] before:w-[70%] before:origin-center';
+          'before:bg-white before:left-0 before:animate-link-active relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 sm:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
         return (
           <li>
             <a
               class={clsx(
                 href === Astro.url.pathname && activeClass,
-                'border-2 border-transparent focus:border-white focus:outline-none sm:p-1 lg:p-2 flex rounded-lg items-center gap-2'
+                'border-2 border-transparent focus:border-white focus:outline-none sm:p-1 md:p-2 flex gap-1 rounded-md items-center'
               )}
               href={href}>
-              <Icon name={icon} class="lg:w-5 lg:h-5" />
-              {text}
+              <Icon name={icon} class="hidden md:block w-6 h-6" />
+              <span>{text}</span>
             </a>
           </li>
         );
