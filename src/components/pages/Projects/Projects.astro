@@ -6,24 +6,12 @@ import Tag from '@components/Tag.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { getProjectsData } from './Projects.data';
-import business from '@assets/business.png';
-import githubSearcher from '@assets/github-searcher.png';
-import photoApp from '@assets/photo-app.png';
-import shoeShop from '@assets/shoe-shop.png';
-import type { ImageMetadata } from 'astro';
+import { getProjectsData } from './ProjectsData.astro';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const projects = getProjectsData(lang);
-
-const titleToImage: Record<string, ImageMetadata> = {
-  'Photo App': photoApp,
-  'Github Searcher': githubSearcher,
-  'Shoe Shop': shoeShop,
-  'Business Website': business
-};
 ---
 
 <Layout>
@@ -33,10 +21,10 @@ const titleToImage: Record<string, ImageMetadata> = {
   <article slot="main">
     <div class="mt-8 flex flex-col gap-20 lg:gap-28 xl:mt-16 2xl:gap-32">
       {
-        projects.map(({ description, repo, live, title, tags }) => {
+        projects.map(({ description, repo, live, title, tags, image }) => {
           return (
             <article class="flex flex-col gap-4 lg:gap-6">
-              <ProjectThumbnail image={titleToImage[title]} title={title} />
+              <ProjectThumbnail image={image} title={title} />
               <Heading tag="h2" variant="secondary">
                 {title}
               </Heading>

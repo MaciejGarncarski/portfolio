@@ -1,3 +1,9 @@
+---
+import business from '@assets/business.png';
+import githubSearcher from '@assets/github-searcher.png';
+import photoApp from '@assets/photo-app.png';
+import shoeShop from '@assets/shoe-shop.png';
+import type { ImageMetadata } from 'astro';
 import { useTranslations } from 'src/i18n/utils';
 
 type Project = {
@@ -5,6 +11,7 @@ type Project = {
   description: string;
   repo: string;
   live: string;
+  image: ImageMetadata;
   tags: Array<string>;
 };
 
@@ -17,6 +24,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
       description: t('projects.photoapp'),
       repo: 'https://github.com/MaciejGarncarski/photo-app',
       live: 'https://photoapp.maciej-garncarski.pl/',
+      image: photoApp,
       tags: ['React', 'Next.js', 'TypeScript', 'Sass']
     },
     {
@@ -24,6 +32,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
       description: t('projects.github-searcher'),
       repo: 'https://github.com/MaciejGarncarski/github-searcher',
       live: 'https://github-searcher-maciek.vercel.app/',
+      image: githubSearcher,
       tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS']
     },
     {
@@ -31,6 +40,7 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
       description: t('projects.shoe-shop'),
       repo: 'https://github.com/MaciejGarncarski/shoe-shop',
       live: 'https://shoe-shop-omega.vercel.app/',
+      image: shoeShop,
       tags: ['Typescript', 'Sass', 'HTML']
     },
     {
@@ -38,9 +48,11 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
       description: t('projects.business-website'),
       repo: 'https://github.com/MaciejGarncarski/Buisness-Website',
       live: 'https://website-business.netlify.app/',
+      image: business,
       tags: ['React', 'TypeScript', 'Framer Motion', 'styled-components']
     }
   ];
 
   return projects;
 };
+---
