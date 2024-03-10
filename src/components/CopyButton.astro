@@ -44,6 +44,11 @@ const { valueToBeCopied } = Astro.props;
 
           copyIcon?.classList.add('hidden');
           checkIcon?.classList.remove('hidden');
+
+          setTimeout(() => {
+            copyIcon?.classList.remove('hidden');
+            checkIcon?.classList.add('hidden');
+          }, 3000);
         } catch (error) {}
       });
     });

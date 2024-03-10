@@ -4,16 +4,9 @@ import { Icon } from 'astro-icon/components';
 
 const socials = [
   {
-    name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/maciej-garncarski/'
-  },
-  {
+    icon: 'ph:github-logo',
     name: 'GitHub',
     link: 'https://github.com/maciejgarncarski'
-  },
-  {
-    name: 'X/Twitter',
-    link: 'https://twitter.com/MGarncarski'
   }
 ] as const;
 ---
@@ -23,15 +16,15 @@ const socials = [
     <LanguagePicker />
     <ul class="flex flex-wrap gap-4">
       {
-        socials.map(({ link, name }) => {
+        socials.map(({ link, name, icon }) => {
           return (
             <li>
               <a
                 href={link}
-                class="flex items-center relative before:h-[2px] before:rounded before:w-[95%] before:absolute before:left-[2.5%] before:-bottom-[2px] before:bg-white lg:gap-[2px]"
+                class="flex items-center relative before:h-[2px] bg-white text-primary py-1 px-2 hover:bg-primary border-white transition-colors border border-transparent hover:text-white rounded font-medium"
                 target="_blank">
+                <Icon name={icon} class="w-6 h-6 mr-1" />
                 <span>{name}</span>
-                <Icon name="ph:arrow-up-right" class="h-5 w-5" />
               </a>
             </li>
           );

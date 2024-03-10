@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import compress from 'astro-compress';
 import icon from 'astro-icon';
 
@@ -18,6 +18,9 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
+  image: {
+    service: squooshImageService()
+  },
   integrations: [
     icon(),
     tailwind({
@@ -25,6 +28,7 @@ export default defineConfig({
         applyBaseStyles: false
       }
     }),
+
     sitemap({
       i18n: {
         defaultLocale: 'pl',
