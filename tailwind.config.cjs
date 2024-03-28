@@ -33,7 +33,7 @@ module.exports = {
         sm: '350px'
       },
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif']
+        openSans: ['Open Sans', 'sans-serif']
       }
     }
   },
