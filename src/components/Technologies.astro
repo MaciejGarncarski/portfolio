@@ -1,12 +1,12 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { technologies } from 'src/data/Technologies';
+import { Image } from 'astro:assets';
+import { technologies } from 'src/data/Technologies.data.astro';
 ---
 
 <ul
   class="mb-4 grid w-fit grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-8 lg:mb-8">
   {
-    technologies.map(({ name, fileName, link }) => {
+    technologies.map(({ name, src, link }) => {
       return (
         <li class="justify-self-start">
           <a
@@ -14,9 +14,11 @@ import { technologies } from 'src/data/Technologies';
             href={link}
             target="_blank"
             rel="noopener noreferrer">
-            <Icon
-              name={fileName}
+            <Image
+              loading={'eager'}
+              src={src}
               class="w-10 h-10 xs:h-14 xs:w-14 lg:h-16 lg:w-16"
+              alt={name}
             />
             <span class="visually-hidden">{name}</span>
           </a>

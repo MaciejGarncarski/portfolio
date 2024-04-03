@@ -30,9 +30,14 @@ const { valueToBeCopied } = Astro.props;
       const valueToBeCopied = el.dataset.copy as string;
       const checkIcon = el.querySelector('[data-check-icon]');
       const copyIcon = el.querySelector('[data-copy-icon]');
+      let tiemout: NodeJS.Timeout | null = null;
 
       el.addEventListener('click', () => {
         try {
+          if (tiemout) {
+            clearTimeout(tiemout);
+          }
+
           navigator.clipboard.writeText(valueToBeCopied);
 
           copyButtons.forEach((button) => {
@@ -45,10 +50,10 @@ const { valueToBeCopied } = Astro.props;
           copyIcon?.classList.add('hidden');
           checkIcon?.classList.remove('hidden');
 
-          setTimeout(() => {
+          tiemout = setTimeout(() => {
             copyIcon?.classList.remove('hidden');
             checkIcon?.classList.add('hidden');
-          }, 3000);
+          }, 5000);
         } catch (error) {}
       });
     });
