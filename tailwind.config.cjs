@@ -22,8 +22,9 @@ module.exports = {
         waves: 'url("/white-waves.webp")'
       },
       borderWidth: {
-        layout: '11px',
-        'layout-desktop': '45px'
+        layout: '0.75rem',
+        'layout-desktop-y': '2.5rem',
+        'layout-desktop-x': '4rem'
       },
       colors: {
         primary: colors.slate[800],

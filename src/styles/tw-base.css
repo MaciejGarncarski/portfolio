@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
 
   html {
     font-family: 'Open Sans', system-ui, sans-serif;

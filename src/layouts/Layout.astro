@@ -1,7 +1,6 @@
 ---
 import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
-import ScrollUpButton from '@components/ScrollUpButton.astro';
 
 import '@fontsource-variable/open-sans';
 import '@styles/tw-base.css';
@@ -50,11 +49,11 @@ const lang = getLangFromUrl(Astro.url);
     <ViewTransitions />
   </head>
   <body
-    class="mb-0 min-h-screen border border-b-0 p-1 border-primary text-primary antialiased dark:text-primary sm:border-layout md:border-layout-desktop md:border-b-0">
-    <div class="bg-waves bg-white rounded-md md:rounded-xl p-4">
+    class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary sm:border-layout md:border-x-layout-desktop-x md:border-y-layout-desktop-y md:border-b-0">
+    <div class="bg-waves bg-white rounded md:rounded-md p-5">
       <Nav />
       <div
-        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:max-w-lg lg:min-h-[85vh] lg:max-w-3xl md:pb-24 md:pt-16">
+        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-[50rem] lg:min-h-[75vh] md:pb-24 md:pt-16">
         <header data-header transition:animate="fade">
           <slot name="header" />
         </header>
@@ -64,6 +63,5 @@ const lang = getLangFromUrl(Astro.url);
       </div>
     </div>
     <Footer />
-    <ScrollUpButton />
   </body>
 </html>

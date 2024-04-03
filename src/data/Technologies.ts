@@ -1,47 +1,62 @@
 export const technologies = [
   {
     name: 'HTML',
-    fileName: 'Html5',
+    fileName: 'html',
     link: 'https://www.w3.org/html/'
   },
   {
     name: 'HTML',
-    fileName: 'Css3',
+    fileName: 'css',
     link: 'https://www.w3.org/Style/CSS/'
   },
   {
     name: 'JavaScript',
-    fileName: 'Javascript',
+    fileName: 'js',
     link: 'https://javascript.info/'
   },
   {
     name: 'TypeScript',
-    fileName: 'TypescriptIcon',
+    fileName: 'ts',
     link: 'https://www.typescriptlang.org/'
   },
   {
     name: 'Sass',
-    fileName: 'Sass',
+    fileName: 'sass',
     link: 'https://sass-lang.com/'
   },
   {
     name: 'Jest',
-    fileName: 'Jest',
+    fileName: 'jest',
     link: 'https://jestjs.io/'
   },
   {
     name: 'React',
-    fileName: 'React',
+    fileName: 'react',
     link: 'https://react.dev/'
   },
   {
-    name: 'Next.js',
-    fileName: 'NextjsIcon',
+    name: 'Next',
+    fileName: 'next',
     link: 'https://nextjs.org/'
   },
   {
     name: 'Astro',
-    fileName: 'AstroIcon',
+    fileName: 'astro',
     link: 'https://astro.build/'
+  },
+  {
+    name: 'Node.js',
+    fileName: 'node',
+    link: 'https://nodejs.org/'
+  },
+  {
+    name: 'Fastify',
+    fileName: 'fastify',
+    link: 'https://fastify.dev/'
+  },
+  {
+    name: 'Vite',
+    fileName: 'vite',
+    link: 'https://vitejs.dev/'
   }
 ];

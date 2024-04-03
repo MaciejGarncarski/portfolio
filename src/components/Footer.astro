@@ -11,8 +11,9 @@ const socials = [
 ] as const;
 ---
 
-<footer class="min-h-[160px] w-full bg-primary px-1 py-4 text-white">
-  <div class="flex flex-col gap-y-4 lg:max-w-prose w-full lg:gap-y-6">
+<footer class="px-1 mt-4 md:my-8 mb-0 flex-col gap-6 flex text-white">
+  <div
+    class="flex flex-col sm:gap-0 gap-4 sm:flex-row justify-between md:justify-start md:gap-8">
     <LanguagePicker />
     <ul class="flex flex-wrap gap-4">
       {
@@ -21,9 +22,9 @@ const socials = [
             <li>
               <a
                 href={link}
-                class="flex items-center relative before:h-[2px] bg-white text-primary py-1 px-2 hover:bg-primary border-white transition-colors border border-transparent hover:text-white rounded font-medium"
+                class="flex items-center relative before:h-[2px] text-sm bg-white text-primary py-1 px-2 hover:bg-primary border-white transition-colors border border-transparent hover:text-white rounded font-medium"
                 target="_blank">
-                <Icon name={icon} class="w-6 h-6 mr-1" />
+                <Icon name={icon} class="w-5 h-5 mr-1" />
                 <span>{name}</span>
               </a>
             </li>
@@ -31,6 +32,8 @@ const socials = [
         })
       }
     </ul>
-    <p class="max-w-prose">&#169; Maciej Garncarski</p>
   </div>
+  <p class="max-w-prose text-xs text-gray-400">
+    &#169; 2024 Maciej Garncarski. All rights reserved.
+  </p>
 </footer>

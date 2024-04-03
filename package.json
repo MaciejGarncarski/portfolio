@@ -10,12 +10,12 @@
     "astro": "astro",
     "lint": "eslint --fix --max-warnings=0 \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "format": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
-    "lint-format": "bun format && bun lint",
+    "lint-format": "pnpm format && pnpm lint",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,astro}": "bun lint",
-    "*.{js,jsx,ts,tsx,md,mdx,astro}": "bun format --cache"
+    "*.{js,ts,jsx,tsx,astro}": "pnpm lint",
+    "*.{js,jsx,ts,tsx,md,mdx,astro}": "pnpm format --cache"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.1.1",

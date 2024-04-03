@@ -25,15 +25,15 @@ const projects = getProjectsData(lang);
           return (
             <article class="flex flex-col gap-4 lg:gap-6">
               <ProjectThumbnail image={image} title={title} />
-              <Heading tag="h2" variant="secondary">
-                {title}
-              </Heading>
               <ul class="flex flex-wrap gap-x-2 gap-y-1.5 lg:gap-x-4">
                 {tags.map((tagText) => (
                   <Tag text={tagText} />
                 ))}
               </ul>
-              <p class="text-primary text-xl lg:max-w-3xl">{description}</p>
+              <Heading tag="h2" variant="secondary">
+                {title}
+              </Heading>
+              <p class="text-primary lg:max-w-3xl">{description}</p>
               <div class="flex gap-x-4 gap-y-2 flex-wrap">
                 <ProjectsButton href={live} variant="primary" />
                 <ProjectsButton href={repo} variant="secondary" />
