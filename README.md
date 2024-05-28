@@ -1,6 +1,6 @@
 # Portfolio
 
-My personal website/portfolio. Created in Astro framework. I've choosen Astro because, it's really fast and simple to learn. I used new view transition API - it allows to create transition in MPA's.
+My personal website.
 
 ## Performance
 
