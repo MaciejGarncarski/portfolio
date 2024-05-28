@@ -21,10 +21,14 @@ const projects = getProjectsData(lang);
   <article slot="main">
     <div class="mt-8 flex flex-col gap-20 lg:gap-28 xl:mt-16 2xl:gap-32">
       {
-        projects.map(({ description, repo, live, title, tags, image }) => {
+        projects.map(({ description, repo, live, title, tags, image }, idx) => {
           return (
             <article class="flex flex-col gap-4 lg:gap-6">
-              <ProjectThumbnail image={image} title={title} />
+              <ProjectThumbnail
+                image={image}
+                title={title}
+                priority={idx === 0}
+              />
               <ul class="flex flex-wrap gap-x-2 gap-y-1.5 lg:gap-x-4">
                 {tags.map((tagText) => (
                   <Tag text={tagText} />

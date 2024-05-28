@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import icon from 'astro-icon';
 
@@ -17,9 +17,6 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  },
-  image: {
-    service: squooshImageService()
   },
   integrations: [
     icon(),
