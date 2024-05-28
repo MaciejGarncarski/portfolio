@@ -6,6 +6,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   site: 'https://maciej-garncarski.pl',
   compressHTML: true,
   build: {

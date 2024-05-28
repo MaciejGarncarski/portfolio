@@ -51,6 +51,7 @@ const navRoutesData = [
                 href === Astro.url.pathname && activeClass,
                 'border-2 border-transparent focus:border-white focus:outline-none sm:p-1 md:p-2 flex gap-1 rounded-md items-center'
               )}
+              data-astro-prefetch
               href={href}>
               <Icon name={icon} class="hidden md:block w-6 h-6" />
               <span>{text}</span>

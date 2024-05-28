@@ -61,10 +61,10 @@ const lang = getLangFromUrl(Astro.url);
       <Nav />
       <div
         class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-[50rem] lg:min-h-[75vh] md:pb-24 md:pt-16">
-        <header data-header transition:animate="fade">
+        <header data-header transition:animate="initial">
           <slot name="header" />
         </header>
-        <main data-main transition:animate="fade">
+        <main data-main transition:animate="none">
           <slot name="main" />
         </main>
       </div>
