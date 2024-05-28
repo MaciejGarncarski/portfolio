@@ -20,13 +20,13 @@ export default defineConfig({
     }
   },
   integrations: [
-    icon(),
     tailwind({
       config: {
         applyBaseStyles: false
       }
     }),
-
+    icon(),
+    compress(),
     sitemap({
       i18n: {
         defaultLocale: 'pl',
@@ -35,7 +35,6 @@ export default defineConfig({
           en: 'en'
         }
       }
-    }),
-    compress()
+    })
   ]
 });
