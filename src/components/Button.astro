@@ -1,0 +1,46 @@
+---
+import clsx from 'clsx';
+
+type Props =
+  | {
+      variant: 'primary' | 'secondary';
+      type?: 'submit' | 'button';
+      buttonType: 'button';
+    }
+  | {
+      variant: 'primary' | 'secondary';
+      buttonType: 'link';
+      href: string;
+    };
+
+const { buttonType, variant } = Astro.props;
+
+const baseClasses =
+  'inline-flex w-fit items-center gap-2 border-2 border-primary px-3 py-1 transition text-sm focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-4 rounded lg:text-lg';
+
+const primaryClasses = clsx(
+  baseClasses,
+  'text-white bg-primary hover:bg-white hover:text-primary'
+);
+const secondaryClasses = clsx(
+  baseClasses,
+  'text-primary bg-white hover:bg-primary hover:text-white'
+);
+
+const className = variant === 'primary' ? primaryClasses : secondaryClasses;
+---
+
+{
+  buttonType === 'button' && (
+    <button class={className} type={Astro.props.type}>
+      <slot />
+    </button>
+  )
+}
+{
+  buttonType === 'link' && (
+    <a class={className} href={Astro.props.href}>
+      <slot />
+    </a>
+  )
+}

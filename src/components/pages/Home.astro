@@ -1,11 +1,12 @@
 ---
+import Button from '@components/Button.astro';
 import Heading from '@components/Heading.astro';
-import HomeLink from '@components/HomeLink.astro';
 import Technologies from '@components/Technologies.astro';
 
 import Layout from '@layouts/Layout.astro';
 
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { Icon } from 'astro-icon/components';
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -20,13 +21,20 @@ const contactURL = getRelativeLocaleUrl(lang, 'contact');
     <h2 class="mb-4 text-secondary md:text-2xl lg:text-4xl text-xl lg:mb-10">
       Frontend developer
     </h2>
-    <HomeLink href={contactURL} text={t('home.link-contact')} />
+
+    <Button buttonType="link" href={contactURL} variant="primary"
+      >{t('home.link-contact')}
+      <Icon name="ph:arrow-right" class="h-6 w-6" />
+    </Button>
   </Fragment>
   <section slot="main" class="mt-10 lg:mt-20">
     <div class="col-span-3 lg:mb-8 mb-4">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <Technologies />
-    <HomeLink href={projectsURL} text={t('projects.heading')} />
+    <Button buttonType="link" href={projectsURL} variant="primary"
+      >{t('projects.heading')}
+      <Icon name="ph:arrow-right" class="h-6 w-6" />
+    </Button>
   </section>
 </Layout>
