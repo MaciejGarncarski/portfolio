@@ -1,6 +1,80 @@
 ---
+import astro from '@assets/icons/astro.svg';
+import css from '@assets/icons/css.svg';
+import fastify from '@assets/icons/fastify.svg';
+import html5 from '@assets/icons/html5.svg';
+import javascript from '@assets/icons/javascript.svg';
+import jest from '@assets/icons/jest.svg';
+import next from '@assets/icons/nextjs_icon_dark.svg';
+import nodejs from '@assets/icons/nodejs.svg';
+import react from '@assets/icons/react.svg';
+import sass from '@assets/icons/sass.svg';
+import tailwindcss from '@assets/icons/tailwindcss.svg';
+import typescript from '@assets/icons/typescript.svg';
 import { Image } from 'astro:assets';
-import { technologies } from 'src/data/Technologies.data.astro';
+
+export const technologies = [
+  {
+    name: 'HTML',
+    src: html5,
+    link: 'https://www.w3.org/html/'
+  },
+  {
+    name: 'HTML',
+    src: css,
+    link: 'https://www.w3.org/Style/CSS/'
+  },
+  {
+    name: 'JavaScript',
+    src: javascript,
+    link: 'https://javascript.info/'
+  },
+  {
+    name: 'TypeScript',
+    src: typescript,
+    link: 'https://www.typescriptlang.org/'
+  },
+  {
+    name: 'Sass',
+    src: sass,
+    link: 'https://sass-lang.com/'
+  },
+  {
+    name: 'Tailwind CSS',
+    src: tailwindcss,
+    link: 'https://tailwindcss.com/'
+  },
+  {
+    name: 'Jest',
+    src: jest,
+    link: 'https://jestjs.io/'
+  },
+  {
+    name: 'React',
+    src: react,
+    link: 'https://react.dev/'
+  },
+  {
+    name: 'Next',
+    src: next,
+    link: 'https://nextjs.org/'
+  },
+  {
+    name: 'Astro',
+    src: astro,
+    link: 'https://astro.build/'
+  },
+  {
+    name: 'Node.js',
+    src: nodejs,
+    link: 'https://nodejs.org/'
+  },
+  {
+    name: 'Fastify',
+    src: fastify,
+    link: 'https://fastify.dev/'
+  }
+];
 ---
 
 <ul
@@ -18,7 +92,7 @@ import { technologies } from 'src/data/Technologies.data.astro';
             <Image
               loading={'eager'}
               src={src}
-              class="w-10 h-10 xs:h-14 xs:w-14 lg:h-16 lg:w-16"
+              class="w-10 h-10 xs:h-14 xs:w-14 lg:h-16 lg:w-16 object-contain"
               alt={name}
             />
           </a>
