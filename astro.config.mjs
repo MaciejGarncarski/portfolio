@@ -1,14 +1,12 @@
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
-import compress from 'astro-compress';
 import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
   site: 'https://maciej-garncarski.pl',
-  compressHTML: true,
   build: {
     inlineStylesheets: 'auto'
   },
@@ -26,7 +24,6 @@ export default defineConfig({
       }
     }),
     icon(),
-    compress(),
     sitemap({
       i18n: {
         defaultLocale: 'pl',
