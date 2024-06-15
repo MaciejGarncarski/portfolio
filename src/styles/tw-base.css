@@ -5,14 +5,13 @@
 @keyframes slide-in {
   from {
     opacity: 0.5;
-    translate: 0 10rem;
+    translate: 0 15vh;
   }
 }
 
 @keyframes slide-out {
   to {
     opacity: 0;
-    translate: 0 20rem;
   }
 }
 
