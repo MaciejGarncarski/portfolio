@@ -2,10 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@keyframes slide-in {
+  from {
+    opacity: 0.5;
+    translate: 0 10rem;
+  }
+}
 
+@keyframes slide-out {
+  to {
+    opacity: 0;
+    translate: 0 20rem;
+  }
+}
+
+@layer base {
   html {
     font-family: 'Open Sans', system-ui, sans-serif;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  [data-main] {
+    view-transition-name: body;
+  }
+
+  &::view-transition-new(body) {
+    animation-name: slide-in;
+  }
+
+  &::view-transition-old(body) {
+    animation-name: slide-out;
   }
 
   .visually-hidden {

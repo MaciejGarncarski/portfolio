@@ -25,7 +25,7 @@
     "@fontsource-variable/open-sans": "^5.0.28",
     "@iconify-json/openmoji": "^1.1.51",
     "@iconify-json/ph": "^1.1.13",
-    "astro": "^4.10.1",
+    "astro": "^4.10.2",
     "astro-compress": "^2.2.27",
     "astro-icon": "^1.1.0",
     "clsx": "^2.1.1",
