@@ -4,8 +4,8 @@
 
 @keyframes slide-in {
   from {
-    opacity: 0.5;
-    translate: 0 15vh;
+    translate: 0 8vh;
+    opacity: 0;
   }
 }
 
