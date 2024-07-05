@@ -23,6 +23,8 @@ const languageData = [
     flagName: 'openmoji:flag-united-kingdom'
   }
 ] as const;
+
+console.log(translatePath(`/${route ? route : ''}`, lang));
 ---
 
 <ul class="flex gap-6">

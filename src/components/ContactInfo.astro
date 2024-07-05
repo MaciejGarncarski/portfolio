@@ -27,14 +27,14 @@ const contactData = [
 ---
 
 <ul
-  class="mt-6 flex max-w-2xl flex-col gap-3 md:text-xl md:mt-12 md:gap-6 lg:text-2xl">
+  class="mt-10 flex max-w-2xl flex-col gap-3 md:text-xl md:mt-20 md:gap-6 lg:text-2xl">
   {
     contactData.map(({ key, value }) => {
       return (
         <li class="flex w-full items-center justify-between gap-6">
           <p class="flex flex-grow flex-col md:flex-row md:items-center md:gap-2">
-            <span class="text-xl font-bold md:text-2xl">{`${key}:`}</span>
-            <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm sm:max-w-none sm:overflow-auto md:text-xl lg:text-2xl">
+            <span class="text-xl font-black md:text-2xl">{`${key}:`}</span>
+            <span class="max-w-[185px] overflow-hidden text-ellipsis text-sm xs:max-w-none xs:overflow-auto md:text-xl lg:text-2xl">
               {value}
             </span>
           </p>

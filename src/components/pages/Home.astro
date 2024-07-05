@@ -5,36 +5,47 @@ import Technologies from '@components/Technologies.astro';
 
 import Layout from '@layouts/Layout.astro';
 
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Icon } from 'astro-icon/components';
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations
+} from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
-const projectsURL = getRelativeLocaleUrl(lang, 'projects');
-const contactURL = getRelativeLocaleUrl(lang, 'contact');
+
+const projectsURL = translatePath('/projekty', lang);
+const contactURL = translatePath('/kontakt', lang);
 ---
 
 <Layout>
   <Fragment slot="header">
-    <h1 class="font-black md:text-6xl text-4xl uppercase">Maciej Garncarski</h1>
-    <h2 class="mb-4 text-secondary md:text-2xl lg:text-4xl text-xl lg:mb-10">
-      Frontend developer
+    <h1
+      class="font-black md:text-6xl text-4xl tracking-tighter leading-none relative w-fit">
+      Maciej Garncarski
+    </h1>
+    <h2
+      class="mb-4 text-secondary md:text-2xl sm:text-xl text-lg lg:text-3xl mt-4 tracking-tight lg:mb-10">
+      {t('home.description')}
     </h2>
+    <div class="flex flex-col lg:flex-row gap-4">
+      <Button buttonType="link" href={projectsURL} variant="primary"
+        >{t('projects.heading')}
+        <Icon name="ph:arrow-right" class="h-6 w-6" />
+      </Button>
 
-    <Button buttonType="link" href={contactURL} variant="primary"
-      >{t('home.link-contact')}
-      <Icon name="ph:arrow-right" class="h-6 w-6" />
-    </Button>
+      <Button buttonType="link" href={contactURL} variant="primary"
+        >{t('home.link-contact')}
+        <Icon name="ph:arrow-right" class="h-6 w-6" />
+      </Button>
+    </div>
   </Fragment>
-  <section slot="main" class="mt-10 lg:mt-20">
+  <section slot="main" class="mt-10 lg:mt-14">
     <div class="col-span-3 lg:mb-8 mb-4">
       <Heading variant="secondary" tag="h3">{t('home.tech.heading')}</Heading>
     </div>
     <Technologies />
-    <Button buttonType="link" href={projectsURL} variant="primary"
-      >{t('projects.heading')}
-      <Icon name="ph:arrow-right" class="h-6 w-6" />
-    </Button>
   </section>
 </Layout>

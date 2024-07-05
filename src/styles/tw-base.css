@@ -1,10 +1,12 @@
 @import 'tailwindcss';
 
 @theme {
-  --breakpoint-sm: 22rem;
+  --breakpoint-xs: 22rem;
   --border-width-layout: 0.75rem;
   --border-width-layout-desktop-y: 2.5rem;
   --border-width-layout-desktop-x: 4rem;
+  --border-width-layout-tablet-y: 1.5rem;
+  --border-width-layout-tablet-x: 2rem;
   --font-family-openSans: 'Open Sans', sans-serif;
   --background-image-waves: url('/white-waves.webp');
 

@@ -4,7 +4,7 @@ export const projects = {
     'projects.repo': 'Repo',
     'projects.heading': 'My projects',
     'projects.photoapp':
-      'PhotoApp is social media application created in the modern tech stack. In this app, you can create posts, comment them and chat with other users. It was my first attempt to create such a complicated app. It was tough expirence, but in the end I learned a lot of things.',
+      'PhotoApp is a social app inspired by Instagram. Users can create posts, like them and add comments to them. There is a chat feature in the app that uses WebSocket for communication. For the frontend I used the Next.js framework, TypeScript, Tanstack Query and TailwindCSS, while for the backend I used Fastify, TypeScript and ImageKit to store images added by users. For database communication, I used PostgreSQL and Prisma. For communication between the frontend and backend, I used openapi-typescript.',
     'projects.github-searcher':
       'Github Searcher is a Next.js app with SSR, which uses REST API from Github to show users and repositories. This app has an accent color feature so you can pick your preferred color from the list.',
     'projects.business-website':
@@ -17,7 +17,7 @@ export const projects = {
     'projects.repo': 'Repozytorium',
     'projects.heading': 'Moje projekty',
     'projects.photoapp':
-      'PhotoApp to aplikacja społecznościowa stworzona przy użyciu nowoczesnych technologii. W tej aplikacji możesz tworzyć posty komentować je i pisać z innymi użytkownikami . To była moja pierwsza próba stworzenia tak skomplikowanej aplikacji, a więc sporo się nauczyłem podczas jej tworzenia.',
+      'PhotoApp to aplikacja społecznościowa inspirowana aplikacją Instagram. Użytkownik może tworzyć posty, polubiać je i dodawać do nich komentarze. W aplikacji dostępny jest chat, który używa WebSocket do komunikacji. Do stworzenia frontendu użyłem frameworka Next.js, TypeScript, Tanstack Query i TailwindCSS, natomiast do backendu użyłem Fastify, TypeScript oraz ImageKit do przechowywania obrazów dodanych przez użytkowników. Do komunikacji z bazą użyłem PostgreSQL i Prisma. Do komunikacji pomiędzy frontendem i backendem użyłem openapi-typescript.',
     'projects.github-searcher':
       'Github Searcher to aplikacja stworzona w Next.js z użyciem technologii SSR, która używa REST API z Github do wyświetlania użytkowników i repozytoriów. Ta aplikacja ma możliwość wyboru koloru wiodącego z listy w aplikacji.',
     'projects.business-website':

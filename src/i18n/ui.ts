@@ -35,11 +35,11 @@ export const ui = {
 
 export const routes: Record<'pl' | 'en', Record<string, string>> = {
   pl: {
-    projects: 'projects',
-    contact: 'contact'
+    projekty: 'projekty',
+    kontakt: 'kontakt'
   },
   en: {
-    projects: 'projects',
-    contact: 'contact'
+    projekty: 'projects',
+    kontakt: 'contact'
   }
 };

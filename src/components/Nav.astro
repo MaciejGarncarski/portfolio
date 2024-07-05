@@ -1,8 +1,11 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Icon } from 'astro-icon/components';
 import { clsx } from 'clsx';
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils';
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations
+} from 'src/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,9 +16,11 @@ type Route = {
   text: string;
 };
 
-const homeURL = getRelativeLocaleUrl(lang, '/');
-const projectsURL = getRelativeLocaleUrl(lang, '/projects');
-const contactURL = getRelativeLocaleUrl(lang, '/contact');
+const translatePath = useTranslatedPath(lang);
+
+const homeURL = translatePath('/', lang);
+const projectsURL = translatePath('/projekty', lang);
+const contactURL = translatePath('/kontakt', lang);
 
 const navRoutesData = [
   {
@@ -37,19 +42,19 @@ const navRoutesData = [
 ---
 
 <nav
-  class="mb-8 text-white md:rounded-lg rounded-md bg-primary md:mx-auto md:w-fit md:px-6 md:mb-0 md:mt-4 md:py-2">
+  class="mb-8 text-white md:rounded-lg rounded-md bg-primary mx-auto max-w-md md:w-fit md:max-w-none md:px-6 md:mb-0 md:mt-4 md:py-2">
   <ul
     class="flex items-center justify-center font-bold uppercase gap-4 xs:gap-8 md:gap-10 text-xs md:text-base p-2 md:p-0">
     {
       navRoutesData.map(({ href, text, icon }) => {
         const activeClass =
-          'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 sm:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
+          'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 xs:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
         return (
           <li>
             <a
               class={clsx(
                 href === Astro.url.pathname && activeClass,
-                'border-2 border-transparent focus:border-white focus:outline-none sm:p-1 md:p-2 flex gap-1 rounded-md items-center'
+                'border-2 border-transparent focus:border-white focus:outline-none xs:p-1 md:p-2 flex gap-1 rounded-md items-center'
               )}
               data-astro-prefetch
               href={href}>

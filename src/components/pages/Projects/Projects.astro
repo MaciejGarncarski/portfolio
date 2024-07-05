@@ -20,11 +20,14 @@ const projects = getProjectsData(lang);
     {t('projects.heading')}
   </Heading>
   <article slot="main">
-    <div class="mt-8 flex flex-col gap-20 lg:gap-28 xl:mt-16 2xl:gap-32">
+    <div class="mt-10 flex flex-col gap-20 lg:gap-28 lg:mt-20 2xl:gap-32">
       {
         projects.map(({ description, repo, live, title, tags, image }, idx) => {
           return (
             <article class="flex flex-col gap-4 lg:gap-6">
+              <Heading tag="h2" variant="secondary">
+                {title}
+              </Heading>
               <ProjectThumbnail
                 image={image}
                 title={title}
@@ -35,9 +38,6 @@ const projects = getProjectsData(lang);
                   <Tag text={tagText} />
                 ))}
               </ul>
-              <Heading tag="h2" variant="secondary">
-                {title}
-              </Heading>
               <p class="text-primary text-lg lg:max-w-3xl leading-normal font-medium">
                 {description}
               </p>

@@ -35,6 +35,16 @@ export const technologies = [
     link: 'https://www.typescriptlang.org/'
   },
   {
+    name: 'Node.js',
+    src: nodejs,
+    link: 'https://nodejs.org/'
+  },
+  {
+    name: 'Fastify',
+    src: fastify,
+    link: 'https://fastify.dev/'
+  },
+  {
     name: 'Sass',
     src: sass,
     link: 'https://sass-lang.com/'
@@ -43,11 +53,6 @@ export const technologies = [
     name: 'Tailwind CSS',
     src: tailwindcss,
     link: 'https://tailwindcss.com/'
-  },
-  {
-    name: 'Vitest',
-    src: vitest,
-    link: 'https://vitest.dev/'
   },
   {
     name: 'React',
@@ -65,29 +70,23 @@ export const technologies = [
     link: 'https://astro.build/'
   },
   {
-    name: 'Node.js',
-    src: nodejs,
-    link: 'https://nodejs.org/'
-  },
-  {
-    name: 'Fastify',
-    src: fastify,
-    link: 'https://fastify.dev/'
+    name: 'Vitest',
+    src: vitest,
+    link: 'https://vitest.dev/'
   }
 ];
 ---
 
 <ul
-  class="mb-4 grid w-fit grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-8 lg:mb-8">
+  class="mb-4 grid w-fit grid-cols-3 xs:grid-cols-4 gap-2 xs:gap-4 md:gap-8 lg:mb-8">
   {
     technologies.map(({ name, src, link }) => {
       return (
-        <li class="justify-self-start">
+        <li class="justify-self-start" title={name}>
           <a
             class="flex flex-col items-center justify-center gap-2 border-[3px] bg-slate-50 rounded border-primary p-2 ring-primary hover:ring-1 focus:outline-none focus:ring-4 focus:ring-offset-4"
             href={link}
             data-astro-prefetch
-            title={name}
             target="_blank"
             rel="noopener noreferrer">
             <Image

@@ -5,7 +5,7 @@ export const contact = {
     'contact.copy-text': 'Copy text'
   },
   pl: {
-    'contact.heading': 'Kontakt',
+    'contact.heading': 'Konakt',
     'contact.phone-number': 'Numer telefonu',
     'contact.copy-text': 'Kopiuj tekst'
   }
