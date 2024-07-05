@@ -16,6 +16,7 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
+  trailingSlash: 'ignore',
   integrations: [
     icon(),
     sitemap({
