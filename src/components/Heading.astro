@@ -12,9 +12,8 @@ export type Props = {
 const { tag: Tag, variant } = Astro.props;
 
 const variantPrimary =
-  'text-4xl md:text-5xl lg:text-6xl text-primary font-black uppercase leading-8 tracking-tighter relative w-fit before:hidden md:before:block before:w-full before:h-1.5 before:bg-primary before:absolute before:-bottom-3 before:left-0';
-const variantSecondary =
-  'text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-7';
+  'text-4xl md:text-5xl lg:text-6xl text-primary font-black uppercase leading-8 tracking-tight';
+const variantSecondary = 'text-3xl md:text-4xl font-bold leading-7';
 
 const headingVariants = {
   primary: variantPrimary,

@@ -20,7 +20,7 @@ const projects = getProjectsData(lang);
     {t('projects.heading')}
   </Heading>
   <article slot="main">
-    <div class="mt-10 flex flex-col gap-20 lg:gap-28 lg:mt-20 2xl:gap-32">
+    <div class="mt-10 flex flex-col gap-20 lg:gap-28 lg:mt-10 2xl:gap-32">
       {
         projects.map(({ description, repo, live, title, tags, image }, idx) => {
           return (
@@ -38,7 +38,7 @@ const projects = getProjectsData(lang);
                   <Tag text={tagText} />
                 ))}
               </ul>
-              <p class="text-primary text-lg lg:max-w-3xl leading-normal font-medium">
+              <p class="text-primary text-lg lg:max-w-2xl leading-normal font-medium">
                 {description}
               </p>
               <div class="flex gap-x-4 gap-y-2 flex-wrap">

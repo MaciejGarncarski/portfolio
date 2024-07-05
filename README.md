@@ -1,10 +1,6 @@
 # Portfolio
 
-My personal website.
-
-## Performance
-
-![Lighthouse performance](https://raw.githubusercontent.com/MaciejGarncarski/portfolio/master/.github/lighthouse.png)
+My personal website created using Astro and TailwindCSS.
 
 ## Live
 

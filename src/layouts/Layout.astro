@@ -2,7 +2,15 @@
 import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
 
-import '@fontsource-variable/open-sans';
+import '@fontsource/poppins/100.css';
+import '@fontsource/poppins/200.css';
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/poppins/900.css';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
 import { ViewTransitions } from 'astro:transitions';
@@ -57,11 +65,11 @@ const lang = getLangFromUrl(Astro.url);
     <ViewTransitions fallback="animate" />
   </head>
   <body
-    class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-openSans">
+    class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
     <div class="bg-waves bg-white rounded md:rounded-md p-5">
       <Nav transition:persist />
       <div
-        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-[50rem] lg:min-h-[75vh] md:pb-24 md:pt-16">
+        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-2xl lg:min-h-[75vh] md:pb-24 md:pt-16">
         <header data-header transition:animate="none">
           <slot name="header" />
         </header>

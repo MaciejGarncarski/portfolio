@@ -21,7 +21,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/ts-plugin": "^1.8.0",
-    "@fontsource-variable/open-sans": "^5.0.28",
+    "@fontsource/poppins": "^5.0.14",
     "@iconify-json/openmoji": "^1.1.51",
     "@iconify-json/ph": "^1.1.13",
     "@tailwindcss/postcss": "4.0.0-alpha.17",
