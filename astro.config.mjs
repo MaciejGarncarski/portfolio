@@ -1,5 +1,4 @@
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
@@ -18,11 +17,6 @@ export default defineConfig({
     }
   },
   integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false
-      }
-    }),
     icon(),
     sitemap({
       i18n: {

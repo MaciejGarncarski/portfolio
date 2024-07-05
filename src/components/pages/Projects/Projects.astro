@@ -38,7 +38,9 @@ const projects = getProjectsData(lang);
               <Heading tag="h2" variant="secondary">
                 {title}
               </Heading>
-              <p class="text-primary text-lg lg:max-w-3xl">{description}</p>
+              <p class="text-primary text-lg lg:max-w-3xl leading-normal font-medium">
+                {description}
+              </p>
               <div class="flex gap-x-4 gap-y-2 flex-wrap">
                 <Button buttonType="link" href={live} variant="primary">
                   {t('projects.live')}

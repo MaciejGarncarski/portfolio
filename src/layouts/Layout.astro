@@ -5,6 +5,7 @@ import Nav from '@components/Nav.astro';
 import '@fontsource-variable/open-sans';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
+import { ViewTransitions } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
 
 const lang = getLangFromUrl(Astro.url);
@@ -16,6 +17,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" />
     <title>{title}</title>
     <meta name="description" content={description[lang]} />
     <meta name="keywords" content={keywords} />
@@ -52,14 +54,15 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="msapplication-TileColor" content="#1e293b" />
     <meta name="theme-color" content="#1e293b" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <ViewTransitions fallback="animate" />
   </head>
   <body
-    class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary sm:border-layout md:border-x-layout-desktop-x md:border-y-layout-desktop-y md:border-b-0">
+    class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary sm:border-layout md:border-x-layout-desktop-x md:border-y-layout-desktop-y md:border-b-0 font-openSans">
     <div class="bg-waves bg-white rounded md:rounded-md p-5">
-      <Nav />
+      <Nav transition:persist />
       <div
         class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-[50rem] lg:min-h-[75vh] md:pb-24 md:pt-16">
-        <header data-header>
+        <header data-header transition:animate="none">
           <slot name="header" />
         </header>
         <main data-main>
@@ -67,6 +70,6 @@ const lang = getLangFromUrl(Astro.url);
         </main>
       </div>
     </div>
-    <Footer />
+    <Footer transition:persist />
   </body>
 </html>

@@ -1,39 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@keyframes slide-in {
-  from {
-    translate: 0 8vh;
-    opacity: 0;
-  }
-}
+@theme {
+  --breakpoint-sm: 22rem;
+  --border-width-layout: 0.75rem;
+  --border-width-layout-desktop-y: 2.5rem;
+  --border-width-layout-desktop-x: 4rem;
+  --font-family-openSans: 'Open Sans', sans-serif;
+  --background-image-waves: url('/white-waves.webp');
 
-@keyframes slide-out {
-  to {
-    opacity: 0;
+  --border-layout: 0.75rem;
+  --color-primary: var(--color-slate-800);
+  --color-secondary: var(--color-slate-700);
+
+  --animate-link: link 0.5s ease-in-out forwards;
+
+  @keyframes link {
+    0% {
+      transform: scaleX(0);
+    }
+
+    100% {
+      transform: scaleX(1);
+    }
   }
 }
 
 @layer base {
-  html {
-    font-family: 'Open Sans', system-ui, sans-serif;
-  }
-
-  @view-transition {
-    navigation: auto;
-  }
-
   [data-main] {
     view-transition-name: body;
-  }
-
-  &::view-transition-new(body) {
-    animation-name: slide-in;
-  }
-
-  &::view-transition-old(body) {
-    animation-name: slide-out;
   }
 
   .visually-hidden {

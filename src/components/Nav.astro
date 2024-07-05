@@ -14,8 +14,8 @@ type Route = {
 };
 
 const homeURL = getRelativeLocaleUrl(lang, '/');
-const projectsURL = getRelativeLocaleUrl(lang, 'projects');
-const contactURL = getRelativeLocaleUrl(lang, 'contact');
+const projectsURL = getRelativeLocaleUrl(lang, '/projects');
+const contactURL = getRelativeLocaleUrl(lang, '/contact');
 
 const navRoutesData = [
   {
@@ -43,7 +43,7 @@ const navRoutesData = [
     {
       navRoutesData.map(({ href, text, icon }) => {
         const activeClass =
-          'before:bg-white before:left-0 before:animate-link-active relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 sm:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
+          'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 sm:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
         return (
           <li>
             <a

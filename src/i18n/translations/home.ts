@@ -4,7 +4,7 @@ export const home = {
     'home.link-contact': 'Contact me'
   },
   pl: {
-    'home.tech.heading': 'Korzystam z tych technologii',
+    'home.tech.heading': 'Używam tych technologii',
     'home.link-contact': 'Skontaktuj się ze mną'
   }
 };
