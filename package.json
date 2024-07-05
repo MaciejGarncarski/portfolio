@@ -26,7 +26,7 @@
     "@iconify-json/ph": "^1.1.13",
     "@tailwindcss/postcss": "4.0.0-alpha.17",
     "@tailwindcss/typography": "^0.5.13",
-    "astro": "^4.10.2",
+    "astro": "^4.11.5",
     "astro-compress": "^2.2.27",
     "astro-icon": "^1.1.0",
     "clsx": "^2.1.1",

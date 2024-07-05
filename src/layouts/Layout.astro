@@ -13,14 +13,13 @@ import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
-import { ViewTransitions } from 'astro:transitions';
+import { fade, ViewTransitions } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
-
 const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html class="bg-primary" lang={lang}>
+<html class="bg-primary" lang={lang} transition:name="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -62,22 +61,24 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="msapplication-TileColor" content="#1e293b" />
     <meta name="theme-color" content="#1e293b" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <ViewTransitions fallback="animate" />
+    <meta name="color-scheme" content="dark" />
+    <ViewTransitions fallback="none" />
   </head>
   <body
     class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
     <div class="bg-waves bg-white rounded md:rounded-md p-5">
       <Nav />
       <div
-        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-2xl lg:min-h-[75vh] md:pb-24 md:pt-16">
-        <header data-header transition:animate="none">
+        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-2xl lg:min-h-[75vh] md:pb-20 md:pt-16">
+        <header>
           <slot name="header" />
         </header>
-        <main data-main>
-          <slot name="main" />
+        <main transition:animate={fade({ duration: '0.5s' })}>
+          <slot name="main-content" />
         </main>
       </div>
     </div>
+
     <Footer transition:persist />
   </body>
 </html>

@@ -19,7 +19,7 @@ const projects = getProjectsData(lang);
   <Heading slot="header" variant="primary" tag="h1">
     {t('projects.heading')}
   </Heading>
-  <article slot="main">
+  <article slot="main-content">
     <div class="mt-10 flex flex-col gap-20 lg:gap-28 lg:mt-10 2xl:gap-32">
       {
         projects.map(({ description, repo, live, title, tags, image }, idx) => {
