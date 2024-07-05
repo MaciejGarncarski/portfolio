@@ -1,5 +1,4 @@
 ---
-import { Debug } from 'astro:components';
 import { Icon } from 'astro-icon/components';
 import { clsx } from 'clsx';
 import {
@@ -52,10 +51,9 @@ const navRoutesData = [
           'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 xs:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
         return (
           <li>
-            <Debug answer={[href, Astro.url.pathname]} />
             <a
               class={clsx(
-                href === Astro.url.pathname && activeClass,
+                href === Astro.url.pathname.slice(0, -1) && activeClass,
                 'border-2 border-transparent focus:border-white focus:outline-none xs:p-1 md:p-2 flex gap-1 rounded-md items-center'
               )}
               data-astro-prefetch
