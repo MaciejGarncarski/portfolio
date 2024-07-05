@@ -48,17 +48,17 @@ const lang = getLangFromUrl(Astro.url);
     class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
     <div class="bg-waves bg-white rounded md:rounded-md p-5">
       <Nav />
-      <div
-        class="min-h-[70vh] pb-10 md:mx-auto md:min-h-[80vh] md:w-[40rem] lg:w-2xl lg:min-h-[75vh] md:pb-20 md:pt-16">
+      <div class="pb-10 md:mx-auto md:w-[40rem] lg:w-2xl md:pb-20 md:pt-16">
         <header>
           <slot name="header" />
         </header>
-        <main transition:animate={fade({ duration: '0.5s' })}>
+        <main
+          transition:animate={fade({ duration: '0.2s' })}
+          class="min-h-[50dvh] w-fit">
           <slot name="main-content" />
         </main>
       </div>
     </div>
-
     <Footer transition:persist />
   </body>
 </html>
