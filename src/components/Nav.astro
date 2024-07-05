@@ -18,9 +18,9 @@ type Route = {
 
 const translatePath = useTranslatedPath(lang);
 
-const homeURL = translatePath('/', lang);
-const projectsURL = translatePath('/projekty', lang);
-const contactURL = translatePath('/kontakt', lang);
+const homeURL = translatePath('/');
+const projectsURL = translatePath('/projekty');
+const contactURL = translatePath('/kontakt');
 
 const navRoutesData = [
   {
@@ -49,11 +49,14 @@ const navRoutesData = [
       navRoutesData.map(({ href, text, icon }) => {
         const activeClass =
           'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 xs:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
+
+        const isActive = href === Astro.url.pathname;
+
         return (
           <li>
             <a
               class={clsx(
-                href === Astro.url.pathname && activeClass,
+                isActive && activeClass,
                 'border-2 border-transparent focus:border-white focus:outline-none xs:p-1 md:p-2 flex gap-1 rounded-md items-center'
               )}
               data-astro-prefetch

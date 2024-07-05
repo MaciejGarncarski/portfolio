@@ -21,11 +21,15 @@ export function useTranslatedPath(lang: keyof typeof ui) {
       defaultLang !== l &&
       routes[l] !== undefined &&
       routes[l][pathName] !== undefined;
+
     const translatedPath = hasTranslation ? '/' + routes[l][pathName] : path;
 
+    const translatedPathWithSlash =
+      path === '/' ? translatedPath : `${translatedPath}/`;
+
     return !showDefaultLang && l === defaultLang
-      ? translatedPath
-      : `/${l}${translatedPath}`;
+      ? translatedPathWithSlash
+      : `/${l}${translatedPathWithSlash}`;
   };
 }
 
