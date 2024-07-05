@@ -47,6 +47,8 @@ const navRoutesData = [
     class="flex items-center justify-center font-bold uppercase gap-4 xs:gap-8 md:gap-10 text-xs md:text-base p-2 md:p-0">
     {
       navRoutesData.map(({ href, text, icon }) => {
+        console.log({ href }, Astro.url.pathname);
+
         const activeClass =
           'before:bg-white before:left-0 before:animate-link relative before:absolute before:left-[10%] md:before:bottom-0 before:-bottom-1 xs:before:bottom-0 before:h-[2px] before:w-[80%] before:origin-center';
         return (
