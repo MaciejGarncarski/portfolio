@@ -46,15 +46,13 @@ const lang = getLangFromUrl(Astro.url);
   </head>
   <body
     class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
-    <div class="bg-waves bg-white rounded md:rounded-md p-5">
+    <div class="bg-waves bg-white rounded md:rounded-md p-5 min-h-[70dvh]">
       <Nav />
       <div class="pb-10 md:mx-auto md:w-[40rem] lg:w-2xl md:pb-20 md:pt-16">
         <header>
           <slot name="header" />
         </header>
-        <main
-          transition:animate={fade({ duration: '0.2s' })}
-          class="min-h-[50dvh] w-full">
+        <main transition:animate={fade({ duration: '0.2s' })} class="w-full">
           <slot name="main-content" />
         </main>
       </div>
