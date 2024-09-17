@@ -8,7 +8,7 @@ import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/900.css';
 import '@styles/tw-base.css';
 import { getLangFromUrl } from '../i18n/utils';
-import { fade, ViewTransitions } from 'astro:transitions';
+import { ClientRouter, fade } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -37,7 +37,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="theme-color" content="#1e293b" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="color-scheme" content="dark" />
-    <ViewTransitions fallback="none" />
+    <ClientRouter fallback="swap" />
   </head>
   <body
     class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
