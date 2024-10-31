@@ -1,14 +1,14 @@
 export const home = {
   en: {
     'home.tech.heading': 'Skills / Tech stack',
-    'home.link-contact': 'Contact me',
+    'home.link-contact': 'Contact',
     'home.description':
-      'Full-stack developer trying to build the fastest websites and web apps.'
+      'Full-stack developer building the fastest websites and web apps.'
   },
   pl: {
     'home.tech.heading': 'Technologie',
-    'home.link-contact': 'Skontaktuj się ze mną',
+    'home.link-contact': 'Kontakt',
     'home.description':
-      'Full-stack developer starający się budować najszybsze aplikacje i strony internetowe.'
+      'Full-stack developer tworzący najszybsze aplikacje i strony internetowe.'
   }
 };

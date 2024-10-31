@@ -11,11 +11,11 @@ const socials = [
 ] as const;
 ---
 
-<footer class="px-1 mt-4 md:my-8 mb-0 flex-col gap-6 flex text-white z-10">
-  <div
-    class="flex flex-col xs:gap-0 gap-4 xs:flex-row justify-between md:justify-start md:gap-8">
+<footer
+  class="px-1 mt-4 md:my-8 mb-0 flex-col gap-6 flex text-white z-10 md:mx-auto md:w-[40rem] lg:w-2xl">
+  <div class="flex flex-col gap-6 justify-between lg:flex-row">
     <LanguagePicker />
-    <ul class="flex flex-wrap gap-4">
+    <ul class="flex flex-wrap gap-6">
       {
         socials.map(({ link, name, icon }) => {
           return (
@@ -23,9 +23,9 @@ const socials = [
               <a
                 href={link}
                 data-astro-prefetch
-                class="flex items-center relative before:h-[2px] text-sm bg-white text-primary py-1 px-2 hover:bg-primary border-white transition-colors border border-transparent hover:text-white rounded font-medium"
+                class="flex items-center relative before:h-[2px] focus:outline-2 focus:outline-white focus:outline-offset-4 text-sm bg-white text-primary py-1 px-3 hover:bg-primary border-white transition-colors border border-transparent hover:text-white font-medium"
                 target="_blank">
-                <Icon name={icon} class="w-5 h-5 mr-1" />
+                <Icon name={icon} class="w-6 h-6 mr-1" />
                 <span>{name}</span>
               </a>
             </li>

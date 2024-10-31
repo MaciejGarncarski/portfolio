@@ -42,11 +42,19 @@ const projects = getProjectsData(lang);
                 {description}
               </p>
               <div class="flex gap-x-4 gap-y-2 flex-wrap">
-                <Button buttonType="link" href={live} variant="primary">
+                <Button
+                  buttonType="link"
+                  href={live}
+                  target="_blank"
+                  variant="primary">
                   {t('projects.live')}
                   <Icon name="ph:arrow-right" class="h-5 w-5 -rotate-45" />
                 </Button>
-                <Button buttonType="link" href={repo} variant="secondary">
+                <Button
+                  buttonType="link"
+                  href={repo}
+                  target="_blank"
+                  variant="secondary">
                   {t('projects.repo')}
                   <Icon name="ph:arrow-right" class="h-5 w-5 -rotate-45" />
                 </Button>

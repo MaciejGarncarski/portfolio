@@ -32,7 +32,7 @@ const languageData = [
           <a
             data-astro-prefetch
             href={translatePath(`/${route ? route : ''}`, lang)}
-            class="flex items-center gap-1"
+            class="flex items-center gap-1 focus:outline-2 focus:outline-white focus:outline-offset-4 px-2 py-0 text-primary border border-primary hover:border-white hover:bg-primary hover:text-white bg-white"
             data-lang={lang}>
             <Icon name={flagName} class="w-8 h-8" />
             <span class="leading-none">{languageName}</span>

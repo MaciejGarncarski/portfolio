@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint --fix --max-warnings=0 \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "lint": "eslint --fix .",
     "format": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
     "lint-format": "pnpm format && pnpm lint",
     "prepare": "husky"

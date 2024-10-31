@@ -22,23 +22,22 @@ const contactURL = translatePath('/kontakt', lang);
 
 <Layout>
   <Fragment slot="header">
-    <h1
-      class="font-black md:text-6xl text-4xl tracking-tight leading-none relative w-fit">
+    <h1 class="font-black md:text-5xl text-4xl leading-none relative w-fit">
       Maciej Garncarski
     </h1>
     <h2
-      class="mb-4 text-secondary md:text-2xl sm:text-xl text-lg lg:text-3xl mt-4 tracking-tight lg:mb-10">
+      class="mb-4 text-secondary md:text-2xl sm:text-xl text-lg lg:text-3xl mt-4 lg:mb-10 text-pretty">
       {t('home.description')}
     </h2>
-    <div class="flex flex-col lg:flex-row gap-4">
+    <div class="flex flex-row gap-4">
       <Button buttonType="link" href={projectsURL} variant="primary"
         >{t('projects.heading')}
-        <Icon name="ph:arrow-right" class="h-6 w-6" />
+        <Icon name="ph:arrow-right" class="h-5 w-5" />
       </Button>
 
       <Button buttonType="link" href={contactURL} variant="primary"
         >{t('home.link-contact')}
-        <Icon name="ph:arrow-right" class="h-6 w-6" />
+        <Icon name="ph:arrow-right" class="h-5 w-5" />
       </Button>
     </div>
   </Fragment>

@@ -10,13 +10,14 @@ type Props =
   | {
       variant: 'primary' | 'secondary';
       buttonType: 'link';
+      target?: '_blank';
       href: string;
     };
 
 const { buttonType, variant } = Astro.props;
 
 const baseClasses =
-  'inline-flex w-fit items-center gap-2 border-2 border-primary px-3 py-1 transition text-sm focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-4 rounded lg:text-lg';
+  'inline-flex w-fit items-center gap-3 border-2 border-primary px-3 py-1 transition text-sm focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-4 lg:text-base';
 
 const primaryClasses = clsx(
   baseClasses,
@@ -39,7 +40,7 @@ const className = variant === 'primary' ? primaryClasses : secondaryClasses;
 }
 {
   buttonType === 'link' && (
-    <a class={className} href={Astro.props.href}>
+    <a class={className} target={Astro.props.target} href={Astro.props.href}>
       <slot />
     </a>
   )
