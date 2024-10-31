@@ -11,6 +11,19 @@ import { getLangFromUrl } from '../i18n/utils';
 import { ClientRouter, fade } from 'astro:transitions';
 import { description, keywords, title } from 'src/utils/seo';
 const lang = getLangFromUrl(Astro.url);
+
+const animations = {
+  new: {
+    name: 'animation-in',
+    duration: '0.8s',
+    easing: 'ease-in-out'
+  }
+};
+
+const customAnimation = {
+  forwards: animations,
+  backwards: animations
+};
 ---
 
 <!doctype html>
@@ -41,13 +54,13 @@ const lang = getLangFromUrl(Astro.url);
   </head>
   <body
     class="mb-0 min-h-screen border border-b-0 border-primary text-primary antialiased dark:text-primary xs:border-layout lg:border-x-layout-desktop-x lg:border-y-layout-desktop-y md:border-x-layout-tablet-x md:border-y-layout-tablet-y md:border-b-0 font-poppins">
-    <div class="bg-waves bg-white rounded md:rounded-md p-5 min-h-[75dvh]">
+    <div class="bg-waves bg-white rounded md:rounded-md p-5 min-h-[85dvh]">
       <Nav />
       <div class="pb-10 md:mx-auto md:w-[40rem] lg:w-2xl md:pb-20 md:pt-16">
         <header>
           <slot name="header" />
         </header>
-        <main transition:animate={fade({ duration: '0.2s' })} class="w-full">
+        <main transition:animate={customAnimation} class="w-full">
           <slot name="main-content" />
         </main>
       </div>
@@ -55,3 +68,16 @@ const lang = getLangFromUrl(Astro.url);
     <Footer transition:persist />
   </body>
 </html>
+
+<style is:global>
+  @keyframes animation-in {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+</style>
