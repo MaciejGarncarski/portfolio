@@ -1,6 +1,10 @@
 ---
 import LanguagePicker from './LanguagePicker.astro';
 import { Icon } from 'astro-icon/components';
+import { t, useTranslations, getLangFromUrl } from 'src/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const socials = [
   {
@@ -35,6 +39,6 @@ const socials = [
     </ul>
   </div>
   <p class="max-w-prose text-xs text-gray-400">
-    &#169; 2024 Maciej Garncarski. All rights reserved.
+    &#169; 2024 Maciej Garncarski. {t('footer.rights')}
   </p>
 </footer>
