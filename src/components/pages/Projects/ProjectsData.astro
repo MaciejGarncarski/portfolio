@@ -3,14 +3,15 @@ import business from '@assets/business.png';
 import githubSearcher from '@assets/github-searcher.png';
 import photoApp from '@assets/photo-app.png';
 import shoeShop from '@assets/shoe-shop.png';
+import fileServer from '@assets/file-server.png';
 import type { ImageMetadata } from 'astro';
 import { useTranslations } from 'src/i18n/utils';
 
 type Project = {
   title: string;
   description: string;
-  repo: string;
-  live: string;
+  repo: string | null;
+  live: string | null;
   image: ImageMetadata;
   tags: Array<string>;
 };
@@ -19,6 +20,23 @@ export const getProjectsData = (lang: 'pl' | 'en') => {
   const t = useTranslations(lang);
 
   const projects: Array<Project> = [
+    {
+      title: t('projects.file-server.title'),
+      description: t('projects.file-server'),
+      repo: null,
+      live: null,
+      image: fileServer,
+      tags: [
+        'TanStack Start',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'Redis',
+        'nginx',
+        'SSHFS',
+        'Linux'
+      ]
+    },
     {
       title: 'Photo App',
       description: t('projects.photoapp'),
