@@ -2,12 +2,12 @@
 
 @theme {
   --font-mono: "JetBrains Mono Variable", monospace;
-  --grid-template-columns-custom:  repeat(auto-fill, minmax(5rem, 7rem));
+  --grid-template-columns-custom: repeat(auto-fill, minmax(5rem, 7rem));
   --width-half: 50%;
 }
 
-@layer base{
-  body{
+@layer base {
+  body {
     font-family: var(--font-mono);
   }
 }

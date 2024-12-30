@@ -7,6 +7,7 @@ My personal website created using Astro and TailwindCSS.
 https://maciej-garncarski.pl/
 
 ## Installation & running
+
 Clone repo then
 `pnpm install && pnpm dev`
 

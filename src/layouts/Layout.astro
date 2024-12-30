@@ -38,11 +38,11 @@ const navigationData: Array<Link> = [
   },
   {
     text: "Projekty",
-    url: "/projekty"
+    url: "/projekty/"
   },
   {
     text: "Kontakt",
-    url: "/kontakt"
+    url: "/kontakt/"
   }
 ];
 ---
@@ -60,7 +60,7 @@ const navigationData: Array<Link> = [
     <title>MG dev</title>
     <ClientRouter />
   </head>
-  <body class="bg-white dark:bg-black text-black dark:text-white p-1 md:p-0">
+  <body class="bg-white p-1 text-black md:p-0 dark:bg-black dark:text-white">
     <div class="mx-auto max-w-[50rem] border-4 md:my-6">
       <header
         class="flex flex-col items-center gap-1 border-b-4 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
@@ -76,9 +76,7 @@ const navigationData: Array<Link> = [
 
               return (
                 <li>
-                  <a
-                    href={n.url}
-                    class={clsx(isActive && "underline")}>
+                  <a href={n.url} class={clsx(isActive && "underline")}>
                     {n.text}
                   </a>
                 </li>
@@ -95,7 +93,13 @@ const navigationData: Array<Link> = [
           socials.map((s) => {
             return (
               <a href={s.url} target="_blank" class="w-fit">
-                <img src={s.icon.src} alt={s.name} width="30" height="30" class="dark:invert-100" />
+                <img
+                  src={s.icon.src}
+                  alt={s.name}
+                  width="30"
+                  height="30"
+                  class="dark:invert-100"
+                />
                 <span class="sr-only">{s.name}</span>
               </a>
             );

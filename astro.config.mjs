@@ -1,8 +1,11 @@
 // @ts-check
 import { defineConfig, envField } from "astro/config";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://maciej-garncarski.pl",
   env: {
     schema: {
       SPOTIFY_CLIENT_ID: envField.string({
@@ -16,5 +19,6 @@ export default defineConfig({
         access: "secret"
       })
     }
-  }
+  },
+  integrations: [sitemap()]
 });
