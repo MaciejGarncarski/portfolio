@@ -2,7 +2,7 @@
 
 @theme {
   --font-mono: "JetBrains Mono Variable", monospace;
-  --grid-template-columns-custom: repeat(auto-fill, minmax(5rem, 7rem));
+  --grid-template-columns-custom: repeat(auto-fill, minmax(4rem, 7rem));
   --width-half: 50%;
 }
 

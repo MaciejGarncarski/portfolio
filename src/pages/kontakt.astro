@@ -28,7 +28,7 @@ const contactInfo: Array<Contact> = [
       {
         contactInfo.map((c) => {
           return (
-            <li class="flex justify-between text-lg">
+            <li class="flex flex-col justify-between text-lg md:flex-row">
               <p>{c.text}</p>
               <p>{c.data}</p>
             </li>
