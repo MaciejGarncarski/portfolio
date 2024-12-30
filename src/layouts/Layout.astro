@@ -69,7 +69,7 @@ const navigationData: Array<Link> = [
         <p class="uppecase text-2xl">Fullstack developer</p>
       </header>
       <nav class="border-b-4 p-4">
-        <ul class="flex gap-8">
+        <ul class="flex gap-8 text-lg">
           {
             navigationData.map((n) => {
               const isActive = n.url === Astro.url.pathname;
