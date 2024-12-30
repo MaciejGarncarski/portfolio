@@ -45,6 +45,9 @@ const navigationData: Array<Link> = [
     url: "/kontakt/"
   }
 ];
+
+const description =
+  "Specjalizuję się w tworzeniu nowoczesnych i wydajnych aplikacji internetowych. Moje doświadczenie obejmuje pracę z technologiami frontendowymi i backendowymi, co pozwala mi na dostarczanie kompleksowych rozwiązań dla klientów.";
 ---
 
 <!doctype html>
@@ -57,7 +60,13 @@ const navigationData: Array<Link> = [
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
     />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Strony internetowe,Fullstack,developer,internet,frontend,backend,postgres,redis,react,html,css,js,ts,tailwind"
+    />
     <title>MG dev</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <ClientRouter />
   </head>
   <body class="bg-white p-1 text-black md:p-0 dark:bg-black dark:text-white">
@@ -95,7 +104,7 @@ const navigationData: Array<Link> = [
               <a href={s.url} target="_blank" class="w-fit">
                 <img
                   src={s.icon.src}
-                  alt={s.name}
+                  alt=""
                   width="30"
                   height="30"
                   class="dark:invert-100"
