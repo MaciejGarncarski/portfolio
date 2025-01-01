@@ -6,6 +6,7 @@ import type { ImageMetadata } from "astro";
 import clsx from "clsx";
 import github from "../assets/github.svg";
 import xIcon from "../assets/x.svg";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 type Social = {
   url: string;
@@ -67,18 +68,17 @@ const description =
     />
     <title>MG dev</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <ClientRouter />
   </head>
-  <body class="bg-white p-1 text-black md:p-0 dark:bg-black dark:text-white">
-    <div class="mx-auto max-w-[50rem] border-4 md:my-6">
+  <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
+    <div class="mx-auto max-w-[50rem] border-4 lg:my-10">
       <header
         class="flex flex-col items-center gap-1 border-b-4 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
         <h1 class="text-2xl uppercase">Maciej Garncarski</h1>
         <span class="hidden md:inline">&#x2022;</span>
         <p class="uppecase text-2xl">Fullstack developer</p>
       </header>
-      <nav class="border-b-4 p-4">
-        <ul class="flex gap-8">
+      <nav class="flex items-center border-b-4">
+        <ul class="flex gap-8 p-4">
           {
             navigationData.map((n) => {
               const isActive = n.url === Astro.url.pathname;
@@ -97,6 +97,12 @@ const description =
       <main class="min-h-[30rem] border-b-4">
         <slot />
       </main>
+      <div class="border-b-4">
+        <div class="flex w-fit items-center justify-center gap-2 p-4">
+          <p>Motyw</p>
+          <ThemeToggle />
+        </div>
+      </div>
       <footer class="flex items-center gap-6 p-4">
         {
           socials.map((s) => {

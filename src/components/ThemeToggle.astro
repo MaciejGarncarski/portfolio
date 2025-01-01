@@ -1,0 +1,158 @@
+---
+
+---
+
+<button
+  data-theme-btn
+  type="button"
+  class="flex items-center justify-center"
+  title="Zmień motyw strony.">
+  <svg
+    data-theme-light
+    class="hidden h-[30px] w-[30px] text-black dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="currentColor"
+    viewBox="0 0 24 24">
+    <path
+      fill-rule="evenodd"
+      d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z"
+      clip-rule="evenodd"></path>
+  </svg>
+
+  <svg
+    data-theme-dark
+    class="hidden h-[30px] w-[30px] text-black dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="currentColor"
+    viewBox="0 0 24 24">
+    <path
+      fill-rule="evenodd"
+      d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z"
+      clip-rule="evenodd"></path>
+  </svg>
+
+  <svg
+    data-theme-system
+    class="hidden h-[30px] w-[30px] text-black dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="currentColor"
+    viewBox="0 0 24 24">
+    <path
+      fill-rule="evenodd"
+      d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z"
+      clip-rule="evenodd"></path>
+  </svg>
+</button>
+
+<script>
+  const themes = ["light", "dark", "system"];
+
+  const [lightIcon, darkIcon, systemIcon] = themes.map((t) =>
+    document.querySelector(`[data-theme-${t}]`)
+  );
+
+  const themeBtn = document.querySelector("[data-theme-btn]");
+  const THEME_KEY = "theme";
+
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+  const hideIcons = () => {
+    [lightIcon, darkIcon, systemIcon].forEach((icon) =>
+      icon?.classList.add("hidden")
+    );
+  };
+
+  const setTheme = (theme: "light" | "dark" | "system") => {
+    localStorage.setItem(THEME_KEY, theme);
+
+    hideIcons();
+
+    if (theme === "light") {
+      lightIcon?.classList.remove("hidden");
+      document.body.classList.remove("dark");
+      return;
+    }
+
+    if (theme === "dark") {
+      darkIcon?.classList.remove("hidden");
+      document.body.classList.add("dark");
+      return;
+    }
+
+    if (theme === "system") {
+      systemIcon?.classList.remove("hidden");
+      if (systemTheme === "dark") {
+        document.body.classList.add("dark");
+        return;
+      }
+      document.body.classList.remove("dark");
+    }
+  };
+
+  const getTheme = () => {
+    return localStorage.getItem(THEME_KEY) as
+      | "light"
+      | "dark"
+      | "system"
+      | null;
+  };
+
+  themeBtn?.addEventListener("click", () => {
+    const theme = getTheme();
+
+    if (theme === "light") {
+      setTheme("dark");
+      return;
+    }
+
+    if (theme === "dark") {
+      setTheme("system");
+      return;
+    }
+
+    if (theme === "system") {
+      setTheme("light");
+      return;
+    }
+
+    setTheme("system");
+  });
+
+  const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const themeChangeOnClick = (e: MediaQueryListEvent) => {
+    if (getTheme() !== "system") {
+      return;
+    }
+
+    if (e.matches) {
+      document.body.classList.add("dark");
+      return;
+    }
+
+    document.body.classList.remove("dark");
+    return;
+  };
+
+  darkModePreference.addEventListener("change", themeChangeOnClick);
+
+  const loadedTheme = getTheme();
+
+  if (loadedTheme) {
+    setTheme(loadedTheme);
+  }
+  if (!loadedTheme) {
+    setTheme("system");
+  }
+</script>
