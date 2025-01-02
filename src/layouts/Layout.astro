@@ -54,20 +54,6 @@ const description =
 <!doctype html>
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
-    />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content="Strony internetowe,Fullstack,developer,internet,frontend,backend,postgres,redis,react,html,css,js,ts,tailwind"
-    />
-    <title>MG dev</title>
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <script is:inline>
       const theme = localStorage.getItem("theme");
 
@@ -87,6 +73,20 @@ const description =
         document.documentElement.classList.remove("dark");
       }
     </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Strony internetowe,Fullstack,developer,internet,frontend,backend,postgres,redis,react,html,css,js,ts,tailwind"
+    />
+    <title>MG dev</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
     <div class="mx-auto max-w-[50rem] border-4 lg:my-10">
