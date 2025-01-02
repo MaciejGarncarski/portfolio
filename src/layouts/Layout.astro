@@ -54,25 +54,6 @@ const description =
 <!doctype html>
 <html lang="pl">
   <head>
-    <script is:inline>
-      const theme = localStorage.getItem("theme");
-
-      if (!theme) {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
-
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link
@@ -89,6 +70,7 @@ const description =
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
+    <script src="/prevent-flash.js" is:inline></script>
     <div class="mx-auto max-w-[50rem] border-4 lg:my-10">
       <header
         class="flex flex-col items-center gap-1 border-b-4 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
