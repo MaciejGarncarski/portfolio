@@ -76,24 +76,26 @@
   const setTheme = (theme: "light" | "dark" | "system") => {
     localStorage.setItem(THEME_KEY, theme);
 
+    console.log(theme);
+
     hideIcons();
 
     if (theme === "light") {
       lightIcon?.classList.remove("hidden");
-      document.body.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
       return;
     }
 
     if (theme === "dark") {
       darkIcon?.classList.remove("hidden");
-      document.body.classList.add("dark");
+      document.documentElement.classList.add("dark");
       return;
     }
 
     if (theme === "system") {
       systemIcon?.classList.remove("hidden");
       if (systemTheme === "dark") {
-        document.body.classList.add("dark");
+        document.documentElement.classList.add("dark");
         return;
       }
       document.body.classList.remove("dark");
