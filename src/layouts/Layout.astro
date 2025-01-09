@@ -70,14 +70,14 @@ const description =
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
-    <div class="mx-auto max-w-[50rem] border-4 lg:my-10">
+    <div class="mx-auto max-w-[50rem] border-2 lg:my-10">
       <header
-        class="flex flex-col items-center gap-1 border-b-4 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
+        class="flex flex-col items-center gap-1 border-b-2 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
         <h1 class="text-2xl uppercase">Maciej Garncarski</h1>
         <span class="hidden md:inline">&#x2022;</span>
         <p class="uppecase text-2xl">Fullstack developer</p>
       </header>
-      <nav class="flex items-center border-b-4">
+      <nav class="flex items-center border-b-2">
         <ul class="flex gap-8 p-4">
           {
             navigationData.map((n) => {
@@ -94,7 +94,7 @@ const description =
           }
         </ul>
       </nav>
-      <main class="min-h-[30rem] border-b-4">
+      <main class="min-h-[30rem] border-b-2">
         <slot />
       </main>
 
