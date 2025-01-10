@@ -1,12 +1,10 @@
 ---
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
 import "@fontsource-variable/jetbrains-mono";
 import type { ImageMetadata } from "astro";
 import clsx from "clsx";
 import github from "../assets/github.svg";
 import xIcon from "../assets/x.svg";
-import ThemeToggle from "../components/ThemeToggle.astro";
 
 type Social = {
   url: string;
@@ -85,7 +83,9 @@ const description =
 
               return (
                 <li>
-                  <a href={n.url} class={clsx(isActive && "underline")}>
+                  <a
+                    href={n.url}
+                    class={clsx(isActive ? "font-bold" : "text-gray-text")}>
                     {n.text}
                   </a>
                 </li>
