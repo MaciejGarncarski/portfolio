@@ -35,12 +35,18 @@ const projects: Array<Project> = [
             <p class="text-gray-text text-sm">{p.description}</p>
             <div class="flex gap-2">
               {p.live && (
-                <a target="_blank" class="border p-1 text-sm" href={p.live}>
+                <a
+                  target="_blank"
+                  class="border px-2 py-1 text-sm"
+                  href={p.live}>
                   Demo
                 </a>
               )}
               {p.repo && (
-                <a target="_blank" class="border p-1 text-sm" href={p.repo}>
+                <a
+                  target="_blank"
+                  class="border px-2 py-1 text-sm"
+                  href={p.repo}>
                   Repozytorium
                 </a>
               )}
