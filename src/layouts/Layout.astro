@@ -85,7 +85,11 @@ const description =
                 <li>
                   <a
                     href={n.url}
-                    class={clsx(isActive ? "font-bold" : "text-gray-text")}>
+                    class={clsx(
+                      isActive
+                        ? "font-bold"
+                        : "text-gray-text dark:text-white/90"
+                    )}>
                     {n.text}
                   </a>
                 </li>

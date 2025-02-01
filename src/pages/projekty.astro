@@ -1,5 +1,4 @@
 ---
-import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 
 type Project = {
@@ -32,7 +31,9 @@ const projects: Array<Project> = [
         return (
           <article class="flex flex-col gap-2">
             <h2 class="font-bold">{p.name}</h2>
-            <p class="text-gray-text text-sm">{p.description}</p>
+            <p class="text-gray-text text-sm dark:text-white/90">
+              {p.description}
+            </p>
             <div class="flex gap-2">
               {p.live && (
                 <a
