@@ -6,13 +6,19 @@ heroImage: "/blog/linux-desktop/hero.webp"
 tags: ["Linux desktop"]
 ---
 
-## GNU/Linux - najlepszy i najgorszy system operacyjny na desktopy.
+import BlogHeader from "../../components/BlogHeader.astro";
+
+<BlogHeader
+  href="wstep"
+  tag="h2"
+  text="Linux jako desktop - moje przemyślenia"
+/>
 
 Na początku wspomnę, że gdy napisane jest "Linux" mam na myśli cały system z komponentami GNU.
 
 Odkąd zacząłem interesować się Linuxem zawsze słyszałem o "roku Linuxa", jednak dla mnie było to niezrozumiałe.
 
-### Wady Linuxa
+<BlogHeader href="wady" tag="h3" text="Wady Linuxa" />
 
 W 2020 roku, kiedy pierwszy raz zainstalowałem Linuxa, miał on wtedy 29 lat. Logiczne jest, że tak stary system operacyjny będzie miał w miarę używalne środowisko desktopowe. Można powiedzieć w pewnych przypadkach, że to prawda. Jeżeli planujesz używać komputera (nie laptopa) do przeglądania internetu — to wybierz Linuxa. Jednak jeśli chcesz zainstalować jakiś program do pracy np. pakiet Office, Adobe Photoshop, nie zrobisz tego :P.
 
@@ -24,7 +30,7 @@ Kolejna wada to "używalność" środowisk graficznych. Bardzo zdziwiłem się, 
 
 Podsumowując wady, gdyby jakaś korporacja chciała stworzyć distro Linuxa na wzór Windowsa/MacOS, którego nie da się tak łatwo zepsuć, z porządnym instalator pakietów i ładnym API graficznym do programów, to byłbym w stanie kupić licencję na taki system za nawet 500 zł.
 
-### Zalety Linuxa
+<BlogHeader href="zalety" tag="h3" text="Zalety Linuxa" />
 
 Jedną z największych zalet Linuxa jest szybkość działania, tutaj nie można skłamać.
 
@@ -32,6 +38,6 @@ W zajęciach związanych z programowaniem Linux spisuje się bardzo dobrze, praw
 
 Linux też jest bardzo dobry na stare urządzenia do przeglądania internetu, nie ma takich ograniczeń jak Windows 11 z TPM 2.0.
 
-### Zakończenie
+<BlogHeader href="zakonczenie" tag="h3" text="Zakończenie" />
 
 Obecnie działam na Windowsie z WSL2 Ubuntu 24.04, ponieważ nie mam już czasu i ochoty naprawiać systemu co kilka tygodni. Gdy coś zepsuje się w WSL, to po prostu usuwam i stawiam od nowa część systemu, nie muszę na nowo instalować systemu i wszystkich programów, nie mówiąc o plikach prywatnych itp.. Moim zdaniem Linux nigdy nie będzie popularny, ze względu na braki w finansowaniu dystrybucji. Jedyna szansa na odniesienie sukcesu, to pójście ścieżką Androida, jakaś korporacja musi zrobić porządny zamknięty system, inaczej raczej nic z tego nie wyjdzie.
