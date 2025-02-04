@@ -1,0 +1,26 @@
+---
+title: "nginx streamowanie HTML"
+pubDate: 2025-05-02
+description: "nginx - jak skonfigurować/włączyć streamowanie HTML."
+heroImage: "/blog/nginx-streaming/hero.png"
+tags: ["Nginx", "streaming"]
+---
+
+import BlogHeader from "../../components/BlogHeader.astro";
+
+<BlogHeader href="streamowanie-html" tag="h2" text="nginx streamowanie HTML" />
+
+Tl;dr: Aby włączyć streamowanie HTML w nginx, należy dodać jedną linijkę w konfiguracji serwera.
+
+```nginx
+server {
+    #...kod...
+
+    location / {
+        #...kod...
+        proxy_buffering off;
+    }
+}
+```
+
+Kiedyś kodowałem sobie aplikację w frameworku TanStack Start, zauważyłem, że brakuje efektu doładowywania się niektórych dynamicznych elementów, czyli tzw. streamingu HTML. Na Vercelu i innych hostingach tego nie zauważyłem, więc zacząłem szukać rozwiązania. Okazało się, że wystarczy dodać jedną linijkę w konfiguracji nginx <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering" target="_blank">`proxy_buffering off;`</a>
