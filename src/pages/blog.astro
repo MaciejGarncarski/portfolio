@@ -1,0 +1,46 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+type Test = CollectionEntry<"blog">;
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+console.log(posts[0].data);
+---
+
+<Layout>
+  <div class="flex flex-col gap-4 p-4 pb-8">
+    <h2>Blog - luźne przemyślenia</h2>
+    <div class="flex flex-col gap-4">
+      {
+        posts.map((post: Test) => {
+          return (
+            <a href={post.id}>
+              <article class="relative flex flex-col gap-2 overflow-hidden border-2 p-4">
+                <div class="before:bg-blog-gradient before:dark:bg-blog-gradient-dark absolute top-0 right-0 -z-10 flex h-full items-center justify-end before:absolute before:h-full before:w-full before:content-['']">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="h-40"
+                  />
+                </div>
+                <header class="aling-center flex justify-between">
+                  <h3>{post.data.title}</h3>
+                  <p>
+                    <time datetime={post.data.pubDate.toLocaleDateString()}>
+                      {post.data.pubDate.toLocaleDateString()}
+                    </time>
+                  </p>
+                </header>
+                <p class="text-sm">{post.data.description}</p>
+              </article>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</Layout>

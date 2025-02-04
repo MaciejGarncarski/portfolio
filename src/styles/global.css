@@ -5,6 +5,20 @@
   --color-gray-text: hsl(224, 5%, 35%);
   --grid-template-columns-custom: repeat(auto-fill, minmax(4rem, 7rem));
   --width-half: 50%;
+  --background-image-blog-gradient: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.9) 35%,
+    rgba(255, 255, 255, 0.5) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  --background-image-blog-gradient-dark: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 @layer base {

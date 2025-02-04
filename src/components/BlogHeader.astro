@@ -1,0 +1,11 @@
+---
+type Props = {
+  tag: "h2" | "h3" | "h4" | "h5" | "h6";
+};
+
+const { tag: Element = "h2" } = Astro.props;
+---
+
+<Element class="text-lg font-semibold text-black dark:text-white">
+  <slot />
+</Element>

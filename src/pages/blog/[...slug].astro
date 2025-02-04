@@ -1,0 +1,25 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogHeader from "../../components/BlogHeader.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout description={post.data.description} title={post.data.title}>
+  <div
+    class="text-gray-text mx-auto flex max-w-prose flex-col gap-4 p-4 pb-8 text-sm text-pretty dark:text-white/90">
+    <Content components={{ h3: BlogHeader, h2: BlogHeader }} />
+  </div>
+</Layout>

@@ -6,6 +6,11 @@ import clsx from "clsx";
 import github from "../assets/github.svg";
 import xIcon from "../assets/x.svg";
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 type Social = {
   url: string;
   icon: ImageMetadata;
@@ -42,11 +47,19 @@ const navigationData: Array<Link> = [
   {
     text: "Kontakt",
     url: "/kontakt/"
+  },
+  {
+    text: "Blog",
+    url: "/blog/"
   }
 ];
 
-const description =
+const defaultTitle = "Maciej Garncarski";
+
+const defaultDescription =
   "Specjalizuję się w tworzeniu nowoczesnych i wydajnych aplikacji internetowych. Moje doświadczenie obejmuje pracę z technologiami frontendowymi i backendowymi, co pozwala mi na dostarczanie kompleksowych rozwiązań dla klientów.";
+
+const { description = defaultDescription, title = defaultTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -64,7 +77,7 @@ const description =
       name="keywords"
       content="Strony internetowe,Fullstack,developer,internet,frontend,backend,postgres,redis,react,html,css,js,ts,tailwind"
     />
-    <title>MG dev</title>
+    <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
@@ -76,17 +89,20 @@ const description =
         <p class="uppecase text-2xl">Fullstack developer</p>
       </header>
       <nav class="flex items-center border-b-2">
-        <ul class="flex gap-8 p-4">
+        <ul class="flex flex-wrap gap-x-8 gap-y-4 p-4">
           {
             navigationData.map((n) => {
               const isActive = n.url === Astro.url.pathname;
+              const isBlogPage = n.url === "/blog/";
+              const isBlogPageActive =
+                isBlogPage && Astro.url.pathname.startsWith("/blog/");
 
               return (
                 <li>
                   <a
                     href={n.url}
                     class={clsx(
-                      isActive
+                      isActive || isBlogPageActive
                         ? "font-bold"
                         : "text-gray-text dark:text-white/90"
                     )}>
