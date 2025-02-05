@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import { render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import BlogHeader from "../../components/BlogHeader.astro";
+import BlogList from "../../components/BlogList.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -23,6 +23,6 @@ const { Content } = await render(post);
   keywords={post.data.keywords}>
   <div
     class="text-gray-text flex flex-col gap-4 p-4 pb-8 text-sm text-pretty dark:text-white/90">
-    <Content />
+    <Content components={{ ul: BlogList }} />
   </div>
 </Layout>

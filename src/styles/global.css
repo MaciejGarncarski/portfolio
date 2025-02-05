@@ -5,6 +5,7 @@
   --color-gray-text: hsl(224, 5%, 35%);
   --grid-template-columns-custom: repeat(auto-fill, minmax(4rem, 7rem));
   --width-half: 50%;
+  --list-style-type-hyphen: "– ";
   --background-image-blog-gradient: linear-gradient(
     to right,
     rgba(255, 255, 255, 1) 0%,
