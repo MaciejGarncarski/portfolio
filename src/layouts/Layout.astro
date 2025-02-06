@@ -43,15 +43,15 @@ const navigationData: Array<Link> = [
   },
   {
     text: "Projekty",
-    url: "/projekty/"
+    url: "/projekty"
   },
   {
     text: "Kontakt",
-    url: "/kontakt/"
+    url: "/kontakt"
   },
   {
     text: "Blog",
-    url: "/blog/"
+    url: "/blog"
   }
 ];
 
@@ -85,6 +85,9 @@ const {
   title = defaultTitle,
   keywords = defaultKeywords
 } = Astro.props;
+
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const subpath = pathname.match(/[^\/]+/g);
 ---
 
 <!doctype html>
@@ -114,8 +117,11 @@ const {
         <ul class="flex flex-wrap gap-x-8 gap-y-4 p-4">
           {
             navigationData.map((n) => {
-              const isActive = n.url === Astro.url.pathname;
+              const isActive =
+                n.url === pathname || n.url === "/" + (subpath?.[0] || "");
+
               const isBlogPage = n.url === "/blog/";
+
               const isBlogPageActive =
                 isBlogPage && Astro.url.pathname.startsWith("/blog/");
 
