@@ -8,6 +8,10 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://maciej-garncarski.pl",
+  trailingSlash: "never",
+  build: {
+    format: "file"
+  },
   markdown: {
     shikiConfig: {
       themes: {
