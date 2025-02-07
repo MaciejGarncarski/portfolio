@@ -46,7 +46,6 @@ const subpath = pathname.match(/[^\/]+/g);
 
         return (
           <li>
-            <Debug answer={{ isActive, pathname, n: n.url }} />
             <a
               href={n.url}
               class={clsx(
