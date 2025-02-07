@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogList from "../../components/BlogList.astro";
+import SEO from "../../components/SEO.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -18,11 +19,15 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout
-  description={post.data.description}
-  title={post.data.title}
-  keywords={post.data.keywords}
-  ogImage={post.data.heroImage.src}>
+<Layout>
+  <SEO
+    slot="head"
+    description={post.data.description}
+    title={post.data.title}
+    keywords={post.data.keywords}
+    ogImage={post.data.heroImage.src}
+  />
+
   <div
     class="text-muted-foreground mx-auto flex max-w-prose flex-col gap-4 p-4 pb-8 text-sm text-pretty">
     <Content components={{ ul: BlogList }} />

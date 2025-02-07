@@ -4,47 +4,9 @@ import "@fontsource-variable/jetbrains-mono";
 
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-
-type Props = {
-  title?: string;
-  description?: string;
-  keywords?: Array<string>;
-  ogImage?: string;
-};
-
-const defaultTitle = "Maciej Garncarski";
-
-const defaultDescription =
-  "Specjalizuję się w tworzeniu nowoczesnych i wydajnych aplikacji internetowych. Moje doświadczenie obejmuje pracę z technologiami frontendowymi i backendowymi, co pozwala mi na dostarczanie kompleksowych rozwiązań dla klientów.";
-
-const defaultKeywords = [
-  "Strony internetowe",
-  "Fullstack",
-  "developer",
-  "internet",
-  "frontend",
-  "backend",
-  "postgres",
-  "redis",
-  "react",
-  "html",
-  "css",
-  "js",
-  "ts",
-  "tailwind",
-  "blog",
-  "nginx",
-  "linux"
-];
-
-const {
-  description = defaultDescription,
-  title = defaultTitle,
-  keywords = defaultKeywords,
-  ogImage
-} = Astro.props;
-
-const canonicalUrl = "https://maciejgarncarski.pl";
+import PreventThemeFlash from "../components/PreventThemeFlash.astro";
+import SEO from "../components/SEO.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -56,41 +18,15 @@ const canonicalUrl = "https://maciejgarncarski.pl";
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
     />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords.join(", ")} />
-    <link rel="canonical" href={canonicalUrl} />
-
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
-    <meta name="og:title" content={title} />
-
-    <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <script is:inline>
-      document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-      );
-      localStorage.theme = "light";
-      localStorage.theme = "dark";
-      localStorage.removeItem("theme");
 
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (event) => {
-          document.documentElement.classList.toggle("dark", event.matches);
-        });
-    </script>
+    <PreventThemeFlash />
+
+    <slot name="head">
+      <SEO />
+    </slot>
+
+    <ClientRouter />
   </head>
   <body class="text-foreground bg-background p-1 lg:p-0">
     <div class="mx-auto max-w-[50rem] border-2 lg:my-10">
