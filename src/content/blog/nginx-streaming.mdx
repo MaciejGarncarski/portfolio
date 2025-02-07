@@ -1,5 +1,5 @@
 ---
-title: "nginx streaming HTML"
+title: "Konfiguracja streamingu HTML w nginx"
 pubDate: 2025-05-02
 description: "nginx - Jak włączyć streaming HTML? (Next.js, TanStack Start)"
 heroImage: "../../assets/blog/nginx-streaming/hero.png"
@@ -9,7 +9,7 @@ keywords: ["nginx", "streaming", "html", "http", "proxy_buffering"]
 
 import BlogHero from "../../components/BlogHero.astro";
 
-<BlogHero text="nginx streaming HTML" />
+<BlogHero text={frontmatter.title} />
 
 Tl;dr: Aby włączyć streaming HTML w nginx, należy dodać jedną linijkę w konfiguracji serwera.
 
@@ -24,4 +24,11 @@ server {
 }
 ```
 
-Kiedyś kodowałem sobie aplikację w frameworku TanStack Start, zauważyłem, że brakuje efektu doładowywania się niektórych dynamicznych elementów, czyli tzw. streamingu HTML. Na Vercelu i innych hostingach tego nie zauważyłem, więc zacząłem szukać rozwiązania. Okazało się, że wystarczy dodać jedną linijkę w konfiguracji nginx <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering" target="_blank">`proxy_buffering off;`</a>
+import BlogHeader from "../../components/BlogHeader.astro";
+
+<BlogHeader tag="h2" text="Co to jest streaming HTML?" href="co-to-streaming" />
+Streaming HTML to technika, dzięki której można wyświetlać treść strony
+internetowej, zanim cała strona zostanie pobrana. Dzięki temu użytkownik widzi
+treść strony szybciej, a nie musi czekać na załadowanie całej strony.
+
+Kiedyś kodowałem sobie aplikację w frameworku TanStack Start, zauważyłem, że brakuje efektu doładowywania się niektórych dynamicznych elementów, czyli tzw. streamingu HTML. Na Vercelu i innych hostingach tego nie zauważyłem, więc zacząłem szukać rozwiązania. Okazało się, że wystarczy dodać jedną linijkę w konfiguracji nginx <a class="text-foreground underline" href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering" target="_blank">`proxy_buffering off;`</a>

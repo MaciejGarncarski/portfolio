@@ -28,7 +28,7 @@ const posts = (await getCollection("blog")).sort(
                 </div>
                 <header class="aling-center flex justify-between text-base">
                   <h3>{post.data.title}</h3>
-                  <p>
+                  <p class="before:bg-background/90 relative before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:blur-lg">
                     <time datetime={post.data.pubDate.toLocaleDateString()}>
                       {post.data.pubDate.toLocaleDateString()}
                     </time>
