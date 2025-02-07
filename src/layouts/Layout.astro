@@ -27,6 +27,20 @@ import { ClientRouter } from "astro:transitions";
     </slot>
 
     <ClientRouter />
+
+    <script is:inline>
+      document.addEventListener("astro:after-swap", function () {
+        document.documentElement.classList.toggle(
+          "dark",
+          localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+        );
+        localStorage.theme = "light";
+        localStorage.theme = "dark";
+        localStorage.removeItem("theme");
+      });
+    </script>
   </head>
   <body class="text-foreground bg-background p-1 lg:p-0">
     <div class="mx-auto max-w-[50rem] border-2 lg:my-10">
