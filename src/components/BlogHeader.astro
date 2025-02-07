@@ -8,7 +8,7 @@ type Props = {
 const { text, tag: Element = "h2", href } = Astro.props;
 ---
 
-<Element id={href} class="text-lg font-semibold text-black dark:text-white">
+<Element id={href} class="text-foreground text-lg font-semibold">
   <a href={"#" + href}>
     {text}
   </a>

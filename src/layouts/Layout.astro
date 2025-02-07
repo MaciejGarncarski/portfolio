@@ -104,11 +104,28 @@ const subpath = pathname.match(/[^\/]+/g);
     <meta name="keywords" content={keywords.join(", ")} />
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      localStorage.theme = "light";
+      localStorage.theme = "dark";
+      localStorage.removeItem("theme");
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          document.documentElement.classList.toggle("dark", event.matches);
+        });
+    </script>
   </head>
-  <body class="bg-white p-1 text-black lg:p-0 dark:bg-black dark:text-white">
+  <body class="text-foreground bg-background p-1 lg:p-0">
     <div class="mx-auto max-w-[50rem] border-2 lg:my-10">
       <header
-        class="flex flex-col items-center gap-1 border-b-2 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
+        class="text-primary-foreground flex flex-col items-center gap-1 border-b-2 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
         <h1 class="text-2xl uppercase">Maciej Garncarski</h1>
         <span class="hidden md:inline">&#x2022;</span>
         <p class="uppecase text-2xl">Fullstack developer</p>
@@ -131,8 +148,8 @@ const subpath = pathname.match(/[^\/]+/g);
                     href={n.url}
                     class={clsx(
                       isActive || isBlogPageActive
-                        ? "font-bold"
-                        : "text-gray-text dark:text-white/90"
+                        ? "text-foreground font-bold"
+                        : "text-muted-foreground"
                     )}>
                     {n.text}
                   </a>

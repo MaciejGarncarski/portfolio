@@ -1,28 +1,64 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-mono: "JetBrains Mono Variable", monospace;
-  --color-gray-text: hsl(224, 5%, 35%);
   --grid-template-columns-custom: repeat(auto-fill, minmax(4rem, 7rem));
   --width-half: 50%;
   --list-style-type-hyphen: "– ";
-  --background-image-blog-gradient: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.9) 35%,
-    rgba(255, 255, 255, 0.5) 70%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  --background-image-blog-gradient-dark: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.95) 17%,
-    rgba(0, 0, 0, 0.6) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  --background-image-blog-gradient: var(--blog-gradient);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
 @layer base {
+  :root {
+    --background: hsl(224, 5%, 95%);
+    --foreground: oklch(26.47% 0.0247 207.53);
+
+    --muted: hsl(224, 5%, 35%);
+    --muted-foreground: hsl(224, 5%, 35%);
+
+    --secondary: hsl(224, 5%, 35%);
+    --secondary-foreground: hsl(224, 5%, 35%);
+
+    --blog-gradient: linear-gradient(
+      to right,
+      hsl(224, 5%, 95%) 0%,
+      hsl(224, 5%, 95%, 0.9) 35%,
+      hsl(224, 5%, 95%, 0.5) 70%,
+      hsl(224, 5%, 95%, 0.1) 100%
+    );
+  }
+
+  .dark {
+    --background: oklch(26.47% 0.0247 207.53);
+    --foreground: oklch(97.06% 0.0148 207.53);
+
+    --muted: oklch(85.15% 0.0148 207.53);
+    --muted-foreground: oklch(85.15% 0.0148 207.53);
+
+    --secondary: hsl(224, 5%, 35%);
+
+    --blog-gradient: linear-gradient(
+      to right,
+      var(--background) 0%,
+      oklch(26.47% 0.0247 207.53 / 0.9) 17%,
+      oklch(26.47% 0.0247 207.53 / 0.6) 80%,
+      oklch(26.47% 0.0247 207.53 / 0) 100%
+    );
+  }
+
   body {
     font-family: var(--font-mono);
   }

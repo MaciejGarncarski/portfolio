@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+
+const allBlogPosts = await getCollection("blog");
+
+const currPost = allBlogPosts.find((post) => post.data.title === text);
+---
+
+<header class="mb-8 flex flex-col gap-4">
+  <h2 class="text-foreground text-center text-xl font-semibold">
+    {text}
+  </h2>
+  {
+    currPost?.data.heroImage && (
+      <Image
+        src={currPost.data.heroImage}
+        width={512}
+        height={512}
+        alt={text}
+        class="mx-auto h-64 w-64 border-2"
+      />
+    )
+  }
+</header>

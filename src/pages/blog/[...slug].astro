@@ -22,7 +22,7 @@ const { Content } = await render(post);
   title={post.data.title}
   keywords={post.data.keywords}>
   <div
-    class="text-gray-text flex flex-col gap-4 p-4 pb-8 text-sm text-pretty dark:text-white/90">
+    class="text-muted-foreground mx-auto flex max-w-prose flex-col gap-4 p-4 pb-8 text-sm text-pretty">
     <Content components={{ ul: BlogList }} />
   </div>
 </Layout>
