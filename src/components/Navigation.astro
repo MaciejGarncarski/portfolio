@@ -1,0 +1,62 @@
+---
+import { Debug } from "astro:components";
+import clsx from "clsx";
+
+type Link = {
+  url: string;
+  text: string;
+};
+
+const navigationData: Array<Link> = [
+  {
+    text: "O mnie",
+    url: "/"
+  },
+  {
+    text: "Projekty",
+    url: "/projekty"
+  },
+  {
+    text: "Kontakt",
+    url: "/kontakt"
+  },
+  {
+    text: "Blog",
+    url: "/blog"
+  }
+];
+
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const subpath = pathname.match(/[^\/]+/g);
+---
+
+<nav class="flex items-center border-b-2">
+  <ul class="flex flex-wrap gap-x-8 gap-y-4 p-4">
+    {
+      navigationData.map((n) => {
+        const isActive =
+          n.url === pathname || n.url === "/" + (subpath?.[0] || "");
+
+        const isBlogPage = n.url === "/blog/";
+
+        const isBlogPageActive =
+          isBlogPage && Astro.url.pathname.startsWith("/blog/");
+
+        return (
+          <li>
+            <Debug answer={{ isActive, pathname, n: n.url }} />
+            <a
+              href={n.url}
+              class={clsx(
+                isActive || isBlogPageActive
+                  ? "text-foreground font-bold"
+                  : "text-muted-foreground"
+              )}>
+              {n.text}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
