@@ -47,8 +47,9 @@ const subpath = pathname.match(/[^\/]+/g);
             <a
               href={n.url}
               class={clsx(
+                "px-2 py-1",
                 isActive || isBlogPageActive
-                  ? "text-foreground font-bold"
+                  ? "bg-foreground text-background rounded font-bold"
                   : "text-muted-foreground"
               )}>
               {n.text}
