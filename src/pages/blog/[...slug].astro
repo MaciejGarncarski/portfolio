@@ -4,6 +4,7 @@ import { render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogList from "../../components/BlogList.astro";
 import SEO from "../../components/SEO.astro";
+import BlogHero from "../../components/BlogHero.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -28,8 +29,10 @@ const { Content } = await render(post);
     ogImage={post.data.heroImage.src}
   />
 
-  <div
-    class="text-muted-foreground mx-auto flex max-w-prose flex-col gap-4 p-4 pb-8 text-sm text-pretty">
-    <Content components={{ ul: BlogList }} />
+  <div class="text-muted-foreground flex flex-col gap-4">
+    <BlogHero text={post.data.title} />
+    <div class="mx-auto flex max-w-prose flex-col gap-6 p-4 pb-14 text-pretty">
+      <Content components={{ ul: BlogList }} />
+    </div>
   </div>
 </Layout>

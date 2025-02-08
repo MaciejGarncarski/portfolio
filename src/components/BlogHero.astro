@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import { discriminatedUnion } from "astro:schema";
 
 type Props = {
   text: string;
@@ -13,19 +14,33 @@ const allBlogPosts = await getCollection("blog");
 const currPost = allBlogPosts.find((post) => post.data.title === text);
 ---
 
-<header class="mb-8 flex flex-col gap-4">
-  <h2 class="text-foreground text-center text-xl font-semibold">
-    {text}
-  </h2>
+<header class="relative flex h-80 flex-col items-center justify-center gap-4">
+  {
+    currPost?.data.heroImage && (
+      <div class="absolute top-0 left-0 -z-10 mx-auto h-full w-full opacity-35 blur-xs saturate-150 dark:saturate-100">
+        <div class="bg-blog-hero-gradient absolute top-0 left-0 h-full w-full" />
+        <Image
+          src={currPost.data.heroImage}
+          alt={text}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
+
   {
     currPost?.data.heroImage && (
       <Image
         src={currPost.data.heroImage}
-        width={512}
-        height={512}
+        width={256}
+        height={256}
         alt={text}
-        class="mx-auto w-64 border-2"
+        class="h-42 w-42 rounded-sm border-2"
       />
     )
   }
+  <h2
+    class="text-foreground max-w-prose text-center text-2xl font-bold text-pretty">
+    {text}
+  </h2>
 </header>

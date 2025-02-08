@@ -32,24 +32,26 @@ const projects: Array<Project> = [
           <article class="flex flex-col gap-2">
             <h2 class="font-bold">{p.name}</h2>
             <p class="text-muted-foreground text-sm">{p.description}</p>
-            <div class="flex gap-2">
-              {p.live && (
-                <a
-                  target="_blank"
-                  class="border px-2 py-1 text-sm"
-                  href={p.live}>
-                  Demo
-                </a>
-              )}
-              {p.repo && (
-                <a
-                  target="_blank"
-                  class="border px-2 py-1 text-sm"
-                  href={p.repo}>
-                  Repozytorium
-                </a>
-              )}
-            </div>
+            {(p.live || p.repo) && (
+              <div class="mt-2 flex gap-2">
+                {p.live && (
+                  <a
+                    target="_blank"
+                    class="rounded border px-2 py-1 text-sm"
+                    href={p.live}>
+                    Demo
+                  </a>
+                )}
+                {p.repo && (
+                  <a
+                    target="_blank"
+                    class="rounded border px-2 py-1 text-sm"
+                    href={p.repo}>
+                    Repozytorium
+                  </a>
+                )}
+              </div>
+            )}
           </article>
         );
       })

@@ -2,6 +2,7 @@
 import type { ImageMetadata } from "astro";
 import github from "../assets/github.svg";
 import xIcon from "../assets/x.svg";
+import cvIcon from "../assets/cv.svg";
 import { Image } from "astro:assets";
 
 type Social = {
@@ -20,6 +21,11 @@ const socials: Array<Social> = [
     name: "X",
     icon: xIcon,
     url: "https://x.com/MGarncarski"
+  },
+  {
+    name: "CV",
+    icon: cvIcon,
+    url: "/cv"
   }
 ];
 ---
@@ -28,13 +34,13 @@ const socials: Array<Social> = [
   {
     socials.map((s) => {
       return (
-        <a href={s.url} target="_blank" class="w-fit">
+        <a href={s.url} target="_blank" class="w-fit" title={s.name}>
           <Image
             src={s.icon}
             alt=""
             width="30"
             height="30"
-            class="dark:invert-100"
+            class="h-6 w-6 lg:h-7 lg:w-7 dark:invert-100"
           />
           <span class="sr-only">{s.name}</span>
         </a>
