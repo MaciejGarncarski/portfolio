@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { discriminatedUnion } from "astro:schema";
+import { calculateReadingTime } from "../utils/calculate-read-time";
 
 type Props = {
   text: string;
@@ -12,6 +12,12 @@ const { text } = Astro.props;
 const allBlogPosts = await getCollection("blog");
 
 const currPost = allBlogPosts.find((post) => post.data.title === text);
+
+const formattedTime = new Intl.DateTimeFormat("pl").format(
+  currPost?.data.pubDate
+);
+
+const readTime = calculateReadingTime(currPost?.body || "");
 ---
 
 <header class="relative flex h-80 flex-col items-center justify-center gap-4">
@@ -39,8 +45,17 @@ const currPost = allBlogPosts.find((post) => post.data.title === text);
       />
     )
   }
-  <h2
-    class="text-foreground max-w-prose px-4 text-center text-2xl font-bold text-pretty">
-    {text}
-  </h2>
+
+  <div class="flex flex-col gap-2 text-center">
+    <h1
+      class="text-foreground max-w-prose px-4 text-center text-2xl font-bold text-pretty">
+      {text}
+    </h1>
+    <p class="text-muted-foreground text-center text-sm">
+      <time datetime={formattedTime}>
+        {formattedTime}
+      </time>
+      | {readTime} min. czytania
+    </p>
+  </div>
 </header>

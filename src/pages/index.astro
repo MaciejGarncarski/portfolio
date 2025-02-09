@@ -21,17 +21,24 @@ const description =
 ---
 
 <Layout>
-  <section class="" aria-labelledby="O mnie">
-    <p class="text-pretty">
+  <header class="text-primary-foreground flex flex-col gap-5">
+    <div
+      class="flex flex-col gap-1 font-bold md:flex-row md:gap-5 lg:items-center">
+      <h1 class="text-2xl uppercase">Maciej Garncarski</h1>
+      <span class="hidden md:inline">&#x2022;</span>
+      <p class="uppecase text-2xl">Fullstack developer</p>
+    </div>
+
+    <p class="text-muted-foreground text-left text-pretty">
       {description}
     </p>
-  </section>
+  </header>
 
   <HomeSection>
-    <h2 class="text-lg font-bold">Doświadczenie</h2>
+    <h2 class="text-lg font-semibold">Doświadczenie</h2>
     <ul>
       <li class="flex flex-col gap-2">
-        <div class="flex justify-between font-semibold">
+        <div class="flex justify-between">
           <p class="max-w-48">Fullstack developer</p>
           <p class="text-right">paź. 2023 - gru. 2024</p>
         </div>
@@ -48,10 +55,10 @@ const description =
   </HomeSection>
 
   <HomeSection>
-    <h2 class="text-lg font-bold">Open source</h2>
+    <h2 class="text-lg font-semibold">Open source</h2>
     <ul>
       <li class="flex flex-col gap-2">
-        <div class="flex justify-between font-semibold">
+        <div class="flex justify-between">
           <p class="max-w-48">TanStack Router</p>
           <a
             target="_blank"
@@ -68,12 +75,12 @@ const description =
   </HomeSection>
 
   <HomeSection>
-    <h2 class="text-lg font-bold">Technologie</h2>
+    <h2 class="text-lg font-semibold">Technologie</h2>
     <ul class="grid-cols-custom grid gap-2">
       {
         skills.map((s) => {
           return (
-            <li class="bg-foreground/90 text-background rounded px-3 py-1 text-xs font-semibold md:text-sm">
+            <li class="bg-foreground/90 text-background rounded px-3 py-1 text-xs font-bold md:text-sm">
               {s}
             </li>
           );
