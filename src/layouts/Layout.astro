@@ -42,10 +42,10 @@ import { ClientRouter } from "astro:transitions";
       });
     </script>
   </head>
-  <body class="text-foreground bg-background p-1 lg:p-0">
-    <div class="mx-auto max-w-[50rem] rounded border-2 lg:my-10">
+  <body class="text-foreground bg-background p-5 lg:p-0">
+    <div class="mx-auto flex max-w-[60rem] flex-col gap-8 lg:my-15">
       <header
-        class="text-primary-foreground flex flex-col items-center gap-1 border-b-2 p-3 text-center md:flex-row md:gap-4 md:p-4 md:text-left">
+        class="text-primary-foreground flex flex-col items-center gap-1 text-center md:flex-row md:gap-4 md:text-left">
         <h1 class="text-2xl uppercase">Maciej Garncarski</h1>
         <span class="hidden md:inline">&#x2022;</span>
         <p class="uppecase text-2xl">Fullstack developer</p>
@@ -53,7 +53,7 @@ import { ClientRouter } from "astro:transitions";
 
       <Navigation />
 
-      <main class="min-h-[30rem] border-b-2">
+      <main class="flex min-h-[30rem] flex-col gap-8">
         <slot />
       </main>
 

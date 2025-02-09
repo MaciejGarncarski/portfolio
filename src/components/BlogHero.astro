@@ -32,8 +32,8 @@ const currPost = allBlogPosts.find((post) => post.data.title === text);
     currPost?.data.heroImage && (
       <Image
         src={currPost.data.heroImage}
-        width={256}
-        height={256}
+        width={512}
+        height={512}
         alt={text}
         class="h-42 w-42 rounded-sm border-2"
       />

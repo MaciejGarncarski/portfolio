@@ -1,4 +1,5 @@
 ---
+import HomeSection from "../components/HomeSection.astro";
 import Layout from "../layouts/Layout.astro";
 
 const skills = [
@@ -20,13 +21,13 @@ const description =
 ---
 
 <Layout>
-  <section class="border-b-2 p-4" aria-labelledby="O mnie">
+  <section class="" aria-labelledby="O mnie">
     <p class="text-pretty">
       {description}
     </p>
   </section>
 
-  <section class="flex flex-col gap-4 border-b-2 p-4 pb-8">
+  <HomeSection>
     <h2 class="text-lg font-bold">Doświadczenie</h2>
     <ul>
       <li class="flex flex-col gap-2">
@@ -44,9 +45,9 @@ const description =
         </p>
       </li>
     </ul>
-  </section>
+  </HomeSection>
 
-  <section class="flex flex-col gap-4 border-b-2 p-4 pb-8">
+  <HomeSection>
     <h2 class="text-lg font-bold">Open source</h2>
     <ul>
       <li class="flex flex-col gap-2">
@@ -64,9 +65,9 @@ const description =
         </p>
       </li>
     </ul>
-  </section>
+  </HomeSection>
 
-  <section class="flex flex-col gap-4 p-4">
+  <HomeSection>
     <h2 class="text-lg font-bold">Technologie</h2>
     <ul class="grid-cols-custom grid gap-2">
       {
@@ -79,5 +80,5 @@ const description =
         })
       }
     </ul>
-  </section>
+  </HomeSection>
 </Layout>

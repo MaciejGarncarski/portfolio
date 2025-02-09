@@ -20,6 +20,8 @@
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
+  --shadow-blog: var(--shadow-blog);
 }
 
 @layer base {
@@ -43,10 +45,12 @@
 
     --blog-hero-gradient: linear-gradient(
       to bottom,
-      hsl(224, 5%, 95%, 0) 0%,
-      hsl(224, 5%, 95%, 0.2) 20%,
+      hsl(224, 5%, 95%, 0.4) 0%,
+      hsl(224, 5%, 95%, 0.7) 20%,
       hsl(224, 5%, 95%, 1) 100%
     );
+
+    --shadow-blog: 0 0 0 1px oklch(26.47% 0.0247 207.53 / 0.3);
   }
 
   .dark {
@@ -72,6 +76,8 @@
       oklch(26.47% 0.0247 207.53 / 0.6) 50%,
       oklch(26.47% 0.0247 207.53 / 1) 100%
     );
+
+    --shadow-blog: 0 0 0 1px oklch(97.06% 0.0148 207.53 / 0.5);
   }
 
   body {

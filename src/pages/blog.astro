@@ -9,14 +9,14 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout>
-  <div class="flex flex-col gap-4 p-4 pb-8">
-    <h2 class="text-lg">Blog - luźne przemyślenia, nie brać na poważnie</h2>
+  <div class="flex flex-col gap-4 pb-8">
+    <h2 class="lg:text-lg">Blog - luźne przemyślenia, nie brać na poważnie</h2>
     <div class="flex flex-col gap-4 text-sm">
       {
         posts.map((post) => {
           return (
             <a href={"/blog/" + post.id}>
-              <article class="relative flex flex-col gap-4 overflow-hidden rounded border-2 p-4">
+              <article class="shadow-blog relative flex flex-col gap-4 overflow-hidden rounded p-4">
                 <div class="before:bg-blog-gradient absolute top-0 right-0 -z-10 flex h-full items-center justify-end opacity-80 before:absolute before:h-full before:w-full before:content-['']">
                   <Image
                     src={post.data.heroImage}
