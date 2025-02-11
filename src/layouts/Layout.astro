@@ -21,7 +21,8 @@ const mainEntranceAnimationIn: TransitionAnimation = {
 };
 
 const mainEntranceAnimationOut: TransitionAnimation = {
-  name: "mainEntranceOut"
+  name: "mainEntranceOut",
+  duration: "0s"
 };
 
 const mainEntrancePair: TransitionAnimationPair = {
@@ -112,7 +113,7 @@ const mainEntrance: TransitionDirectionalAnimations = {
     @keyframes mainEntrance {
       0% {
         opacity: 0;
-        filter: blur(5px);
+        filter: blur(8px);
         transform: translateY(1rem);
       }
 
