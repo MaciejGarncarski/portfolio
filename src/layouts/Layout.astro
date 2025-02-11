@@ -52,7 +52,7 @@ const mainEntrance: TransitionDirectionalAnimations = {
       <SEO />
     </slot>
 
-    <ClientRouter />
+    <ClientRouter fallback="swap" />
 
     <script is:inline>
       document.addEventListener("astro:after-swap", function () {
