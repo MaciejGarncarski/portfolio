@@ -72,7 +72,7 @@
 
     --blog-hero-gradient: linear-gradient(
       to bottom,
-      oklch(26.47% 0.0247 207.53 / 0.2) 0%,
+      oklch(26.47% 0.0247 207.53 / 0.4) 0%,
       oklch(26.47% 0.0247 207.53 / 0.6) 50%,
       oklch(26.47% 0.0247 207.53 / 1) 100%
     );
