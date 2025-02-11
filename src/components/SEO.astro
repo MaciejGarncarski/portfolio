@@ -36,10 +36,10 @@ const {
   description = defaultDescription,
   title = defaultTitle,
   keywords = defaultKeywords,
-  ogImage
+  ogImage = "https://maciej-garncarski.pl/og-image.png"
 } = Astro.props;
 
-const canonicalUrl = "https://maciejgarncarski.pl" + Astro.url.pathname;
+const canonicalUrl = "https://maciej-garncarski.pl" + Astro.url.pathname;
 ---
 
 <title>{title}</title>
