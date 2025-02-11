@@ -21,7 +21,7 @@ const posts = (await getCollection("blog")).sort(
           return (
             <a href={"/blog/" + post.id}>
               <article class="shadow-blog relative flex flex-col gap-4 overflow-hidden rounded p-4">
-                <div class="before:bg-blog-gradient absolute top-0 right-0 -z-10 flex h-full items-center justify-end opacity-80 before:absolute before:h-full before:w-full before:content-['']">
+                <div class="before:bg-blog-gradient absolute top-0 right-0 -z-20 flex h-full items-center justify-end opacity-80 before:absolute before:h-full before:w-full before:content-['']">
                   <Image
                     src={post.data.heroImage}
                     width={256}
@@ -30,11 +30,13 @@ const posts = (await getCollection("blog")).sort(
                     class="h-40 w-40"
                   />
                 </div>
-                <header class="aling-center flex justify-between text-base">
-                  <h3 class="w-[70%] text-sm text-pretty lg:text-base">
+                <header class="aling-center flex items-start justify-between text-base">
+                  <h3
+                    class="text-foreground w-[65%] text-sm font-semibold text-pretty lg:text-base"
+                    transition:name={`blog-header:${post.id}`}>
                     {post.data.title}
                   </h3>
-                  <p class="before:bg-background/90 relative before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:blur-lg">
+                  <p class="before:bg-background/90 relative text-sm before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:blur-lg lg:text-base">
                     <time datetime={formattedTime}>{formattedTime}</time>
                   </p>
                 </header>

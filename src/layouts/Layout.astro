@@ -7,6 +7,37 @@ import Footer from "../components/Footer.astro";
 import PreventThemeFlash from "../components/PreventThemeFlash.astro";
 import SEO from "../components/SEO.astro";
 import { ClientRouter } from "astro:transitions";
+
+import { fade } from "astro:transitions";
+import type {
+  TransitionAnimation,
+  TransitionAnimationPair,
+  TransitionDirectionalAnimations
+} from "astro";
+
+const mainEntranceAnimationInBlur: TransitionAnimation = {
+  name: "mainEntranceBlur",
+  duration: "0.5s"
+};
+
+const mainEntranceAnimationIn: TransitionAnimation = {
+  name: "mainEntrance",
+  duration: "0.3s"
+};
+
+const mainEntranceAnimationOut: TransitionAnimation = {
+  name: "mainEntranceOut"
+};
+
+const mainEntrancePair: TransitionAnimationPair = {
+  old: mainEntranceAnimationOut,
+  new: [mainEntranceAnimationIn, mainEntranceAnimationInBlur]
+};
+
+const mainEntrance: TransitionDirectionalAnimations = {
+  forwards: mainEntrancePair,
+  backwards: mainEntrancePair
+};
 ---
 
 <!doctype html>
@@ -42,11 +73,15 @@ import { ClientRouter } from "astro:transitions";
       });
     </script>
   </head>
-  <body class="text-foreground bg-background p-5 lg:p-0">
+  <body
+    class="text-foreground bg-background p-5 lg:p-0"
+    transition:animate={fade({ duration: "0.1s" })}>
     <div class="mx-auto flex max-w-[58rem] flex-col gap-10 lg:my-15">
       <Navigation />
 
-      <main class="flex min-h-[30rem] flex-col gap-8">
+      <main
+        class="flex min-h-[30rem] flex-col gap-8"
+        transition:animate={mainEntrance}>
         <slot />
       </main>
 
@@ -54,3 +89,37 @@ import { ClientRouter } from "astro:transitions";
     </div>
   </body>
 </html>
+
+<style is:global>
+  @keyframes mainEntranceOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes mainEntranceBlur {
+    0% {
+      filter: blur(2px);
+    }
+
+    100% {
+      filter: blur(0);
+    }
+  }
+
+  @keyframes mainEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
