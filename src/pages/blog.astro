@@ -2,10 +2,34 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import type {
+  TransitionAnimation,
+  TransitionAnimationPair,
+  TransitionDirectionalAnimations
+} from "astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const mainEntranceAnimationIn: TransitionAnimation = {
+  name: "mainEntrance",
+  duration: "0.4s"
+};
+
+const mainEntranceAnimationOut: TransitionAnimation = {
+  name: "mainEntranceOut"
+};
+
+const mainEntrancePair: TransitionAnimationPair = {
+  old: mainEntranceAnimationOut,
+  new: mainEntranceAnimationIn
+};
+
+const mainEntrance: TransitionDirectionalAnimations = {
+  forwards: mainEntrancePair,
+  backwards: mainEntrancePair
+};
 ---
 
 <Layout>
@@ -33,7 +57,8 @@ const posts = (await getCollection("blog")).sort(
                 <header class="aling-center flex items-start justify-between text-base">
                   <h3
                     class="text-foreground w-[65%] text-sm font-semibold text-pretty lg:text-base"
-                    transition:name={`blog-header:${post.id}`}>
+                    transition:name={`blog-header:${post.id}`}
+                    transition:animate={mainEntrance}>
                     {post.data.title}
                   </h3>
                   <p class="before:bg-background/90 relative text-sm before:absolute before:top-0 before:left-0 before:-z-10 before:h-full before:w-full before:blur-lg lg:text-base">

@@ -15,14 +15,9 @@ import type {
   TransitionDirectionalAnimations
 } from "astro";
 
-const mainEntranceAnimationInBlur: TransitionAnimation = {
-  name: "mainEntranceBlur",
-  duration: "0.5s"
-};
-
 const mainEntranceAnimationIn: TransitionAnimation = {
   name: "mainEntrance",
-  duration: "0.3s"
+  duration: "0.4s"
 };
 
 const mainEntranceAnimationOut: TransitionAnimation = {
@@ -31,7 +26,7 @@ const mainEntranceAnimationOut: TransitionAnimation = {
 
 const mainEntrancePair: TransitionAnimationPair = {
   old: mainEntranceAnimationOut,
-  new: [mainEntranceAnimationIn, mainEntranceAnimationInBlur]
+  new: mainEntranceAnimationIn
 };
 
 const mainEntrance: TransitionDirectionalAnimations = {
@@ -101,16 +96,6 @@ const mainEntrance: TransitionDirectionalAnimations = {
     }
   }
 
-  @keyframes mainEntranceBlur {
-    0% {
-      filter: blur(2px);
-    }
-
-    100% {
-      filter: blur(0);
-    }
-  }
-
   @keyframes mainEntrance {
     0% {
       opacity: 0;
@@ -120,6 +105,22 @@ const mainEntrance: TransitionDirectionalAnimations = {
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (width >= 64rem) {
+    @keyframes mainEntrance {
+      0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(1rem);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
     }
   }
 </style>
