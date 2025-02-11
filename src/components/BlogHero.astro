@@ -24,7 +24,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
   class="relative -mx-5 flex h-96 flex-col items-center justify-center gap-4 lg:mx-0 lg:h-80">
   {
     currPost?.data.heroImage && (
-      <div class="absolute top-0 left-0 -z-10 mx-auto h-full w-full overflow-hidden rounded opacity-25 blur-xs saturate-150 dark:opacity-35">
+      <div class="absolute top-0 left-0 -z-10 mx-auto h-full w-full overflow-hidden rounded opacity-35 blur-xs saturate-150">
         <div class="bg-blog-hero-gradient absolute top-0 left-0 h-full w-full" />
         <Image
           src={currPost.data.heroImage}
