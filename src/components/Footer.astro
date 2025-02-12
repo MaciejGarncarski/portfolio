@@ -60,8 +60,13 @@ const socials: Array<Social> = [
       &copy; 2025 Maciej Garncarski. <br /> Wszelkie prawa zastrzeżone.
     </p>
   </div>
+  <div class="flex flex-col justify-between lg:flex-row">
+    <p class="text-muted-foreground text-center text-xs lg:text-left">
+      Commit: {import.meta.env.CF_PAGES_COMMIT_SHA || "dev"}
+    </p>
 
-  <p class="text-muted-foreground text-center text-xs lg:text-right">
-    Built with {Astro.generator} 🚀
-  </p>
+    <p class="text-muted-foreground text-center text-xs lg:text-right">
+      Built with {Astro.generator} 🚀
+    </p>
+  </div>
 </footer>
