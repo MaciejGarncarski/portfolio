@@ -8,6 +8,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://maciej-garncarski.pl",
+  integrations: [sitemap(), mdx()],
   markdown: {
     shikiConfig: {
       themes: {
@@ -15,6 +16,5 @@ export default defineConfig({
         dark: "github-dark"
       }
     }
-  },
-  integrations: [sitemap(), mdx()]
+  }
 });
