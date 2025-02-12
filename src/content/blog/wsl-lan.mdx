@@ -1,0 +1,45 @@
+---
+title: "Dostęp do WSL z sieci lokalnej"
+pubDate: 2025-02-12
+description: "Jak skonfigurwoać port forwarding w Windows Subsystem for Linux."
+heroImage: "../../assets/blog/wsl-lan/hero.png"
+keywords:
+  [
+    "WSL",
+    "WSL2",
+    "port forwarding",
+    "Windows Subsystem for Linux",
+    "Windows",
+    "Microsoft",
+    "Linux"
+  ]
+tags: ["Linux", "WSL", "Microsoft", "Windows"]
+---
+
+import BlogHeader from "../../components/BlogHeader.astro";
+import BlogInlineCode from "../../components/BlogInlineCode.astro";
+
+Kiedyś chciałem przetestować stronę na urządzeniu w LAN, niestety WSL blokował dostęp. Po krótkim czasie znalazłem rozwiązanie, które opiszę poniżej.
+
+Najpierw trzeba zmienić tryb sieciowy z NAT na Mirrored w pliku konfiguracyjnym WSL lub programie <BlogInlineCode>WSL Settings</BlogInlineCode>
+
+<BlogInlineCode>C:\Users\\[Nazwa_użytkownika]\\.wslconfig</BlogInlineCode>
+
+```
+[wsl2]
+networkingMode=mirrored
+[experimental]
+bestEffortDnsParsing=true
+hostAddressLoopback=true
+```
+
+Oraz trzeba dodać regułę do firewalla Windows.
+
+```powershell
+Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow
+```
+
+Od teraz można uzyskać dostęp do WSL z dowolnego urzącenia w sieci lokalnej , np. na lokalnym IP `http://192.168.0.25:3000`.
+Jest to przydatne, kiedy chcemy przetestować szybkość działania strony na urządzeniu mobilnym.
+
+<BlogHeader href="wady" tag="h3" text="" />

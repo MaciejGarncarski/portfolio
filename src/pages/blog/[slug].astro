@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import BlogList from "../../components/BlogList.astro";
 import SEO from "../../components/SEO.astro";
 import BlogHero from "../../components/BlogHero.astro";
+import BlogInlineCode from "../../components/BlogInlineCode.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");

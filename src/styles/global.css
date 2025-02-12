@@ -79,6 +79,8 @@
     );
 
     --shadow-blog: 0 0 0 1px oklch(97.06% 0.0148 207.53 / 0.5);
+
+    color-scheme: dark;
   }
 
   body {
