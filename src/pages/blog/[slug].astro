@@ -33,7 +33,8 @@ const { Content } = await render(post);
 
   <div class="text-muted-foreground flex flex-col gap-4">
     <BlogHero text={post.data.title} />
-    <div class="mx-auto flex max-w-prose flex-col gap-6 pb-14 text-pretty">
+    <div
+      class="mx-auto flex max-w-prose flex-col gap-6 pb-14 leading-7 text-pretty">
       <Content components={{ ul: BlogList }} />
     </div>
   </div>
