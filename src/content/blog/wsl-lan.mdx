@@ -23,9 +23,9 @@ Kiedyś chciałem przetestować stronę na urządzeniu w LAN, niestety WSL bloko
 
 Najpierw trzeba zmienić tryb sieciowy z NAT na Mirrored w pliku konfiguracyjnym WSL lub programie <BlogInlineCode>WSL Settings</BlogInlineCode>
 
-```toml showLineNumbers {2}  /highlight-this-word/ title="C:\Users\nazwa_użytkownika\.wslconfig"
-[wsl2]
-networkingMode=mirrored
+```bash showLineNumbers title="C:\Users\nazwa_użytkownika.wslconfig"
+[wsl2] # [!code focus]
+networkingMode=mirrored # [!code ++] [!code focus]
 [experimental]
 bestEffortDnsParsing=true
 hostAddressLoopback=true
@@ -40,4 +40,9 @@ Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -D
 Od teraz można uzyskać dostęp do WSL z dowolnego urzącenia w sieci lokalnej, np. na lokalnym IP `http://192.168.0.25:3000`.
 Jest to przydatne, kiedy chcemy przetestować szybkość działania strony na urządzeniu mobilnym.
 
-<BlogHeader href="wady" tag="h3" text="" />
+  <a
+    target="_blank"
+    href="https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking">
+      Źródło
+
+  </a>

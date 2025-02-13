@@ -9,13 +9,13 @@ keywords: ["nginx", "streaming", "html", "http", "proxy_buffering"]
 
 Tl;dr: Aby włączyć streaming HTML w nginx, należy dodać jedną linijkę w konfiguracji serwera.
 
-```nginx showLineNumbers {6} /highlight-this-word/
+```nginx showLineNumbers
 server {
     #...kod...
 
     location / {
         #...kod...
-        proxy_buffering off;
+        proxy_buffering off; # [!code ++]
     }
 }
 ```
