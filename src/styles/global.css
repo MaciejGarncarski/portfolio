@@ -4,7 +4,6 @@
 
 @theme {
   --font-mono: "JetBrains Mono Variable", monospace;
-  --grid-template-columns-custom: repeat(auto-fill, minmax(4rem, 7rem));
   --width-half: 50%;
   --list-style-type-hyphen: "– ";
   --background-image-blog-gradient: var(--blog-gradient);
@@ -28,91 +27,96 @@
 }
 
 @layer base {
+  body {
+    font-family: var(--font-mono);
+  }
+
   :root {
-    --background: hsl(224, 5%, 95%);
-    --foreground: oklch(26.47% 0.0247 207.53);
+    --background-base: 96.1% 0.0013 270.11;
+    --background: oklch(var(--background-base));
+    --foreground-base: 26.47% 0.0247 207.53;
+    --foreground: oklch(var(--foreground-base));
 
-    --muted: oklch(26.47% 0.1 207.53);
-    --muted-foreground: hsl(224, 5%, 35%);
+    --muted-base: 26.47% 0.1 207.53;
+    --muted-foreground-base: 40.75% 0.011 270.11;
 
-    --secondary: hsl(224, 5%, 35%);
-    --secondary-foreground: hsl(224, 5%, 35%);
+    --muted: oklch(var(--muted-base));
+    --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-light-bg);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
 
     --blog-gradient: linear-gradient(
       to right,
-      hsl(224, 5%, 95%) 0%,
-      hsl(224, 5%, 95%, 0.9) 35%,
-      hsl(224, 5%, 95%, 0.6) 70%,
-      hsl(224, 5%, 95%, 0.5) 100%
+      oklch(var(--background-base)) 0%,
+      oklch(var(--background-base) / 0.9) 35%,
+      oklch(var(--background-base) / 0.6) 70%,
+      oklch(var(--background-base) / 0.5) 100%
     );
 
     --blog-hero-gradient: linear-gradient(
       to bottom,
-      hsl(224, 5%, 95%, 1) 0%,
-      hsl(224, 5%, 95%, 0.6) 30%,
-      hsl(224, 5%, 95%, 0.6) 50%,
-      hsl(224, 5%, 95%, 1) 100%
+      oklch(var(--background-base) / 1) 0%,
+      oklch(var(--background-base) / 0.6) 30%,
+      oklch(var(--background-base) / 0.6) 50%,
+      oklch(var(--background-base) / 1) 100%
     );
 
     @media (width >= 64rem) {
       --blog-hero-gradient: linear-gradient(
         to bottom,
-        hsl(224, 5%, 95%, 1) 0%,
-        hsl(224, 5%, 95%, 0.8) 30%,
-        hsl(224, 5%, 95%, 0.8) 50%,
-        hsl(224, 5%, 95%, 1) 100%
+        oklch(var(--background-base) / 1) 0%,
+        oklch(var(--background-base) / 0.8) 30%,
+        oklch(var(--background-base) / 0.8) 50%,
+        oklch(var(--background-base) / 1) 100%
       );
     }
-
-    --shadow-blog: 0 0 0 1px oklch(26.47% 0.0247 207.53 / 0.3);
   }
 
   .dark {
-    --background: oklch(26.47% 0.0247 207.53);
-    --foreground: oklch(97.06% 0.0148 207.53);
+    color-scheme: dark;
+    --background-base: 25% 0.0324 235;
+    --background: oklch(var(--background-base));
 
-    --muted: oklch(85.15% 0.0148 207.53);
-    --muted-foreground: oklch(85.15% 0.0148 207.53);
+    --foreground-base: 93.7% 0.0291 235;
+    --foreground: oklch(var(--foreground-base));
 
-    --secondary: hsl(224, 5%, 35%);
+    --muted-base: 93.7% 0.0291 235;
+    --muted-foreground-base: 82.7% 0.0291 235;
+
+    --muted: oklch(var(--muted-base));
+    --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-dark-bg);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.5);
 
     --blog-gradient: linear-gradient(
       to right,
       var(--background) 0%,
-      oklch(26.47% 0.0247 207.53 / 0.9) 17%,
-      oklch(26.47% 0.0247 207.53 / 0.6) 80%,
-      oklch(26.47% 0.0247 207.53 / 0) 100%
+      oklch(var(--background-base) / 0.9) 17%,
+      oklch(var(--background-base) / 0.6) 80%,
+      oklch(var(--background-base) / 0) 100%
     );
 
     --blog-hero-gradient: linear-gradient(
       to bottom,
-      oklch(26.47% 0.0247 207.53 / 1) 0%,
-      oklch(26.47% 0.0247 207.53 / 0.6) 30%,
-      oklch(26.47% 0.0247 207.53 / 0.6) 50%,
-      oklch(26.47% 0.0247 207.53 / 1) 100%
+      oklch(var(--background-base) / 1) 0%,
+      oklch(var(--background-base) / 0.6) 30%,
+      oklch(var(--background-base) / 0.6) 50%,
+      oklch(var(--background-base) / 1) 100%
     );
 
     @media (width >= 64rem) {
       --blog-hero-gradient: linear-gradient(
         to bottom,
-        oklch(26.47% 0.0247 207.53 / 1) 0%,
-        oklch(26.47% 0.0247 207.53 / 0.6) 30%,
-        oklch(26.47% 0.0247 207.53 / 1) 100%
+        oklch(var(--background-base) / 1) 0%,
+        oklch(var(--background-base) / 0.65) 30%,
+        oklch(var(--background-base) / 1) 100%
       );
     }
-
-    --shadow-blog: 0 0 0 1px oklch(97.06% 0.0148 207.53 / 0.5);
-
-    color-scheme: dark;
   }
 
-  body {
-    font-family: var(--font-mono);
-  }
+  /* Codeblock CSS */
 
   [data-rehype-pretty-code-figure] pre code {
     @apply shadow-blog;
@@ -130,11 +134,10 @@
     background-color: var(--shiki-light-bg);
   }
 
-  code[data-theme*=" "][data-highlighted-line],
-  code[data-theme*=" "][data-highlighted-line] span {
+  code[data-theme*=" "] span[data-highlighted-line],
+  code[data-theme*=" "] span[data-highlighted-line] > span {
     @apply bg-background;
   }
-
   @media (prefers-color-scheme: dark) {
     code[data-theme*=" "],
     code[data-theme*=" "] span {
@@ -159,7 +162,6 @@
     counter-increment: line;
     content: counter(line);
 
-    /* Other styling */
     display: inline-block;
     width: 0.75rem;
     margin-right: 1rem;

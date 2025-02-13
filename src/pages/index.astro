@@ -35,14 +35,16 @@ const description =
   </header>
 
   <HomeSection>
-    <h2 class="text-lg font-semibold">Doświadczenie</h2>
+    <h2 class="text-lg font-bold">Doświadczenie</h2>
     <ul>
       <li class="flex flex-col gap-2">
         <div class="flex justify-between">
-          <p class="max-w-48 lg:max-w-96">Fullstack developer (part-time)</p>
+          <p class="max-w-48 font-semibold lg:max-w-96">
+            Fullstack developer (part-time)
+          </p>
           <p class="text-right">lis. 2023 - gru. 2024</p>
         </div>
-        <p class="text-sm">Kokscraft</p>
+        <p>Kokscraft</p>
         <p class="text-muted-foreground text-sm">
           Tworzenie panelu administratora dla największego serwera Minecraft w
           Polsce.
@@ -56,11 +58,11 @@ const description =
   </HomeSection>
 
   <HomeSection>
-    <h2 class="text-lg font-semibold">Open source</h2>
+    <h2 class="text-lg font-bold">Open source</h2>
     <ul>
       <li class="flex flex-col gap-2">
         <div class="flex justify-between">
-          <p class="max-w-48">TanStack Router</p>
+          <p class="max-w-48 font-semibold">TanStack Router</p>
           <a
             target="_blank"
             href="https://github.com/TanStack/router/pull/2247"
@@ -76,12 +78,12 @@ const description =
   </HomeSection>
 
   <HomeSection>
-    <h2 class="text-lg font-semibold">Technologie</h2>
-    <ul class="grid-cols-custom grid gap-2">
+    <h2 class="text-lg font-bold">Technologie</h2>
+    <ul class="grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6">
       {
         skills.map((s) => {
           return (
-            <li class="bg-foreground/90 text-background rounded px-3 py-1 text-xs font-bold md:text-sm">
+            <li class="bg-foreground text-background rounded px-3 py-1 text-xs font-semibold md:text-sm">
               {s}
             </li>
           );
