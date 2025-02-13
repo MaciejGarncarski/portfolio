@@ -2,7 +2,7 @@
 title: "Dostęp do WSL z sieci lokalnej"
 pubDate: 2025-02-12
 description: "Jak skonfigurwoać dostęp z sieci lokalnej do Windows Subsystem for Linux."
-heroImage: "../../assets/blog/wsl-lan/hero.png"
+heroImage: "../../assets/blog/wsl-lan/hero.jpg"
 keywords:
   [
     "WSL",
@@ -23,9 +23,7 @@ Kiedyś chciałem przetestować stronę na urządzeniu w LAN, niestety WSL bloko
 
 Najpierw trzeba zmienić tryb sieciowy z NAT na Mirrored w pliku konfiguracyjnym WSL lub programie <BlogInlineCode>WSL Settings</BlogInlineCode>
 
-<BlogInlineCode>C:\Users\\[Nazwa_użytkownika]\\.wslconfig</BlogInlineCode>
-
-```plaintext showLineNumbers
+```plaintext showLineNumbers {2}  /highlight-this-word/ title="C:\Users\twoja_nazwa.wslconfig"
 [wsl2]
 networkingMode=mirrored
 [experimental]

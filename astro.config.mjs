@@ -8,7 +8,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 const prettyCodeOptions = {
   theme: {
     light: "github-light",
-    dark: "github-dark"
+    dark: "nord"
   },
   onVisitHighlightedLine(node) {
     node?.properties?.className?.push("highlighted");

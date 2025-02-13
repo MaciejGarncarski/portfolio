@@ -1,11 +1,10 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogList from "../../components/BlogList.astro";
 import SEO from "../../components/SEO.astro";
 import BlogHero from "../../components/BlogHero.astro";
-import BlogInlineCode from "../../components/BlogInlineCode.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -20,6 +19,10 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 
 const { Content } = await render(post);
+
+const components = {
+  ul: BlogList
+};
 ---
 
 <Layout>
@@ -31,11 +34,11 @@ const { Content } = await render(post);
     ogImage={post.data.heroImage.src}
   />
 
-  <div class="text-muted-foreground flex flex-col gap-4">
+  <article class="text-muted-foreground flex flex-col gap-4">
     <BlogHero text={post.data.title} />
     <div
-      class="mx-auto flex max-w-prose flex-col gap-6 pb-14 leading-7 text-pretty">
-      <Content components={{ ul: BlogList }} />
+      class="mx-auto flex max-w-full flex-col gap-6 pb-14 leading-7 text-pretty md:max-w-prose">
+      <Content components={components} />
     </div>
-  </div>
+  </article>
 </Layout>

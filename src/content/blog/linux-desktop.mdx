@@ -20,16 +20,15 @@ keywords:
 tags: ["Linux"]
 ---
 
+import { Image } from "astro:assets";
+import linuxmeme from "../../assets/blog/linux-desktop/meme.png";
+
 import BlogHeader from "../../components/BlogHeader.astro";
   
 Na początku wspomnę, że gdy napisane jest Linux, to mam na myśli GNU/Linux.
 Mam na myśli system na komputery osobiste, nie serwery.
 
 Odkąd zacząłem interesować się Linuxem zawsze słyszałem o "roku Linuxa", jednak dla mnie było to niezrozumiałe.
-
-<div class="overflow-x-auto">
-  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-</div>
 
 <BlogHeader href="wady" tag="h3" text="Wady Linuxa" />
 
@@ -61,3 +60,5 @@ Linux też jest bardzo dobry na stare urządzenia do przeglądania internetu, ni
 <BlogHeader href="zakonczenie" tag="h3" text="Zakończenie" />
 
 Obecnie działam na Windowsie z WSL2 Ubuntu 24.04, ponieważ nie mam już czasu i ochoty naprawiać systemu co kilka tygodni. Gdy coś zepsuje się w WSL, to po prostu usuwam i stawiam od nowa część systemu, nie muszę na nowo instalować systemu i wszystkich programów, nie mówiąc o plikach prywatnych itp.. Moim zdaniem Linux nigdy nie będzie popularny, ze względu na braki w finansowaniu dystrybucji. Jedyna szansa na odniesienie sukcesu, to pójście ścieżką Androida, jakaś korporacja musi zrobić porządny zamknięty system, inaczej raczej nic z tego nie wyjdzie. Moim następnym komputerem prawdopodobnie będzie MacBook, ze względu na stabilność systemu, wsparcie programów i posiadanie standardów zgodnych z POSIX.
+
+<Image src={linuxmeme} alt="mem" />

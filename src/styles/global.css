@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -22,6 +23,8 @@
   --color-muted-foreground: var(--muted-foreground);
 
   --shadow-blog: var(--shadow-blog);
+
+  --color-code-bg: var(--code-bg);
 }
 
 @layer base {
@@ -35,6 +38,8 @@
     --secondary: hsl(224, 5%, 35%);
     --secondary-foreground: hsl(224, 5%, 35%);
 
+    --code-bg: var(--shiki-light-bg);
+
     --blog-gradient: linear-gradient(
       to right,
       hsl(224, 5%, 95%) 0%,
@@ -46,9 +51,20 @@
     --blog-hero-gradient: linear-gradient(
       to bottom,
       hsl(224, 5%, 95%, 1) 0%,
-      hsl(224, 5%, 95%, 0.8) 15%,
+      hsl(224, 5%, 95%, 0.6) 30%,
+      hsl(224, 5%, 95%, 0.6) 50%,
       hsl(224, 5%, 95%, 1) 100%
     );
+
+    @media (width >= 64rem) {
+      --blog-hero-gradient: linear-gradient(
+        to bottom,
+        hsl(224, 5%, 95%, 1) 0%,
+        hsl(224, 5%, 95%, 0.8) 30%,
+        hsl(224, 5%, 95%, 0.8) 50%,
+        hsl(224, 5%, 95%, 1) 100%
+      );
+    }
 
     --shadow-blog: 0 0 0 1px oklch(26.47% 0.0247 207.53 / 0.3);
   }
@@ -61,6 +77,8 @@
     --muted-foreground: oklch(85.15% 0.0148 207.53);
 
     --secondary: hsl(224, 5%, 35%);
+
+    --code-bg: var(--shiki-dark-bg);
 
     --blog-gradient: linear-gradient(
       to right,
@@ -78,6 +96,15 @@
       oklch(26.47% 0.0247 207.53 / 1) 100%
     );
 
+    @media (width >= 64rem) {
+      --blog-hero-gradient: linear-gradient(
+        to bottom,
+        oklch(26.47% 0.0247 207.53 / 1) 0%,
+        oklch(26.47% 0.0247 207.53 / 0.6) 30%,
+        oklch(26.47% 0.0247 207.53 / 1) 100%
+      );
+    }
+
     --shadow-blog: 0 0 0 1px oklch(97.06% 0.0148 207.53 / 0.5);
 
     color-scheme: dark;
@@ -88,9 +115,11 @@
   }
 
   [data-rehype-pretty-code-figure] pre code {
-    @apply border;
+    @apply shadow-blog;
     @apply rounded;
-    @apply py-4;
+    @apply py-3;
+    width: 100%;
+    text-wrap: nowrap;
     overflow-x: auto;
     min-width: 100px;
   }
@@ -101,8 +130,9 @@
     background-color: var(--shiki-light-bg);
   }
 
-  [data-highlighted-line] {
-    background-color: var(--muted);
+  code[data-theme*=" "][data-highlighted-line],
+  code[data-theme*=" "][data-highlighted-line] span {
+    @apply bg-background;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -113,8 +143,12 @@
     }
   }
 
+  [data-rehype-pretty-code-title] {
+    @apply shadow-blog mb-2 w-fit max-w-full rounded px-2 py-1 text-sm break-words;
+  }
+
   [data-line] {
-    @apply px-4;
+    @apply px-3;
   }
 
   code[data-line-numbers] {
