@@ -23,7 +23,7 @@ Kiedyś chciałem przetestować stronę na urządzeniu w LAN, niestety WSL bloko
 
 Najpierw trzeba zmienić tryb sieciowy z NAT na Mirrored w pliku konfiguracyjnym WSL lub programie <BlogInlineCode>WSL Settings</BlogInlineCode>
 
-```plaintext showLineNumbers {2}  /highlight-this-word/ title="C:\Users\twoja_nazwa.wslconfig"
+```toml showLineNumbers {2}  /highlight-this-word/ title="C:\Users\nazwa_użytkownika\.wslconfig"
 [wsl2]
 networkingMode=mirrored
 [experimental]
@@ -33,7 +33,7 @@ hostAddressLoopback=true
 
 Oraz trzeba dodać regułę do firewalla Windows.
 
-```powershell
+```powershell title="PowerShell z prawami administratora"
 Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow
 ```
 
