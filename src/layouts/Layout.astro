@@ -17,12 +17,12 @@ import type {
 
 const mainEntranceAnimationIn: TransitionAnimation = {
   name: "mainEntrance",
-  duration: "0.35s"
+  duration: "0.25s"
 };
 
 const mainEntranceAnimationOut: TransitionAnimation = {
   name: "mainEntranceOut",
-  duration: "0s"
+  duration: "0.15s"
 };
 
 const mainEntrancePair: TransitionAnimationPair = {
@@ -96,27 +96,34 @@ const mainEntrance: TransitionDirectionalAnimations = {
   @keyframes mainEntrance {
     0% {
       opacity: 0.5;
-      transform: translate3d(0, 1rem, 0);
     }
 
     100% {
       opacity: 1;
-      transform: translate3d(0, 0, 0);
     }
   }
 
   @media (width >= 64rem) {
+    @keyframes mainEntranceOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        filter: blur(2px);
+      }
+    }
+
     @keyframes mainEntrance {
       0% {
-        opacity: 0.5;
-        filter: blur(8px);
-        transform: translate3d(0, 1rem, 0);
+        opacity: 0.2;
+        filter: blur(6px);
       }
 
       100% {
         opacity: 1;
         filter: blur(0);
-        transform: translate3d(0, 0, 0);
       }
     }
   }
