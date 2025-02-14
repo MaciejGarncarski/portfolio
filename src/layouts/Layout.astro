@@ -9,31 +9,8 @@ import SEO from "../components/SEO.astro";
 import { ClientRouter } from "astro:transitions";
 
 import { fade } from "astro:transitions";
-import type {
-  TransitionAnimation,
-  TransitionAnimationPair,
-  TransitionDirectionalAnimations
-} from "astro";
 
-const mainEntranceAnimationIn: TransitionAnimation = {
-  name: "mainEntrance",
-  duration: "0.25s"
-};
-
-const mainEntranceAnimationOut: TransitionAnimation = {
-  name: "mainEntranceOut",
-  duration: "0.15s"
-};
-
-const mainEntrancePair: TransitionAnimationPair = {
-  old: mainEntranceAnimationOut,
-  new: mainEntranceAnimationIn
-};
-
-const mainEntrance: TransitionDirectionalAnimations = {
-  forwards: mainEntrancePair,
-  backwards: mainEntrancePair
-};
+import { mainEntrance } from "../utils/animation";
 ---
 
 <!doctype html>
@@ -83,6 +60,18 @@ const mainEntrance: TransitionDirectionalAnimations = {
 </html>
 
 <style is:global>
+  @keyframes mainEntrance {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 1rem, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
   @keyframes mainEntranceOut {
     0% {
       opacity: 1;
@@ -93,37 +82,18 @@ const mainEntrance: TransitionDirectionalAnimations = {
     }
   }
 
-  @keyframes mainEntrance {
-    0% {
-      opacity: 0.5;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
   @media (width >= 64rem) {
-    @keyframes mainEntranceOut {
-      0% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        filter: blur(2px);
-      }
-    }
-
     @keyframes mainEntrance {
       0% {
         opacity: 0.2;
-        filter: blur(6px);
+        transform: translate3d(0, 2rem, 0);
+        filter: blur(10px);
       }
 
       100% {
         opacity: 1;
-        filter: blur(0);
+        transform: translate3d(0, 0rem, 0);
+        filter: blur(0px);
       }
     }
   }

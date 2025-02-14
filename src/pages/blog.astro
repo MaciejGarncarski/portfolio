@@ -2,35 +2,11 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import type {
-  TransitionAnimation,
-  TransitionAnimationPair,
-  TransitionDirectionalAnimations
-} from "astro";
+import { mainEntrance } from "../utils/animation";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-const mainEntranceAnimationIn: TransitionAnimation = {
-  name: "mainEntrance",
-  duration: "0.35s"
-};
-
-const mainEntranceAnimationOut: TransitionAnimation = {
-  name: "mainEntranceOut",
-  duration: "0s"
-};
-
-const mainEntrancePair: TransitionAnimationPair = {
-  old: mainEntranceAnimationOut,
-  new: mainEntranceAnimationIn
-};
-
-const mainEntrance: TransitionDirectionalAnimations = {
-  forwards: mainEntrancePair,
-  backwards: mainEntrancePair
-};
 ---
 
 <Layout>
