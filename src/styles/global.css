@@ -29,7 +29,29 @@
   --color-code-bg: var(--code-bg);
 }
 
+@layer components {
+  [data-blog-content] *:is(h1, h2, h3, h4, h5, h6) {
+    @apply text-foreground scroll-mt-8 items-center text-xl font-semibold;
+  }
+
+  [data-anchor-link] {
+    @apply flex gap-3;
+  }
+
+  [data-anchor-link]:hover > [data-anchor-hash] {
+    @apply opacity-100;
+  }
+
+  [data-anchor-hash] {
+    @apply opacity-50 transition-opacity duration-300;
+  }
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-mono);
   }
@@ -104,7 +126,7 @@
 
     --code-bg: var(--shiki-dark-bg);
 
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.5);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.3);
 
     --blog-gradient: linear-gradient(
       to right,

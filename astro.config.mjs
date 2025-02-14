@@ -2,10 +2,12 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import {
   transformerNotationDiff,
   transformerNotationFocus
 } from "@shikijs/transformers";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
 // https://astro.build/config
 export default defineConfig({
@@ -60,6 +62,27 @@ export default defineConfig({
             node?.properties?.className
               ? node.properties.className.push("highlighted-chars")
               : (node.properties.className = ["highlighted-chars"]);
+          }
+        }
+      ],
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          content: {
+            type: "element",
+            tagName: "span",
+            properties: {
+              ["data-anchor-hash"]: ""
+            },
+            children: [{ type: "text", value: "#" }]
+          },
+          headingProperties: {
+            ["data-anchor"]: ""
+          },
+          properties: {
+            ["data-anchor-link"]: ""
           }
         }
       ]
