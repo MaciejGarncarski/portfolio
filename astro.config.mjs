@@ -12,6 +12,11 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // https://astro.build/config
 export default defineConfig({
   site: "https://maciej-garncarski.pl",
+  redirects: {
+    "/en": "/",
+    "/en/contact": "/kontakt",
+    "/en/projects": "/projekty"
+  },
   integrations: [sitemap(), mdx()],
   markdown: {
     syntaxHighlight: false,

@@ -29,6 +29,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
         <Image
           src={currPost.data.heroImage}
           alt={text}
+          format="avif"
           class="h-full w-full object-cover"
         />
       </div>
@@ -42,6 +43,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
         width={512}
         height={512}
         alt={text}
+        format="avif"
         class="shadow-blog h-42 w-42 rounded-sm"
       />
     )

@@ -22,6 +22,10 @@ const navigationData: Array<Link> = [
   {
     text: "Blog",
     url: "/blog"
+  },
+  {
+    text: "Galeria AI",
+    url: "/galeria-ai"
   }
 ];
 
@@ -30,7 +34,7 @@ const subpath = pathname.match(/[^\/]+/g);
 ---
 
 <nav class="flex items-center">
-  <ul class="flex flex-wrap gap-x-4 gap-y-4 lg:gap-x-8">
+  <ul class="flex flex-wrap gap-x-2 gap-y-4 lg:gap-x-8">
     {
       navigationData.map((n) => {
         const isActive =

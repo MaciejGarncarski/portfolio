@@ -24,6 +24,7 @@ const posts = (await getCollection("blog")).sort(
               <article class="shadow-blog relative flex flex-col gap-4 overflow-hidden rounded p-4">
                 <div class="before:bg-blog-gradient absolute top-0 right-0 -z-20 flex h-full items-center justify-end opacity-80 before:absolute before:h-full before:w-full before:content-['']">
                   <Image
+                    format="avif"
                     src={post.data.heroImage}
                     width={256}
                     height={256}

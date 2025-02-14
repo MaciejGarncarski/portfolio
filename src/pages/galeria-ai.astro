@@ -1,0 +1,43 @@
+---
+import type { ImageMetadata } from "astro";
+import Layout from "../layouts/Layout.astro";
+import { readdir } from "node:fs/promises";
+import { Image, Picture } from "astro:assets";
+
+const files = await readdir("src/assets/ai-gallery");
+
+const imageNames = files.map((file) => {
+  return file;
+});
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/ai-gallery/*.{jpeg,jpg,png}"
+);
+---
+
+<Layout>
+  <h1 class="text-foreground text-center text-xl">
+    Galeria obrazów wygenerowanych przez AI
+  </h1>
+  <div class="flex flex-col flex-wrap items-center justify-center gap-12">
+    {
+      imageNames.map((img) => {
+        const src = images["/src/assets/ai-gallery/" + img]();
+
+        return (
+          <figure>
+            <Picture
+              src={src}
+              formats={["avif", "webp"]}
+              class="shadow-blog w-64 rounded lg:w-128 lg:rounded-md"
+              alt=""
+            />
+            <figcaption class="text-muted-foreground mt-2 text-center text-xs italic">
+              <p>{img}</p>
+            </figcaption>
+          </figure>
+        );
+      })
+    }
+  </div>
+</Layout>
