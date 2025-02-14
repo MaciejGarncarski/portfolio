@@ -30,6 +30,29 @@ export default defineConfig({
             light: "github-light",
             dark: "nord"
           },
+          onVisitLine(element) {
+            element.children.forEach((el) => {
+              if (el.type === "element") {
+                el.properties["data-code-line"] = "";
+              }
+            });
+
+            if (element.properties.className?.includes("focused")) {
+              element.properties["data-focused"] = "";
+            }
+
+            if (element.properties.className?.includes("diff")) {
+              if (element.properties.className.includes("add")) {
+                element.properties["data-diff"] = "add";
+              }
+
+              if (element.properties.className.includes("remove")) {
+                element.properties["data-diff"] = "remove";
+              }
+            }
+
+            delete element.properties.className;
+          },
           onVisitHighlightedLine(node) {
             node?.properties?.className?.push("highlighted");
           },

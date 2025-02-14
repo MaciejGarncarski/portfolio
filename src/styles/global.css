@@ -40,8 +40,11 @@
     --foreground-base: 26.47% 0.0247 207.53;
     --foreground: oklch(var(--foreground-base));
 
-    --color-success: oklch(60% 0.0929 180.11 / 40%);
-    --color-destructive: oklch(60% 0.0829 29 / 45%);
+    --color-success-base: 60% 0.0929 180.11;
+    --color-success: oklch(var(--color-success-base));
+
+    --color-destructive-base: 60% 0.0829 29;
+    --color-destructive: oklch(var(--color-destructive-base));
 
     --muted-base: 26.47% 0.1 207.53;
     --muted-foreground-base: 40.75% 0.011 270.11;
@@ -87,8 +90,11 @@
     --foreground-base: 93.7% 0.0291 235;
     --foreground: oklch(var(--foreground-base));
 
-    --color-success: oklch(35.1% 0.0929 180.11);
-    --color-destructive: oklch(35.1% 0.0829 29);
+    --color-success-base: 48.1% 0.0929 180.11;
+    --color-success: oklch(var(--color-success-base));
+
+    --color-destructive-base: 48.1% 0.0829 29;
+    --color-destructive: oklch(var(--color-destructive-base));
 
     --muted-base: 93.7% 0.0291 235;
     --muted-foreground-base: 82.7% 0.0291 235;
@@ -126,31 +132,45 @@
     }
   }
 
-  /* Codeblock CSS */
+  /* Scrollbar CSS */
 
-  [data-rehype-pretty-code-figure] pre code {
-    @apply shadow-blog rounded py-3 text-sm;
-    width: 100%;
-    text-wrap: nowrap;
-    overflow-x: auto;
-    min-width: 100px;
+  body::-webkit-scrollbar,
+  code::-webkit-scrollbar {
+    width: 12px;
+    height: 9px;
   }
 
-  [data-line] span {
-    color: var(--shiki-light);
-    background-color: var(--shiki-light-bg);
+  body::-webkit-scrollbar-track,
+  code::-webkit-scrollbar-track {
+    background: var(--color-background);
   }
 
-  @media (prefers-color-scheme: dark) {
-    [data-line] span {
-      color: var(--shiki-dark);
-      background-color: var(--shiki-dark-bg);
+  body::-webkit-scrollbar-thumb,
+  code::-webkit-scrollbar-thumb {
+    transition: backgorund-color 200ms ease;
+    background-color: oklch(var(--foreground-base) / 0.3);
+    border-radius: 3px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover,
+  code::-webkit-scrollbar-thumb:hover {
+    background-color: oklch(var(--foreground-base) / 0.7);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    body,
+    code {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
   }
 
-  code span[data-highlighted-line],
-  code span[data-highlighted-line] > span {
-    @apply bg-foreground text-background opacity-70;
+  /* Codeblock CSS */
+  code:not([data-language]) {
+    @apply shadow-blog rounded px-2 py-0.5;
+  }
+
+  [data-rehype-pretty-code-figure] code {
+    @apply shadow-blog w-full min-w-[100px] overflow-x-auto rounded py-3 text-sm text-nowrap;
   }
 
   [data-rehype-pretty-code-title] {
@@ -166,37 +186,67 @@
     @apply px-3 leading-7;
   }
 
-  code[data-line-numbers] {
+  [data-code-line] {
+    @apply bg-(--shiki-light-bg) text-(--shiki-light) dark:bg-(--shiki-dark-bg) dark:text-(--shiki-dark);
+  }
+
+  [data-highlighted-line] {
+    @apply bg-foreground text-background opacity-70;
+  }
+
+  .has-diff [data-line] {
+    @apply pr-3 pl-0;
+  }
+
+  [data-rehype-pretty-code-figure] code[data-line-numbers] {
     counter-reset: line;
   }
 
-  code[data-line-numbers] > [data-line]::before {
+  [data-rehype-pretty-code-figure]
+    code[data-line-numbers]
+    > [data-line]::before {
     counter-increment: line;
     content: counter(line);
     display: inline-block;
     text-align: right;
-    margin-left: 0;
+    margin-left: 4px;
     margin-right: 1rem;
     width: 2rem;
   }
 
-  [data-line].diff.add {
-    background-color: var(--color-success);
+  [data-diff="add"] {
+    @apply bg-success/40 border-success/80 border-l-4;
   }
 
-  [data-line].diff.add::before {
+  [data-rehype-pretty-code-figure]
+    code[data-line-numbers]
+    > [data-diff="add"]::before {
+    margin-left: 0;
     content: "+ " counter(line);
   }
 
-  [data-line].diff.remove {
-    background-color: var(--color-destructive);
+  [data-diff="add"]::before {
+    margin-left: 0;
+    content: "+";
   }
 
-  [data-line].diff.remove::before {
+  [data-diff="remove"] {
+    @apply bg-destructive/40 border-destructive/80 border-l-4;
+  }
+
+  [data-rehype-pretty-code-figure]
+    code[data-line-numbers]
+    > [data-diff="remove"]::before {
+    margin-left: 0;
     content: "- " counter(line);
   }
 
-  .has-focused [data-line]:not(.focused) {
+  [data-diff="remove"]::before {
+    margin-left: 0;
+    content: "-";
+  }
+
+  .has-focused [data-line]:not([data-focused]) {
     filter: blur(1.5px);
     opacity: 0.7;
     transition:
