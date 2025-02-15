@@ -18,6 +18,26 @@ const skills = [
 
 const description =
   "Specjalizuję się w tworzeniu nowoczesnych i wydajnych aplikacji internetowych. Moje doświadczenie obejmuje pracę z technologiami frontendowymi i backendowymi, co pozwala mi na dostarczanie kompleksowych rozwiązań dla klientów.";
+
+type Contact = {
+  text: string;
+  data: string;
+};
+
+const contactInfo: Array<Contact> = [
+  {
+    text: "Email",
+    data: "maciejgarncarski@gmail.com"
+  },
+  {
+    text: "Numer telefonu",
+    data: "+48 504 673 589"
+  },
+  {
+    text: "Discord",
+    data: "maciekdeveloper"
+  }
+];
 ---
 
 <Layout>
@@ -83,8 +103,24 @@ const description =
       {
         skills.map((s) => {
           return (
-            <li class="bg-foreground text-background rounded px-3 py-1 text-xs font-semibold md:text-sm">
+            <li class="bg-foreground/90 text-background rounded px-3 py-1 text-xs font-semibold md:text-sm">
               {s}
+            </li>
+          );
+        })
+      }
+    </ul>
+  </HomeSection>
+
+  <HomeSection>
+    <h2 class="text-lg font-bold">Kontakt</h2>
+    <ul class="flex flex-col gap-4">
+      {
+        contactInfo.map((c) => {
+          return (
+            <li class="flex flex-col justify-between gap-2 md:flex-row lg:gap-8">
+              <p class="text-muted-foreground">{c.text}:</p>
+              <p>{c.data}</p>
             </li>
           );
         })

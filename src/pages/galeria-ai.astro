@@ -1,14 +1,8 @@
 ---
 import type { ImageMetadata } from "astro";
 import Layout from "../layouts/Layout.astro";
-import { readdir } from "node:fs/promises";
-import { Image, Picture } from "astro:assets";
-
-const files = await readdir("src/assets/ai-gallery");
-
-const imageNames = files.map((file) => {
-  return file;
-});
+import { Picture } from "astro:assets";
+import { aiGallery } from "../data/ai-garllery";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/ai-gallery/*.{jpeg,jpg,png}"
@@ -19,21 +13,29 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <h1 class="text-foreground text-center text-xl">
     Galeria obrazów wygenerowanych przez AI
   </h1>
-  <div class="flex flex-col flex-wrap items-center justify-center gap-12">
+  <div
+    class="flex flex-col flex-wrap items-center justify-center gap-12 lg:flex-row lg:flex-wrap">
     {
-      imageNames.map((img) => {
-        const src = images["/src/assets/ai-gallery/" + img]();
+      aiGallery.map((img) => {
+        const src = images["/src/assets/ai-gallery/" + img.image]?.();
+
+        if (!src) {
+          return null;
+        }
 
         return (
           <figure>
-            <Picture
-              src={src}
-              formats={["avif", "webp"]}
-              class="shadow-blog w-64 rounded lg:w-128 lg:rounded-md"
-              alt=""
-            />
+            <a href={`/ai-gallery/${img.image}`} target="_blank">
+              <Picture
+                src={src}
+                width={512}
+                formats={["avif", "webp"]}
+                class="shadow-blog w-64 rounded transition-transform hover:-translate-y-1 lg:rounded-md"
+                alt=""
+              />
+            </a>
             <figcaption class="text-muted-foreground mt-2 text-center text-xs italic">
-              <p>{img}</p>
+              <p>{img.title}</p>
             </figcaption>
           </figure>
         );
