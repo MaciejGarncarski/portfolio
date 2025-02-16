@@ -31,10 +31,10 @@ const subpath = pathname.match(/[^\/]+/g);
 ---
 
 <nav
-  class="flex items-center"
+  class="flex items-center justify-center lg:justify-start"
   transition:name="navigation"
   transition:animate={fade({ duration: 0.8 })}>
-  <ul class="-mx-1 flex flex-wrap gap-x-2 gap-y-4 lg:mx-0 lg:gap-x-8">
+  <ul class="-mx-1 flex gap-x-2 gap-y-4 lg:mx-0 lg:gap-x-8">
     {
       navigationData.map((n) => {
         const isActive =
@@ -50,10 +50,10 @@ const subpath = pathname.match(/[^\/]+/g);
             <a
               href={n.url}
               class={clsx(
-                "rounded px-2 py-1 transition-all lg:px-3",
+                "rounded px-2 py-1 text-base transition-all lg:px-3 lg:text-base",
                 isActive || isBlogPageActive
                   ? "bg-foreground text-background font-semibold"
-                  : "text-muted-foreground hover:bg-foreground/5 hover:font-semibold"
+                  : "text-muted-foreground hover:bg-muted hover:font-semibold"
               )}>
               {n.text}
             </a>

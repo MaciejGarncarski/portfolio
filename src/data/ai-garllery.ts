@@ -27,5 +27,13 @@ export const aiGallery: Array<AIGalleryItem> = [
   {
     title: "Kot programista",
     image: "programmer-cat.jpg"
+  },
+  {
+    title: "Pies rycerz",
+    image: "dog-knight.jpg"
+  },
+  {
+    title: "Pies zabijaka",
+    image: "dog-knight-2.jpg"
   }
 ];
