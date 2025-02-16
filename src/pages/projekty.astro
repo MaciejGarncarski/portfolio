@@ -33,11 +33,11 @@ const projects: Array<Project> = [
             <h2 class="text-lg font-bold">{p.name}</h2>
             <p class="text-muted-foreground">{p.description}</p>
             {(p.live || p.repo) && (
-              <div class="mt-2 flex gap-2">
+              <div class="mt-2 flex gap-2 text-sm">
                 {p.live && (
                   <a
                     target="_blank"
-                    class="rounded border px-2 py-1"
+                    class="shadow-blog rounded px-2 py-1"
                     href={p.live}>
                     Demo
                   </a>
@@ -45,7 +45,7 @@ const projects: Array<Project> = [
                 {p.repo && (
                   <a
                     target="_blank"
-                    class="rounded border px-2 py-1"
+                    class="shadow-blog rounded px-2 py-1"
                     href={p.repo}>
                     Repozytorium
                   </a>

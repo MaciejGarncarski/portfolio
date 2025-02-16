@@ -109,7 +109,7 @@
     --background-base: 25% 0.0324 235;
     --background: oklch(var(--background-base));
 
-    --foreground-base: 93.7% 0.0291 235;
+    --foreground-base: 93% 0.035 235;
     --foreground: oklch(var(--foreground-base));
 
     --color-success-base: 48.1% 0.0929 180.11;
@@ -119,14 +119,14 @@
     --color-destructive: oklch(var(--color-destructive-base));
 
     --muted-base: 93.7% 0.0291 235;
-    --muted-foreground-base: 82.7% 0.0291 235;
+    --muted-foreground-base: 82% 0.035 235;
 
     --muted: oklch(var(--muted-base));
     --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-dark-bg);
 
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.3);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
 
     --blog-gradient: linear-gradient(
       to right,
