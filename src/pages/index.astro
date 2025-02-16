@@ -80,11 +80,11 @@ const description =
 
   <HomeSection>
     <h2 class="text-lg font-bold">Technologie</h2>
-    <ul class="grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6">
+    <ul class="grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 lg:gap-3">
       {
         skills.map((s) => {
           return (
-            <li class="bg-foreground/90 text-background rounded px-3 py-1 text-xs font-semibold md:text-sm">
+            <li class="bg-foreground text-background rounded px-3 py-1 text-xs font-semibold transition-transform hover:scale-95 md:text-sm">
               {s}
             </li>
           );
