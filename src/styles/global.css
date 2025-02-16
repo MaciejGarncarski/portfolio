@@ -68,7 +68,7 @@
     --color-destructive-base: 60% 0.0829 29;
     --color-destructive: oklch(var(--color-destructive-base));
 
-    --muted-base: 26.47% 0.1 207.53;
+    --muted-base: 93.5% 0.0013 270.11;
     --muted-foreground-base: 40.75% 0.011 270.11;
 
     --muted: oklch(var(--muted-base));
@@ -106,10 +106,10 @@
 
   .dark {
     color-scheme: dark;
-    --background-base: 25% 0.0324 235;
+    --background-base: 26.64% 0.035 264.13;
     --background: oklch(var(--background-base));
 
-    --foreground-base: 93% 0.035 235;
+    --foreground-base: 92.64% 0.035 264.13;
     --foreground: oklch(var(--foreground-base));
 
     --color-success-base: 48.1% 0.0929 180.11;
@@ -118,8 +118,8 @@
     --color-destructive-base: 48.1% 0.0829 29;
     --color-destructive: oklch(var(--color-destructive-base));
 
-    --muted-base: 93.7% 0.0291 235;
-    --muted-foreground-base: 82% 0.035 235;
+    --muted-base: 30.64% 0.035 264.13;
+    --muted-foreground-base: 80.64% 0.035 264.13;
 
     --muted: oklch(var(--muted-base));
     --muted-foreground: oklch(var(--muted-foreground-base));
@@ -164,7 +164,7 @@
 
   body::-webkit-scrollbar-track,
   code::-webkit-scrollbar-track {
-    background: var(--color-background);
+    background: var(--color-muted);
   }
 
   body::-webkit-scrollbar-thumb,
@@ -188,7 +188,7 @@
 
   /* Codeblock CSS */
   code:not([data-language]) {
-    @apply shadow-blog rounded px-2 py-0.5;
+    @apply shadow-blog bg-muted rounded px-1.5 py-0.25;
   }
 
   [data-rehype-pretty-code-figure] code {
@@ -196,7 +196,7 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply bg-background shadow-blog relative top-1 w-fit max-w-full rounded px-3 py-1 text-sm break-words;
+    @apply bg-muted shadow-blog relative top-1 w-fit max-w-full rounded px-3 py-1 text-sm break-words;
   }
 
   [data-rehype-pretty-code-caption] {

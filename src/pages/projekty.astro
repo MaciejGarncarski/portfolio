@@ -31,7 +31,9 @@ const projects: Array<Project> = [
         return (
           <article class="flex flex-col gap-2">
             <h2 class="text-lg font-bold">{p.name}</h2>
-            <p class="text-muted-foreground">{p.description}</p>
+            <p class="text-muted-foreground text-sm leading-6">
+              {p.description}
+            </p>
             {(p.live || p.repo) && (
               <div class="mt-2 flex gap-2 text-sm">
                 {p.live && (
