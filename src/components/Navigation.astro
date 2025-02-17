@@ -31,7 +31,7 @@ const subpath = pathname.match(/[^\/]+/g);
 ---
 
 <nav
-  class="flex items-center justify-center lg:justify-start"
+  class="flex items-center justify-start"
   transition:name="navigation"
   transition:animate={fade({ duration: 0.8 })}>
   <ul
@@ -51,10 +51,10 @@ const subpath = pathname.match(/[^\/]+/g);
             <a
               href={n.url}
               class={clsx(
-                "rounded px-2 py-1 transition-all lg:px-3",
+                "rounded px-2 py-1 transition-colors lg:px-3",
                 isActive || isBlogPageActive
                   ? "bg-foreground text-background font-semibold"
-                  : "text-muted-foreground hover:bg-muted hover:font-semibold"
+                  : "text-muted-foreground hover:bg-muted"
               )}>
               {n.text}
             </a>

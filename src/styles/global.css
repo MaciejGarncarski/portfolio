@@ -57,18 +57,18 @@
   }
 
   :root {
-    --background-base: 96.1% 0.0013 270.11;
+    --background-base: 96.1% 0.02 270.11;
     --background: oklch(var(--background-base));
-    --foreground-base: 26.47% 0.0247 207.53;
+    --foreground-base: 30.47% 0.02 207.53;
     --foreground: oklch(var(--foreground-base));
 
-    --color-success-base: 60% 0.0929 180.11;
+    --color-success-base: 60% 0.09 200;
     --color-success: oklch(var(--color-success-base));
 
-    --color-destructive-base: 60% 0.0829 29;
+    --color-destructive-base: 60% 0.09 20;
     --color-destructive: oklch(var(--color-destructive-base));
 
-    --muted-base: 93.5% 0.0013 270.11;
+    --muted-base: 94.5% 0.035 270.11;
     --muted-foreground-base: 40.75% 0.011 270.11;
 
     --muted: oklch(var(--muted-base));
@@ -97,8 +97,8 @@
       --blog-hero-gradient: linear-gradient(
         to bottom,
         oklch(var(--background-base) / 1) 0%,
-        oklch(var(--background-base) / 0.8) 30%,
-        oklch(var(--background-base) / 0.8) 50%,
+        oklch(var(--background-base) / 0.65) 30%,
+        oklch(var(--background-base) / 0.65) 50%,
         oklch(var(--background-base) / 1) 100%
       );
     }
@@ -109,17 +109,17 @@
     --background-base: 26.64% 0.035 264.13;
     --background: oklch(var(--background-base));
 
-    --foreground-base: 92.64% 0.035 264.13;
+    --foreground-base: 92.64% 0.04 264.13;
     --foreground: oklch(var(--foreground-base));
 
-    --color-success-base: 48.1% 0.0929 180.11;
+    --color-success-base: 45% 0.095 180.11;
     --color-success: oklch(var(--color-success-base));
 
-    --color-destructive-base: 48.1% 0.0829 29;
+    --color-destructive-base: 45% 0.095 10;
     --color-destructive: oklch(var(--color-destructive-base));
 
     --muted-base: 30.64% 0.035 264.13;
-    --muted-foreground-base: 80.64% 0.035 264.13;
+    --muted-foreground-base: 80.64% 0.04 264.13;
 
     --muted: oklch(var(--muted-base));
     --muted-foreground: oklch(var(--muted-foreground-base));
