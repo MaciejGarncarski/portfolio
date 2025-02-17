@@ -35,7 +35,7 @@ const subpath = pathname.match(/[^\/]+/g);
   transition:name="navigation"
   transition:animate={fade({ duration: 0.8 })}>
   <ul
-    class="-mx-1 flex gap-x-3 gap-y-4 text-sm tracking-tight lg:mx-0 lg:gap-x-8 lg:text-base">
+    class="flex gap-x-3 gap-y-4 text-sm tracking-tight lg:gap-x-8 lg:text-base">
     {
       navigationData.map((n) => {
         const isActive =
