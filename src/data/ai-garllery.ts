@@ -39,5 +39,9 @@ export const aiGallery: Array<AIGalleryItem> = [
   {
     title: 'Pies z "Dark Souls"',
     image: "dark-souls-dog.jpg"
+  },
+  {
+    title: "Panda samuraj",
+    image: "samurai-panda.jpg"
   }
 ];
