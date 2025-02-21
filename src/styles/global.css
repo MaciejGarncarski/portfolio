@@ -75,7 +75,7 @@
     --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-light-bg);
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
+    --shadow-blog: 0 0 0 1px oklch(var(--muted-foreground-base) / 0.2);
 
     --blog-gradient: linear-gradient(
       to right,
@@ -126,7 +126,7 @@
 
     --code-bg: var(--shiki-dark-bg);
 
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
+    --shadow-blog: 0 0 0 1px oklch(var(--muted-foreground-base) / 0.25);
 
     --blog-gradient: linear-gradient(
       to right,
