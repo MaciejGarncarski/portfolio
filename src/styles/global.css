@@ -75,7 +75,7 @@
     --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-light-bg);
-    --shadow-blog: 0 0 0 1px oklch(var(--muted-foreground-base) / 0.2);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
 
     --blog-gradient: linear-gradient(
       to right,
@@ -126,7 +126,7 @@
 
     --code-bg: var(--shiki-dark-bg);
 
-    --shadow-blog: 0 0 0 1px oklch(var(--muted-foreground-base) / 0.25);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
 
     --blog-gradient: linear-gradient(
       to right,
@@ -196,7 +196,7 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply bg-muted shadow-blog relative top-1 w-fit max-w-full rounded px-3 py-1 text-sm break-words;
+    @apply bg-muted shadow-blog relative top-2 -left-1 w-fit max-w-full rounded px-3 py-1 text-sm break-words;
   }
 
   [data-rehype-pretty-code-caption] {
