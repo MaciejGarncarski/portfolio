@@ -2,31 +2,27 @@
 import { REDIS_URL, REDIS_PASS } from "astro:env/server";
 import { createClient } from "redis";
 
-const redisClient = createClient({
-  url: REDIS_URL,
-  password: REDIS_PASS
-});
-
-const clientIP = Astro.clientAddress;
-await redisClient.connect();
-
 type Props = {
   postId: string;
 };
 
 const { postId } = Astro.props;
 
+const clientIP = Astro.clientAddress;
 const blogViewKey = `blog:views:${postId}:viewed:${clientIP}`;
 
-const hasViewed = await redisClient.get(blogViewKey);
+const redisClient = createClient({
+  url: REDIS_URL,
+  password: REDIS_PASS
+});
 
+await redisClient.connect();
+const hasViewed = await redisClient.get(blogViewKey);
 if (!hasViewed) {
   await redisClient.incr(`blog:views:${postId}`);
   await redisClient.set(blogViewKey, "true");
 }
-
 const views = await redisClient.get(`blog:views:${postId}`);
-
 await redisClient.quit();
 ---
 
