@@ -13,9 +13,9 @@
     "format:check": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.2.1",
     "@astrojs/markdown-remark": "^6.1.0",
     "@astrojs/mdx": "^4.0.8",
+    "@astrojs/node": "^9.1.0",
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "@redis/client": "^1.6.0",
