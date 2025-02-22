@@ -13,7 +13,10 @@ const blogViewKey = `blog:views:${postId}:viewed:${clientIP}`;
 
 const redisClient = createClient({
   url: REDIS_URL,
-  password: REDIS_PASS
+  password: REDIS_PASS,
+  socket: {
+    tls: false
+  }
 });
 
 await redisClient.connect();
