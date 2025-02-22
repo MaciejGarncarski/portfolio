@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -9,15 +9,27 @@ import {
 } from "@shikijs/transformers";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
+  env: {
+    schema: {
+      REDIS_URL: envField.string({ context: "server", access: "secret" }),
+      REDIS_PASS: envField.string({ context: "server", access: "secret" })
+    }
+  },
+
   site: "https://maciej-garncarski.pl",
+
   redirects: {
     "/en": "/",
     "/en/projects": "/",
     "/projekty": "/"
   },
+
   integrations: [sitemap(), mdx()],
+
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
@@ -92,5 +104,7 @@ export default defineConfig({
         }
       ]
     ]
-  }
+  },
+  output: "server",
+  adapter: cloudflare()
 });

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { calculateReadingTime } from "../utils/calculate-read-time";
+import Views from "./Views.astro";
 
 type Props = {
   text: string;
@@ -62,6 +63,9 @@ const readTime = calculateReadingTime(currPost?.body || "");
         {formattedTime}
       </time>
       | {readTime} min. czytania
+      <Views server:defer postId={currPost?.id || ""}>
+        <span slot="fallback"> | ładowanie </span>
+      </Views>
     </p>
   </div>
 </header>
