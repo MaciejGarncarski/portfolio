@@ -9,7 +9,7 @@ import {
 } from "@shikijs/transformers";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -105,10 +105,11 @@ export default defineConfig({
       ]
     ]
   },
-
   output: "server",
-
-  adapter: node({
-    mode: "standalone"
+  adapter: cloudflare({
+    imageService: "compile",
+    platformProxy: {
+      enabled: true
+    }
   })
 });

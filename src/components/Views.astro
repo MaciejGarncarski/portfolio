@@ -1,6 +1,6 @@
 ---
 import { REDIS_URL, REDIS_PASS } from "astro:env/server";
-import { createClient } from "@redis/client";
+import { Redis } from "@upstash/redis";
 
 type Props = {
   postId: string;
@@ -11,22 +11,17 @@ const { postId } = Astro.props;
 const clientIP = Astro.clientAddress;
 const blogViewKey = `blog:views:${postId}:viewed:${clientIP}`;
 
-const redisClient = createClient({
+const redisClient = new Redis({
   url: REDIS_URL,
-  password: REDIS_PASS,
-  socket: {
-    tls: false
-  }
+  token: REDIS_PASS
 });
 
-await redisClient.connect();
 const hasViewed = await redisClient.get(blogViewKey);
 if (!hasViewed) {
   await redisClient.incr(`blog:views:${postId}`);
   await redisClient.set(blogViewKey, "true");
 }
 const views = await redisClient.get(`blog:views:${postId}`);
-await redisClient.quit();
 ---
 
 <span title={`Wyświetlenia: ${views}`}>
