@@ -63,7 +63,9 @@ const readTime = calculateReadingTime(currPost?.body || "");
         {formattedTime}
       </time>
       | {readTime} min. czytania
-      <Views server:defer postId={currPost?.id || ""} />
+      <Views server:defer postId={currPost?.id || ""}>
+        <span slot="fallback"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+      </Views>
     </p>
   </div>
 </header>
