@@ -24,7 +24,8 @@
     "cva": "1.0.0-beta.3",
     "redis": "^4.7.0",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-pretty-code": "^0.14.0"
+    "rehype-pretty-code": "^0.14.0",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250214.0",
