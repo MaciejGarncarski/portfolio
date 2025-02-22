@@ -1,6 +1,6 @@
 ---
 import { REDIS_URL, REDIS_PASS } from "astro:env/server";
-import { createClient } from "redis";
+import { createClient } from "@redis/client";
 
 type Props = {
   postId: string;
