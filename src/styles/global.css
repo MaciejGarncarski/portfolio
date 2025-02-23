@@ -34,6 +34,10 @@
     @apply text-foreground scroll-mt-8 items-center text-xl font-semibold;
   }
 
+  [data-blog-content] a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6) {
+    @apply underline;
+  }
+
   [data-anchor-link] {
     @apply flex gap-3;
   }
