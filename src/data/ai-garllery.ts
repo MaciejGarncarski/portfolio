@@ -43,5 +43,13 @@ export const aiGallery: Array<AIGalleryItem> = [
   {
     title: "Panda samuraj",
     image: "samurai-panda.jpg"
+  },
+  {
+    title: "Programowanie",
+    image: "coding-1.jpg"
+  },
+  {
+    title: "Programowanie 2",
+    image: "coding-2.jpg"
   }
 ];

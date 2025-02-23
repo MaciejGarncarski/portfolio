@@ -15,7 +15,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     Galeria obrazów wygenerowanych przez AI
   </h1>
   <div
-    class="flex flex-col flex-wrap items-center justify-center gap-12 lg:flex-row lg:flex-wrap">
+    class="flex flex-col flex-wrap items-center justify-center gap-6 lg:flex-row lg:flex-wrap">
     {
       aiGallery.map((img) => {
         const src = images["/src/assets/ai-gallery/" + img.image]?.();
@@ -31,7 +31,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 src={src}
                 width={512}
                 formats={["avif", "webp"]}
-                class="shadow-blog w-64 rounded transition-transform hover:-translate-y-1 lg:rounded-md"
+                class="shadow-blog w-48 rounded transition-transform hover:-translate-y-1 lg:rounded-md"
                 alt=""
               />
             </a>
