@@ -31,7 +31,7 @@ if (!hasViewed && !isDevIp) {
   });
 }
 
-Astro.cookies.set("blogView" + postId, "true", {
+Astro.cookies.set("blogView-" + postId, "true", {
   maxAge: ONE_WEEK,
   httpOnly: true,
   sameSite: "strict",
