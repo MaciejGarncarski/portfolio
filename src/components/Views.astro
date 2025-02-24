@@ -1,7 +1,6 @@
 ---
 import { REDIS_URL, REDIS_PASS } from "astro:env/server";
 import { Redis } from "@upstash/redis";
-import { checkIsViewed } from "../utils/has-viewed";
 
 type Props = {
   postId: string;
@@ -9,33 +8,31 @@ type Props = {
 
 const { postId } = Astro.props;
 
-const viewedCookie = Astro.cookies.get("blogView" + postId);
 const clientIP = Astro.clientAddress;
-
-const oneWeek = 60 * 60 * 24 * 7;
 const blogViewKey = `blog:views:${postId}:viewed:${clientIP}`;
-const hasViewedCookie = viewedCookie?.value === "1";
 
 const redisClient = new Redis({
   url: REDIS_URL,
   token: REDIS_PASS
 });
 
-const isViewed = checkIsViewed({
-  hasViewedCookie,
-  redisClient,
-  viewKey: blogViewKey
-});
+const viewedCookie = Astro.cookies.get("blogView" + postId);
+const hasViewedCookie = viewedCookie?.value === "true";
+const hasViewed = hasViewedCookie ? true : await redisClient.get(blogViewKey);
 
-if (!isViewed) {
+const isDevIp = clientIP === "127.0.0.1";
+
+const ONE_WEEK = 60 * 60 * 24 * 7;
+
+if (!hasViewed && !isDevIp) {
   await redisClient.incr(`blog:views:${postId}`);
-  await redisClient.set(blogViewKey, "1", {
-    ex: oneWeek
+  await redisClient.set(blogViewKey, "true", {
+    ex: ONE_WEEK
   });
 }
 
-Astro.cookies.set("blogView" + postId, "1", {
-  maxAge: oneWeek,
+Astro.cookies.set("blogView" + postId, "true", {
+  maxAge: ONE_WEEK,
   httpOnly: true,
   sameSite: "strict",
   secure: import.meta.env.NODE_ENV === "development" ? false : true
