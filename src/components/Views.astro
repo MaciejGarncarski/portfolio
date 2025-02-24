@@ -34,12 +34,18 @@ Astro.cookies.set("blogView" + postId, "true", {
   secure: import.meta.env.NODE_ENV === "development" ? false : true
 });
 
-const views = await redisClient.get(`blog:views:${postId}`);
+const views = Number(await redisClient.get(`blog:views:${postId}`));
+
+const formatter = new Intl.NumberFormat("pl-PL", {
+  notation: "compact"
+});
+
+const formattedViews = formatter.format(views);
 ---
 
 <span title={`Wyświetlenia: ${views}`}>
   |
-  <span class="inline-flex items-center justify-center gap-1.5 align-bottom">
+  <span class="inline-flex items-center justify-center gap-2 align-bottom">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -55,6 +61,6 @@ const views = await redisClient.get(`blog:views:${postId}`);
         d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
       ></path><circle cx="12" cy="12" r="3"></circle></svg
     >
-    {views}
+    {formattedViews}
   </span>
 </span>
