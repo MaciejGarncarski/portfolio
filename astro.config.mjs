@@ -24,6 +24,10 @@ export default defineConfig({
 
   integrations: [sitemap(), mdx()],
 
+  experimental: {
+    responsiveImages: true
+  },
+
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
