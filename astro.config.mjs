@@ -22,12 +22,6 @@ export default defineConfig({
 
   site: "https://maciej-garncarski.pl",
 
-  redirects: {
-    "/en": "/",
-    "/en/projects": "/",
-    "/projekty": "/"
-  },
-
   integrations: [sitemap(), mdx()],
 
   markdown: {
