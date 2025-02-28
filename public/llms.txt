@@ -22,18 +22,14 @@
 
 ## Projects
 
-- [GitHub Repositories](https://github.com/your-username): Collection of personal and collaborative projects showcasing proficiency in various technologies.
+- [GitHub Repositories](https://github.com/maciejgarncarski): Collection of personal and collaborative projects showcasing proficiency in various technologies.
 
 ## Blog
 
 - [Latest Articles](https://maciej-garncarski.pl/blog): Insights and tutorials on web development, fullstack engineering, and more.
 
-## Contact
-
-- [Contact Page](https://maciej-garncarski.pl/contact): Get in touch for collaborations, inquiries, or freelance opportunities.
-
 ## Optional
 
-- [LinkedIn Profile](https://www.linkedin.com/in/your-profile): Professional background and endorsements.
-- [Twitter Profile](https://twitter.com/your-profile): Thoughts on technology and development.
+- [LinkedIn Profile](https://www.linkedin.com/in/maciejgarncarski): Professional background and endorsements.
+- [X/Twitter Profile](http://twitter.com/mgarncarski): Thoughts on technology and development.
 
