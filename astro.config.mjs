@@ -102,12 +102,18 @@ export default defineConfig({
       ]
     ]
   },
+  vite: {
+    ssr: {
+      external: ["node:fs", "node:path"]
+    }
+  },
   output: "server",
   adapter: cloudflare({
     cloudflareModules: true,
     imageService: "compile",
     platformProxy: {
-      enabled: true
+      enabled: true,
+      configPath: "wrangler.toml"
     }
   })
 });
