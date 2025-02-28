@@ -1,8 +1,8 @@
 import type { APIRoute } from "astro";
 import { generateOgImage } from "../../../utils/og-image";
 import { getCollection } from "astro:content";
-import { readFileSync } from "fs";
-import { resolve } from "path";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 export const prerender = false;
 
