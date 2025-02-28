@@ -1,5 +1,5 @@
 import satori from "satori";
-import { Resvg } from "@resvg/resvg-js";
+import { Resvg } from "@cf-wasm/resvg";
 import sharp from "sharp";
 import { readFileSync } from "node:fs";
 
