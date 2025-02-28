@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "portfolio"
-compatibility_date = "2025-02-21"
-compatibility_flags = [ "nodejs_compat_v2" ]
+compatibility_date = "2025-02-28"
+compatibility_flags = [ "nodejs_compat", "nodejs_compat_v2" ]
 pages_build_output_dir = "./dist"
