@@ -1,6 +1,5 @@
 import satori from "satori";
 import { Resvg } from "@cf-wasm/resvg";
-import sharp from "sharp";
 import { readFileSync } from "node:fs";
 
 type OgImage = {
@@ -78,5 +77,5 @@ export async function generateOgImage({ imageBuffer, title }: OgImage) {
   const resvg = new Resvg(svg);
   const pngBuffer = resvg.render().asPng();
 
-  return sharp(pngBuffer).toFormat("png").toBuffer();
+  return pngBuffer;
 }
