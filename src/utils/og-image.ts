@@ -1,6 +1,5 @@
 import satori from "satori";
 import { Resvg } from "@cf-wasm/resvg";
-import { readFileSync } from "node:fs";
 
 type OgImage = {
   imageBuffer: Buffer;
@@ -9,8 +8,6 @@ type OgImage = {
 
 export async function generateOgImage({ imageBuffer, title }: OgImage) {
   const imageBase64 = `data:image/png;base64,${imageBuffer.toString("base64")}`;
-
-  const font = readFileSync("src/utils/MonaspaceArgon-Bold.woff");
 
   const svg = await satori(
     {
@@ -29,7 +26,7 @@ export async function generateOgImage({ imageBuffer, title }: OgImage) {
           backgroundImage:
             "linear-gradient(100deg, #F2F2F3 0%, #F2F2F3 40%, #DDECEE 100%)",
           fontSize: 72,
-          fontWeight: "black",
+          fontWeight: "bold",
           padding: "60px",
           textAlign: "center"
         },
@@ -65,8 +62,10 @@ export async function generateOgImage({ imageBuffer, title }: OgImage) {
       height: 630,
       fonts: [
         {
-          name: "Inter",
-          data: font,
+          name: "JetBrainsMono",
+          data: await fetch(
+            "https://github.com/githubnext/monaspace/raw/refs/heads/main/fonts/webfonts/MonaspaceArgon-Bold.woff"
+          ).then((res) => res.arrayBuffer()),
           weight: 400,
           style: "normal"
         }
