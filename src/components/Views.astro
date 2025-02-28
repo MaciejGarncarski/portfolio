@@ -18,7 +18,9 @@ const redisClient = new Redis({
 
 const viewedCookie = Astro.cookies.get("blogView" + postId);
 const hasViewedCookie = viewedCookie?.value === "true";
-const hasViewed = hasViewedCookie ? true : await redisClient.get(blogViewKey);
+const hasViewed = hasViewedCookie
+  ? true
+  : await redisClient.get<boolean>(blogViewKey);
 
 const isDevIp = clientIP === "127.0.0.1";
 
@@ -47,7 +49,7 @@ const formatter = new Intl.NumberFormat("pl-PL", {
 const formattedViews = formatter.format(views);
 ---
 
-<span title={`Wyświetlenia: ${views}`}>
+<span title={`Wyświetlenia: ${views}`} data-views>
   |
   <span class="inline-flex items-center justify-center gap-2 align-bottom">
     <svg
@@ -68,3 +70,20 @@ const formattedViews = formatter.format(views);
     {formattedViews}
   </span>
 </span>
+
+<style>
+  [data-views] {
+    animation: views forwards 0.5s ease-out;
+  }
+
+  @keyframes views {
+    0% {
+      opacity: 0;
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      filter: none;
+    }
+  }
+</style>

@@ -26,7 +26,9 @@ const readTime = calculateReadingTime(currPost?.body || "");
   class="relative -mx-5 flex h-80 flex-col items-center justify-center gap-4 lg:mx-0 lg:h-84">
   {
     currPost?.data.heroImage && (
-      <div class="absolute top-0 left-0 -z-10 mx-auto h-full w-full overflow-hidden rounded opacity-50 blur-sm lg:opacity-35 lg:blur lg:saturate-150">
+      <div
+        data-blog-hero-bg
+        class="absolute top-0 left-0 -z-10 mx-auto h-full w-full overflow-hidden rounded blur-sm lg:blur lg:saturate-150">
         <div class="bg-blog-hero-gradient absolute top-0 left-0 h-full w-full" />
         <Image
           src={currPost.data.heroImage}
@@ -71,3 +73,18 @@ const readTime = calculateReadingTime(currPost?.body || "");
     </p>
   </div>
 </header>
+
+<style>
+  [data-blog-hero-bg] {
+    animation: blog-hero 1s ease-out forwards;
+  }
+
+  @keyframes blog-hero {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.35;
+    }
+  }
+</style>
