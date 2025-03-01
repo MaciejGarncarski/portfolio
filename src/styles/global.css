@@ -80,21 +80,21 @@
     --color-destructive-base: 60% 0.09 20;
     --color-destructive: oklch(var(--color-destructive-base));
 
-    --muted-base: 94.5% 0.035 270.11;
+    --muted-base: 94.5% 0.022 270.11;
     --muted-foreground-base: 40.75% 0.011 270.11;
 
     --muted: oklch(var(--muted-base));
     --muted-foreground: oklch(var(--muted-foreground-base));
 
     --code-bg: var(--shiki-light-bg);
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.15);
 
     --blog-gradient: linear-gradient(
       to right,
-      oklch(var(--background-base)) 0%,
-      oklch(var(--background-base) / 0.9) 35%,
-      oklch(var(--background-base) / 0.6) 70%,
-      oklch(var(--background-base) / 0.5) 100%
+      oklch(var(--muted-base)) 0%,
+      oklch(var(--muted-base) / 0.9) 35%,
+      oklch(var(--muted-base) / 0.6) 70%,
+      oklch(var(--muted-base) / 0.5) 100%
     );
 
     --blog-hero-gradient: linear-gradient(
@@ -138,14 +138,14 @@
 
     --code-bg: var(--shiki-dark-bg);
 
-    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.25);
+    --shadow-blog: 0 0 0 1px oklch(var(--foreground-base) / 0.15);
 
     --blog-gradient: linear-gradient(
       to right,
-      var(--background) 0%,
-      oklch(var(--background-base) / 0.9) 17%,
-      oklch(var(--background-base) / 0.6) 80%,
-      oklch(var(--background-base) / 0) 100%
+      oklch(var(--muted-base) / 1) 0%,
+      oklch(var(--muted-base) / 0.96) 15%,
+      oklch(var(--muted-base) / 0.7) 80%,
+      oklch(var(--muted-base) / 0) 100%
     );
 
     --blog-hero-gradient: linear-gradient(
