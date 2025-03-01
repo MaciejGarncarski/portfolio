@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 // import { readFileSync } from "node:fs";
 // import { resolve } from "node:path";
 
-export const prerender = true;
+export const prerender = false;
 
 export const GET: APIRoute = async ({ params }) => {
   const posts = await getCollection("blog");
