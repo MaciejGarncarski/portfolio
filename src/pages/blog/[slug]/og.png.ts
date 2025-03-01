@@ -20,9 +20,9 @@ export const GET: APIRoute = async ({ params }) => {
   //     : resolve(post.data.heroImage.src.replace("/", "dist/"))
   // );
 
-  const postCover = await fetch("/favicon.png").then((val) =>
-    val.arrayBuffer()
-  );
+  const postCover = await fetch(
+    "https://maciej-garncarski.pl/favicon.png"
+  ).then((val) => val.arrayBuffer());
   const buffer = Buffer.from(postCover);
 
   const imageBuffer = await generateOgImage({
