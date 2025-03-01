@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { generateOgImage } from "../../../utils/og-image";
+import { generateOgImage } from "../../../utils/generate-og-image";
 import { getCollection } from "astro:content";
 import { readFileSync } from "node:fs";
 

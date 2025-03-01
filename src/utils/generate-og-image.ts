@@ -1,5 +1,4 @@
 import satori from "satori";
-import { Resvg } from "@cf-wasm/resvg";
 
 type OgImage = {
   imageBuffer: Buffer;
@@ -8,6 +7,12 @@ type OgImage = {
 
 export async function generateOgImage({ imageBuffer, title }: OgImage) {
   const imageBase64 = `data:image/png;base64,${imageBuffer.toString("base64")}`;
+
+  const Resvg = await import(
+    process.env.NODE_ENV === "development"
+      ? "@cf-wasm/resvg/node"
+      : "@cf-wasm/resvg"
+  ).then((m) => m.Resvg);
 
   const svg = await satori(
     {
@@ -24,7 +29,7 @@ export async function generateOgImage({ imageBuffer, title }: OgImage) {
           color: "black",
           backgroundColor: "rgb(237, 242, 255)",
           backgroundImage:
-            "linear-gradient(100deg, #F2F2F3 0%, #F2F2F3 40%, #DDECEE 100%)",
+            "linear-gradient(120deg, #F2F2F3 0%, #F2F2F3 20%, #DDECEE 70%, #DDECEE 100%)",
           fontSize: 72,
           fontWeight: "bold",
           padding: "60px",
@@ -47,8 +52,7 @@ export async function generateOgImage({ imageBuffer, title }: OgImage) {
               width: 360,
               height: 360,
               style: {
-                boxShadow:
-                  "inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09)",
+                boxShadow: "1px 2px 6px rgba(0,0,0,0.4)",
                 borderRadius: "1rem",
                 objectFit: "contain"
               }

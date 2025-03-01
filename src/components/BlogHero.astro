@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
 import { calculateReadingTime } from "../utils/calculate-read-time";
 import Views from "./Views.astro";
@@ -30,7 +30,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
         data-blog-hero-bg
         class="absolute top-0 left-0 -z-10 mx-auto h-full w-full overflow-hidden rounded blur-sm lg:blur lg:saturate-150">
         <div class="bg-blog-hero-gradient absolute top-0 left-0 h-full w-full" />
-        <Image
+        <Picture
           src={currPost.data.heroImage}
           alt={text}
           width={200}
@@ -44,7 +44,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
 
   {
     currPost?.data.heroImage && (
-      <Image
+      <Picture
         src={currPost.data.heroImage}
         width={512}
         height={512}
