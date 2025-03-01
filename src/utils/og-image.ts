@@ -1,5 +1,5 @@
 import satori from "satori";
-import { Resvg } from "@cf-wasm/resvg";
+import { Resvg } from "@cf-wasm/resvg/node";
 
 type OgImage = {
   imageBuffer: Buffer;

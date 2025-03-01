@@ -1,10 +1,17 @@
 import type { APIRoute } from "astro";
 import { generateOgImage } from "../../../utils/og-image";
 import { getCollection } from "astro:content";
-// import { readFileSync } from "node:fs";
-// import { resolve } from "node:path";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 export const prerender = false;
+
+const fetchCover = async (imgSrc: string) => {
+  console.log({ imgSrc });
+  return Buffer.from(
+    await fetch(imgSrc.replace("/", "dist/")).then((res) => res.arrayBuffer())
+  );
+};
 
 export const GET: APIRoute = async ({ params }) => {
   const posts = await getCollection("blog");
@@ -14,19 +21,25 @@ export const GET: APIRoute = async ({ params }) => {
     return new Response("Not Found", { status: 404 });
   }
 
-  // const postCover = readFileSync(
-  //   process.env.NODE_ENV === "development"
-  //     ? resolve(post.data.heroImage.src.replace(/\?.*/, "").replace("/@fs", ""))
-  //     : resolve(post.data.heroImage.src.replace("/", "dist/"))
-  // );
+  console.log(post.data.heroImage.src);
 
-  const postCover = await fetch(
-    "https://maciej-garncarski.pl/favicon.png"
-  ).then((val) => val.arrayBuffer());
-  const buffer = Buffer.from(postCover);
+  const postCover =
+    process.env.NODE_ENV === "development"
+      ? readFileSync(
+          resolve(
+            post.data.heroImage.src.replace(/\?.*/, "").replace("/@fs", "")
+          )
+        )
+      : await fetchCover(post.data.heroImage.src);
+
+  // works on cloudflare workers
+  // const postCover = await fetch(
+  //   "https://maciej-garncarski.pl/favicon.png"
+  // ).then((val) => val.arrayBuffer());
+  // const buffer = Buffer.from(postCover);
 
   const imageBuffer = await generateOgImage({
-    imageBuffer: buffer,
+    imageBuffer: postCover,
     title: post.data.title
   });
 
@@ -36,11 +49,3 @@ export const GET: APIRoute = async ({ params }) => {
     }
   });
 };
-
-export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog");
-  return blogPosts.map((post) => ({
-    params: { slug: post.id },
-    props: { post }
-  }));
-}
