@@ -60,7 +60,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
       class="text-foreground z-50 max-w-full px-5 text-center text-xl font-bold lg:max-w-prose lg:text-2xl">
       {text}
     </h1>
-    <p class="text-muted-foreground text-center text-sm">
+    <p class="text-muted-foreground text-center text-sm" data-views>
       <time datetime={formattedTime}>
         {formattedTime}
       </time>
@@ -83,6 +83,21 @@ const readTime = calculateReadingTime(currPost?.body || "");
     }
     100% {
       opacity: 0.35;
+    }
+  }
+
+  [data-views] {
+    animation: views forwards 1s ease-out;
+  }
+
+  @keyframes views {
+    0% {
+      opacity: 0;
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      filter: none;
     }
   }
 </style>
