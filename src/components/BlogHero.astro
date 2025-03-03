@@ -87,7 +87,10 @@ const readTime = calculateReadingTime(currPost?.body || "");
   }
 
   [data-views] {
-    animation: views forwards 1s ease-out;
+    opacity: 0;
+    filter: blur(2px);
+    animation: views forwards 1.2s ease;
+    animation-delay: 300ms;
   }
 
   @keyframes views {
