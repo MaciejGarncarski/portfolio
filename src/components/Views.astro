@@ -46,12 +46,15 @@ const formatter = new Intl.NumberFormat("pl-PL", {
   notation: "compact"
 });
 
-const formattedViews = formatter.format(views);
+const formattedViews = formatter.format(2000);
 ---
 
-<span title={`Wyświetlenia: ${views}`}>
+<span
+  title={`Wyświetlenia: ${views}`}
+  data-views
+  class="inline-block w-[6rem] text-left">
   |
-  <span class="inline-flex items-center justify-center gap-2 align-bottom">
+  <span class="inline-flex items-center justify-start gap-2 align-bottom">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -70,3 +73,22 @@ const formattedViews = formatter.format(views);
     {formattedViews}
   </span>
 </span>
+
+<style>
+  [data-views] {
+    opacity: 0;
+    filter: blur(2px);
+    animation: views 1s ease-out forwards;
+  }
+
+  @keyframes views {
+    0% {
+      opacity: 0;
+      filter: blur(3px);
+    }
+    100% {
+      opacity: 1;
+      filter: none;
+    }
+  }
+</style>

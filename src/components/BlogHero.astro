@@ -56,18 +56,21 @@ const readTime = calculateReadingTime(currPost?.body || "");
     )
   }
 
-  <div class="z-30 flex flex-col gap-2 text-center text-balance">
+  <div class="z-30 flex flex-col gap-2 text-center text-balance transition-all">
     <h1
       class="text-foreground z-50 max-w-full px-5 text-center text-xl font-bold lg:max-w-prose lg:text-2xl">
       {text}
     </h1>
-    <p class="text-muted-foreground text-center text-sm">
+    <p
+      class="text-muted-foreground text-center text-sm tracking-tighter lg:tracking-tight">
       <time datetime={formattedTime}>
         {formattedTime}
       </time>
       | {readTime} min. czytania
       <Views server:defer postId={currPost?.id || ""}>
-        <span slot="fallback"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <span slot="fallback" class="inline-block w-[6rem]">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
       </Views>
     </p>
   </div>
@@ -75,8 +78,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
 
 <style>
   [data-blog-hero-bg] {
-    animation: blog-hero 1s ease-out forwards;
-    animation-delay: 100ms;
+    animation: blog-hero 0.9s ease-out forwards;
   }
 
   @keyframes blog-hero {
@@ -89,6 +91,12 @@ const readTime = calculateReadingTime(currPost?.body || "");
   }
 
   [data-hero] {
+    opacity: 0;
+    filter: blur(2px);
+    animation: views 1s ease-out forwards;
+  }
+
+  [data-views] {
     opacity: 0;
     filter: blur(2px);
     animation: views 1s ease-out forwards;
