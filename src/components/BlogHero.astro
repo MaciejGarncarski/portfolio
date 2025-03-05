@@ -23,7 +23,6 @@ const readTime = calculateReadingTime(currPost?.body || "");
 ---
 
 <header
-  data-hero
   class="relative -mx-5 flex h-80 flex-col items-center justify-center gap-4 lg:mx-0 lg:h-84">
   {
     currPost?.data.heroImage && (
@@ -46,6 +45,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
   {
     currPost?.data.heroImage && (
       <Picture
+        data-hero
         src={currPost.data.heroImage}
         width={512}
         height={512}
@@ -58,10 +58,12 @@ const readTime = calculateReadingTime(currPost?.body || "");
 
   <div class="z-30 flex flex-col gap-2 text-center text-balance transition-all">
     <h1
+      data-hero
       class="text-foreground z-50 max-w-full px-5 text-center text-xl font-bold lg:max-w-prose lg:text-2xl">
       {text}
     </h1>
     <p
+      data-hero
       class="text-muted-foreground text-center text-sm tracking-tighter lg:tracking-tight">
       <time datetime={formattedTime}>
         {formattedTime}
@@ -91,12 +93,6 @@ const readTime = calculateReadingTime(currPost?.body || "");
   }
 
   [data-hero] {
-    opacity: 0;
-    filter: blur(2px);
-    animation: views 1s ease-out forwards;
-  }
-
-  [data-views] {
     opacity: 0;
     filter: blur(2px);
     animation: views 1s ease-out forwards;
