@@ -23,6 +23,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
 ---
 
 <header
+  data-hero
   class="relative -mx-5 flex h-80 flex-col items-center justify-center gap-4 lg:mx-0 lg:h-84">
   {
     currPost?.data.heroImage && (
@@ -60,7 +61,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
       class="text-foreground z-50 max-w-full px-5 text-center text-xl font-bold lg:max-w-prose lg:text-2xl">
       {text}
     </h1>
-    <p class="text-muted-foreground text-center text-sm" data-views>
+    <p class="text-muted-foreground text-center text-sm">
       <time datetime={formattedTime}>
         {formattedTime}
       </time>
@@ -75,6 +76,7 @@ const readTime = calculateReadingTime(currPost?.body || "");
 <style>
   [data-blog-hero-bg] {
     animation: blog-hero 1s ease-out forwards;
+    animation-delay: 100ms;
   }
 
   @keyframes blog-hero {
@@ -86,17 +88,16 @@ const readTime = calculateReadingTime(currPost?.body || "");
     }
   }
 
-  [data-views] {
+  [data-hero] {
     opacity: 0;
     filter: blur(2px);
-    animation: views forwards 1.2s ease;
-    animation-delay: 300ms;
+    animation: views 1s ease-out forwards;
   }
 
   @keyframes views {
     0% {
       opacity: 0;
-      filter: blur(2px);
+      filter: blur(3px);
     }
     100% {
       opacity: 1;
